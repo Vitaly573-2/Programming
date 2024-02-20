@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Color.cs" />
+    <Compile Include="Model\Education.cs" />
+    <Compile Include="Model\Genre.cs" />
+    <Compile Include="Model\Season.cs" />
+    <Compile Include="Model\Smartphone.cs" />
+    <Compile Include="Model\Weekday.cs" />
     <Compile Include="Veiw\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,8 +85,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
