@@ -82,13 +82,20 @@ namespace Programming
             if (Enum.TryParse<Weekday>(userInput, out Weekday parsedWeekday))
             {
                 int numericValue = (int)parsedWeekday;
-                EnumstextBox3.Text = $"Этот день недели {parsedWeekday} = {numericValue}";
+                if(numericValue <= 7)
+                {
+                    EnumstextBox3.Text = $"Этот день недели {parsedWeekday} = {numericValue}";
+                }
+                else
+                {
+                    EnumstextBox3.Text = "Нет такого дня недели";
+                }
+                
             }
             else
             {
                 EnumstextBox3.Text = "Нет такого дня недели";
             }
-
         }
 
         private void ValueslistBox3_SelectedIndexChanged(object sender, EventArgs e)

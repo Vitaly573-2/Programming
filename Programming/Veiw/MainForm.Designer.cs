@@ -31,6 +31,9 @@
             this.Enums = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ValueslistBox3 = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.EnumstextBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,9 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ValueslistBox2 = new System.Windows.Forms.ListBox();
-            this.ValueslistBox3 = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.Enums.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -91,6 +91,41 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Season Handle";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(132, 52);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(63, 29);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Go";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Choose season:";
+            // 
+            // ValueslistBox3
+            // 
+            this.ValueslistBox3.FormattingEnabled = true;
+            this.ValueslistBox3.ItemHeight = 16;
+            this.ValueslistBox3.Items.AddRange(new object[] {
+            "Winter",
+            "Summer",
+            "Spring",
+            "Autumn"});
+            this.ValueslistBox3.Location = new System.Drawing.Point(6, 55);
+            this.ValueslistBox3.Name = "ValueslistBox3";
+            this.ValueslistBox3.ScrollAlwaysVisible = true;
+            this.ValueslistBox3.Size = new System.Drawing.Size(120, 68);
+            this.ValueslistBox3.TabIndex = 7;
+            this.ValueslistBox3.SelectedIndexChanged += new System.EventHandler(this.ValueslistBox3_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -225,41 +260,6 @@
             this.ValueslistBox2.Size = new System.Drawing.Size(135, 132);
             this.ValueslistBox2.TabIndex = 3;
             this.ValueslistBox2.SelectedIndexChanged += new System.EventHandler(this.ValueslistBox2_SelectedIndexChanged);
-            // 
-            // ValueslistBox3
-            // 
-            this.ValueslistBox3.FormattingEnabled = true;
-            this.ValueslistBox3.ItemHeight = 16;
-            this.ValueslistBox3.Items.AddRange(new object[] {
-            "Winter",
-            "Summer",
-            "Spring",
-            "Autumn"});
-            this.ValueslistBox3.Location = new System.Drawing.Point(6, 55);
-            this.ValueslistBox3.Name = "ValueslistBox3";
-            this.ValueslistBox3.ScrollAlwaysVisible = true;
-            this.ValueslistBox3.Size = new System.Drawing.Size(120, 20);
-            this.ValueslistBox3.TabIndex = 7;
-            this.ValueslistBox3.SelectedIndexChanged += new System.EventHandler(this.ValueslistBox3_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Choose season:";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(132, 52);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(63, 29);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Go";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainForm
             // 
