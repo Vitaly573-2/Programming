@@ -30,6 +30,7 @@
         {
             this.Enums = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.EnumstextBox1 = new System.Windows.Forms.TextBox();
             this.EnumslistBox1 = new System.Windows.Forms.ListBox();
@@ -37,8 +38,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ValueslistBox2 = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.EnumstextBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.EnumstextBox3 = new System.Windows.Forms.TextBox();
             this.Enums.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +61,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -64,6 +71,20 @@
             this.tabPage1.Text = "Enums";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.EnumstextBox3);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.EnumstextBox2);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox2.Location = new System.Drawing.Point(6, 273);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(333, 144);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Weekday Paraing";
             // 
             // groupBox1
             // 
@@ -76,11 +97,10 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(6, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1015, 359);
+            this.groupBox1.Size = new System.Drawing.Size(1015, 249);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "enuirations";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox1.Text = "Enumirationa";
             // 
             // EnumstextBox1
             // 
@@ -88,6 +108,7 @@
             this.EnumstextBox1.Name = "EnumstextBox1";
             this.EnumstextBox1.Size = new System.Drawing.Size(100, 23);
             this.EnumstextBox1.TabIndex = 6;
+            this.EnumstextBox1.TextChanged += new System.EventHandler(this.EnumstextBox1_TextChanged);
             // 
             // EnumslistBox1
             // 
@@ -151,6 +172,39 @@
             this.ValueslistBox2.TabIndex = 3;
             this.ValueslistBox2.SelectedIndexChanged += new System.EventHandler(this.ValueslistBox2_SelectedIndexChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 34);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Type value for parcing\r\n:";
+            // 
+            // EnumstextBox2
+            // 
+            this.EnumstextBox2.Location = new System.Drawing.Point(9, 52);
+            this.EnumstextBox2.Name = "EnumstextBox2";
+            this.EnumstextBox2.Size = new System.Drawing.Size(191, 23);
+            this.EnumstextBox2.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(206, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Parse";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // EnumstextBox3
+            // 
+            this.EnumstextBox3.Location = new System.Drawing.Point(9, 95);
+            this.EnumstextBox3.Name = "EnumstextBox3";
+            this.EnumstextBox3.Size = new System.Drawing.Size(191, 23);
+            this.EnumstextBox3.TabIndex = 9;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,6 +216,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Enums.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -179,6 +235,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox ValueslistBox2;
         private System.Windows.Forms.TextBox EnumstextBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox EnumstextBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox EnumstextBox3;
     }
 }
 
