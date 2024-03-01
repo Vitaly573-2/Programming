@@ -90,5 +90,45 @@ namespace Programming
             }
 
         }
+
+        private void ValueslistBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            switch (ValueslistBox3.SelectedIndex)
+            {
+                case 0:
+                    MessageBox.Show("Бррр!Холодно!");
+                    break;
+                case 1:
+                    MessageBox.Show("Ура!Солнце!");
+                    break;
+                case 2:
+                    this.BackColor = ColorTranslator.FromHtml("#559c45");
+                    groupBox1.BackColor = ColorTranslator.FromHtml("#559c45");
+                    groupBox2.BackColor = ColorTranslator.FromHtml("#559c45");
+                    groupBox3.BackColor = ColorTranslator.FromHtml("#559c45");
+                    break;
+                case 3:
+                    this.BackColor = ColorTranslator.FromHtml("#e29c45");
+                    groupBox1.BackColor = ColorTranslator.FromHtml("#e29c45");
+                    groupBox2.BackColor = ColorTranslator.FromHtml("#e29c45");
+                    groupBox3.BackColor = ColorTranslator.FromHtml("#e29c45");
+                    break;
+            }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

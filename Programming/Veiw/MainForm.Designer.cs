@@ -30,7 +30,12 @@
         {
             this.Enums = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.EnumstextBox3 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.EnumstextBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.EnumstextBox1 = new System.Windows.Forms.TextBox();
             this.EnumslistBox1 = new System.Windows.Forms.ListBox();
@@ -38,12 +43,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ValueslistBox2 = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.EnumstextBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.EnumstextBox3 = new System.Windows.Forms.TextBox();
+            this.ValueslistBox3 = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.Enums.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +66,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -71,6 +77,20 @@
             this.tabPage1.Text = "Enums";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.ValueslistBox3);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox3.Location = new System.Drawing.Point(401, 273);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(312, 144);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Season Handle";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // groupBox2
             // 
@@ -85,6 +105,40 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Weekday Paraing";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // EnumstextBox3
+            // 
+            this.EnumstextBox3.Location = new System.Drawing.Point(9, 95);
+            this.EnumstextBox3.Name = "EnumstextBox3";
+            this.EnumstextBox3.Size = new System.Drawing.Size(202, 23);
+            this.EnumstextBox3.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(221, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Parse";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // EnumstextBox2
+            // 
+            this.EnumstextBox2.Location = new System.Drawing.Point(9, 52);
+            this.EnumstextBox2.Name = "EnumstextBox2";
+            this.EnumstextBox2.Size = new System.Drawing.Size(202, 23);
+            this.EnumstextBox2.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 34);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Type value for parcing\r\n:";
             // 
             // groupBox1
             // 
@@ -172,38 +226,40 @@
             this.ValueslistBox2.TabIndex = 3;
             this.ValueslistBox2.SelectedIndexChanged += new System.EventHandler(this.ValueslistBox2_SelectedIndexChanged);
             // 
-            // label4
+            // ValueslistBox3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 34);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Type value for parcing\r\n:";
+            this.ValueslistBox3.FormattingEnabled = true;
+            this.ValueslistBox3.ItemHeight = 16;
+            this.ValueslistBox3.Items.AddRange(new object[] {
+            "Winter",
+            "Summer",
+            "Spring",
+            "Autumn"});
+            this.ValueslistBox3.Location = new System.Drawing.Point(6, 55);
+            this.ValueslistBox3.Name = "ValueslistBox3";
+            this.ValueslistBox3.ScrollAlwaysVisible = true;
+            this.ValueslistBox3.Size = new System.Drawing.Size(120, 20);
+            this.ValueslistBox3.TabIndex = 7;
+            this.ValueslistBox3.SelectedIndexChanged += new System.EventHandler(this.ValueslistBox3_SelectedIndexChanged);
             // 
-            // EnumstextBox2
+            // label5
             // 
-            this.EnumstextBox2.Location = new System.Drawing.Point(9, 52);
-            this.EnumstextBox2.Name = "EnumstextBox2";
-            this.EnumstextBox2.Size = new System.Drawing.Size(191, 23);
-            this.EnumstextBox2.TabIndex = 8;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Choose season:";
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(206, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Parse";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // EnumstextBox3
-            // 
-            this.EnumstextBox3.Location = new System.Drawing.Point(9, 95);
-            this.EnumstextBox3.Name = "EnumstextBox3";
-            this.EnumstextBox3.Size = new System.Drawing.Size(191, 23);
-            this.EnumstextBox3.TabIndex = 9;
+            this.button2.Location = new System.Drawing.Point(132, 52);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(63, 29);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Go";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainForm
             // 
@@ -216,6 +272,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Enums.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -240,6 +298,10 @@
         private System.Windows.Forms.TextBox EnumstextBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox EnumstextBox3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListBox ValueslistBox3;
     }
 }
 
