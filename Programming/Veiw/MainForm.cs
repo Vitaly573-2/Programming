@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,28 @@ namespace Programming
 {
     public partial class MainForm : Form
     {
+        private Rectangle[] _rectangles = new Rectangle[5];
+        private Rectangle _currentRectangle;
+        private string[] ListBoxRectangle = new string[5];
+        private string[] Color = new string[5] {"Pink", "Green", "Black","Blue","Red"};
+        Random random = new Random();
+
         public MainForm()
         {
             InitializeComponent();
             ValueslistBox2.Items.AddRange(Enum.GetValues(typeof(Color)).Cast<object>().ToArray());
-        }
 
+            for (int i = 0; i < ListBoxRectangle.Length; i++)
+            {
+                int width = random.Next(10);
+                int length = random.Next(10);
+                _rectangles[i] = new Rectangle(length, width, Color[i]);
+                ListBoxRectangle[i] = ($"Rectangle {i + 1}");
+            }
+            EnumslistBox4.Items.AddRange(ListBoxRectangle);
+
+        }
+        
         private void MainForm_Load(object sender, EventArgs e)
         {
 
@@ -136,6 +153,92 @@ namespace Programming
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EnumslistBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SelectIndex = EnumslistBox4.SelectedIndex;
+            _currentRectangle = _rectangles[SelectIndex];
+            LengthtextBox1.Text = _currentRectangle.Length.ToString();
+            WidthtextBox2.Text = _currentRectangle.Width.ToString();
+            ColortextBox3.Text = _currentRectangle.Color;
+            
+        }
+
+        private void LengthtextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (_currentRectangle != null)
+            {
+                try
+                {
+                    if (double.TryParse(LengthtextBox1.Text, out double newLength))
+                    {
+                        _currentRectangle.Length = newLength;
+                        LengthtextBox1.BackColor = ColorTranslator.FromHtml("White");
+                    }
+                    else
+                    {
+                        LengthtextBox1.BackColor = ColorTranslator.FromHtml("#FFB6C1");
+                    }
+                }
+                catch (Exception)
+                {
+                    LengthtextBox1.BackColor = ColorTranslator.FromHtml("#FFB6C1");
+                }
+            }
+        }
+
+        private void WidthtextBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (_currentRectangle != null)
+            {
+                try
+                {
+                    if (double.TryParse(WidthtextBox2.Text, out double newWidth))
+                    {
+                        _currentRectangle.Width = newWidth;
+                        WidthtextBox2.BackColor = ColorTranslator.FromHtml("White");
+                    }
+                    else
+                    {
+                        WidthtextBox2.BackColor = ColorTranslator.FromHtml("#FFB6C1");
+                    }
+                }
+                catch (Exception)
+                {
+                    WidthtextBox2.BackColor = ColorTranslator.FromHtml("#FFB6C1");
+                }
+            }
+
+        }
+
+        private void ColortextBox3_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_currentRectangle != null)
+                {
+                    string newColor = ColortextBox3.Text;
+                    if (Color.Contains(newColor))
+                    {
+                        _currentRectangle.Color = newColor;
+                        ColortextBox3.BackColor = ColorTranslator.FromHtml("White");
+                    }
+                    else
+                    {
+                        ColortextBox3.BackColor = ColorTranslator.FromHtml("#FFB6C1");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                ColortextBox3.BackColor = ColorTranslator.FromHtml("#FFB6C1");
+            }
         }
     }
 }
