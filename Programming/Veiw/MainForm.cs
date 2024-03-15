@@ -32,7 +32,6 @@ namespace Programming
                 ListBoxRectangle[i] = ($"Rectangle {i + 1}");
             }
             EnumslistBox4.Items.AddRange(ListBoxRectangle);
-
         }
         
         private void MainForm_Load(object sender, EventArgs e)
@@ -239,6 +238,30 @@ namespace Programming
             {
                 ColortextBox3.BackColor = ColorTranslator.FromHtml("#FFB6C1");
             }
+        }
+
+        private int FindRectangleWithMaxWidth(Rectangle[] _rectangles)
+        {
+            int MaxIndex = 0;
+            double MaxWidth = _rectangles[0].Width;
+            for(int i = 0; i < _rectangles.Length; i++)
+            {
+                if (_rectangles[i].Width > MaxWidth)
+                {
+                    MaxIndex = i;
+                    MaxWidth = _rectangles[i].Width;
+                }
+            }
+            return MaxIndex;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int MaxIndex = FindRectangleWithMaxWidth(_rectangles);
+            _currentRectangle = _rectangles[MaxIndex];
+            LengthtextBox1.Text = _currentRectangle.Length.ToString();
+            WidthtextBox2.Text = _currentRectangle.Width.ToString();
+            ColortextBox3.Text = _currentRectangle.Color;
         }
     }
 }

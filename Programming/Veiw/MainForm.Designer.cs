@@ -47,6 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ValueslistBox2 = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.EnumslistBox5 = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -276,6 +277,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.EnumslistBox5);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -283,6 +285,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Classes";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // EnumslistBox5
+            // 
+            this.EnumslistBox5.FormattingEnabled = true;
+            this.EnumslistBox5.Location = new System.Drawing.Point(585, 47);
+            this.EnumslistBox5.Name = "EnumslistBox5";
+            this.EnumslistBox5.Size = new System.Drawing.Size(197, 264);
+            this.EnumslistBox5.TabIndex = 9;
             // 
             // groupBox4
             // 
@@ -310,6 +320,7 @@
             this.button3.TabIndex = 8;
             this.button3.Text = "Find";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label8
             // 
@@ -430,6 +441,7 @@
         private System.Windows.Forms.TextBox LengthtextBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox EnumslistBox5;
     }
 }
 
