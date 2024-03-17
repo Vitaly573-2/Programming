@@ -14,6 +14,24 @@ namespace Programming.Model
         private string genre;
         private double rating;
 
+        public Movie(string name, int minutes, int year, string genre, double rating)
+        {
+            Name = name;
+            Minutes = minutes;
+            Year = year;
+            Genre = genre;
+            Rating = rating;
+        }
+
+        public Movie()
+        {
+            Name = string.Empty;
+            Minutes = 0;
+            Year = 0;
+            Genre = string.Empty;
+            Rating = 0;
+        }
+
         public string Name
         {
             get { return name; }
@@ -23,13 +41,27 @@ namespace Programming.Model
         public int Minutes
         {
             get { return minutes; }
-            set { minutes = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Отрицательоне значение ");
+                }
+                minutes = value;
+            }
         }
 
         public int Year
         {
             get { return year; }
-            set { year = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Отрицательоне значение ");
+                }
+                year = value;
+            }
         }
 
         public string Genre
@@ -41,7 +73,14 @@ namespace Programming.Model
         public double Rating
         {
             get { return rating; }
-            set { rating = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Отрицательоне значение ");
+                }
+                rating = value;
+            }
         }
     }
 }

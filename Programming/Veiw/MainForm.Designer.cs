@@ -47,7 +47,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ValueslistBox2 = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.EnumslistBox5 = new System.Windows.Forms.ListBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.YeartextBox1 = new System.Windows.Forms.TextBox();
+            this.MinutestextBox2 = new System.Windows.Forms.TextBox();
+            this.NametextBox3 = new System.Windows.Forms.TextBox();
+            this.MovielistBox1 = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -57,12 +65,17 @@
             this.WidthtextBox2 = new System.Windows.Forms.TextBox();
             this.LengthtextBox1 = new System.Windows.Forms.TextBox();
             this.EnumslistBox4 = new System.Windows.Forms.ListBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.GenretextBox4 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.RatingtextBox5 = new System.Windows.Forms.TextBox();
             this.Enums.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -277,7 +290,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.EnumslistBox5);
+            this.tabPage2.Controls.Add(this.groupBox5);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -286,13 +299,103 @@
             this.tabPage2.Text = "Classes";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // EnumslistBox5
+            // groupBox5
             // 
-            this.EnumslistBox5.FormattingEnabled = true;
-            this.EnumslistBox5.Location = new System.Drawing.Point(585, 47);
-            this.EnumslistBox5.Name = "EnumslistBox5";
-            this.EnumslistBox5.Size = new System.Drawing.Size(197, 264);
-            this.EnumslistBox5.TabIndex = 9;
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.RatingtextBox5);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.GenretextBox4);
+            this.groupBox5.Controls.Add(this.button4);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.YeartextBox1);
+            this.groupBox5.Controls.Add(this.MinutestextBox2);
+            this.groupBox5.Controls.Add(this.NametextBox3);
+            this.groupBox5.Controls.Add(this.MovielistBox1);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox5.Location = new System.Drawing.Point(510, 18);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(470, 351);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Movie";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(254, 310);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(132, 23);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Find";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(251, 130);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 17);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Year:";
+
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(251, 75);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 17);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Minutes:";
+
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(251, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 17);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Name:";
+            // 
+            // YeartextBox1
+            // 
+            this.YeartextBox1.Location = new System.Drawing.Point(254, 152);
+            this.YeartextBox1.Name = "YeartextBox1";
+            this.YeartextBox1.Size = new System.Drawing.Size(132, 23);
+            this.YeartextBox1.TabIndex = 4;
+            this.YeartextBox1.TextChanged += new System.EventHandler(this.YeartextBox1_TextChanged);
+            // 
+            // MinutestextBox2
+            // 
+            this.MinutestextBox2.Location = new System.Drawing.Point(254, 95);
+            this.MinutestextBox2.Name = "MinutestextBox2";
+            this.MinutestextBox2.Size = new System.Drawing.Size(132, 23);
+            this.MinutestextBox2.TabIndex = 3;
+            this.MinutestextBox2.TextChanged += new System.EventHandler(this.MinutestextBox2_TextChanged);
+            // 
+            // NametextBox3
+            // 
+            this.NametextBox3.Location = new System.Drawing.Point(254, 39);
+            this.NametextBox3.Name = "NametextBox3";
+            this.NametextBox3.Size = new System.Drawing.Size(132, 23);
+            this.NametextBox3.TabIndex = 2;
+            this.NametextBox3.TextChanged += new System.EventHandler(this.NametextBox3_TextChanged);
+            // 
+            // MovielistBox1
+            // 
+            this.MovielistBox1.FormattingEnabled = true;
+            this.MovielistBox1.ItemHeight = 16;
+            this.MovielistBox1.Location = new System.Drawing.Point(15, 29);
+            this.MovielistBox1.Name = "MovielistBox1";
+            this.MovielistBox1.Size = new System.Drawing.Size(197, 276);
+            this.MovielistBox1.TabIndex = 1;
+            this.MovielistBox1.SelectedIndexChanged += new System.EventHandler(this.MovielistBox1_SelectedIndexChanged);
             // 
             // groupBox4
             // 
@@ -387,6 +490,44 @@
             this.EnumslistBox4.TabIndex = 1;
             this.EnumslistBox4.SelectedIndexChanged += new System.EventHandler(this.EnumslistBox4_SelectedIndexChanged);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(251, 184);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 17);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Genre:";
+
+            // 
+            // GenretextBox4
+            // 
+            this.GenretextBox4.Location = new System.Drawing.Point(254, 206);
+            this.GenretextBox4.Name = "GenretextBox4";
+            this.GenretextBox4.Size = new System.Drawing.Size(132, 23);
+            this.GenretextBox4.TabIndex = 9;
+            this.GenretextBox4.TextChanged += new System.EventHandler(this.GenretextBox4_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(251, 241);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 17);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Rating:";
+
+            // 
+            // RatingtextBox5
+            // 
+            this.RatingtextBox5.Location = new System.Drawing.Point(254, 263);
+            this.RatingtextBox5.Name = "RatingtextBox5";
+            this.RatingtextBox5.Size = new System.Drawing.Size(132, 23);
+            this.RatingtextBox5.TabIndex = 11;
+            this.RatingtextBox5.TextChanged += new System.EventHandler(this.RatingtextBox5_TextChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,6 +546,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -441,7 +584,19 @@
         private System.Windows.Forms.TextBox LengthtextBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox EnumslistBox5;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox YeartextBox1;
+        private System.Windows.Forms.TextBox MinutestextBox2;
+        private System.Windows.Forms.TextBox NametextBox3;
+        private System.Windows.Forms.ListBox MovielistBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox GenretextBox4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox RatingtextBox5;
     }
 }
 
