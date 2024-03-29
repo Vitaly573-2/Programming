@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Programming.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -11,20 +13,24 @@ using System.Threading.Tasks;
         private double length;
         private double width;
         private string color;
+        private Point2D center;
 
 
         public Rectangle()
         {
             Length = 0;
             Width = 0;
-            Color = string.Empty;    
+            Color = string.Empty;
+            Center = new Point2D(0, 0);
+        
         }
 
-        public Rectangle(double length, double width, string color)
+        public Rectangle(double length, double width, string color, Point2D center)
         {
             Length = length;
             Width = width;
             Color = color;
+            Center = center;
         }
 
         public double Length
@@ -32,10 +38,7 @@ using System.Threading.Tasks;
             get { return length; }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Отрицательоне значение ");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(Length));
                 length = value;
             }
         }
@@ -45,11 +48,8 @@ using System.Threading.Tasks;
             get { return width; }
             set
             {
-                if (value <  0)
-                {
-                    throw new ArgumentOutOfRangeException("Отрицательное значение ");
-                }
-                width = value;
+            Validator.AssertOnPositiveValue(value, nameof(Width));
+            width = value;
             }
         }
 
@@ -57,6 +57,12 @@ using System.Threading.Tasks;
         {
             get { return color; }
             set { color = value; }
+        }
+
+        public Point2D Center
+        {
+        get { return center; }
+        set { center = value; }
         }
     }
 

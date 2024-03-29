@@ -50,14 +50,17 @@
     <Compile Include="Model\Discipline.cs" />
     <Compile Include="Model\Flight.cs" />
     <Compile Include="Model\Movie.cs" />
+    <Compile Include="Model\Point2D.cs" />
     <Compile Include="Model\Rectangle.cs" />
     <Compile Include="Model\Color.cs" />
     <Compile Include="Model\Education.cs" />
     <Compile Include="Model\Genre.cs" />
+    <Compile Include="Model\Ring.cs" />
     <Compile Include="Model\Season.cs" />
     <Compile Include="Model\Smartphone.cs" />
     <Compile Include="Model\Song.cs" />
     <Compile Include="Model\Time.cs" />
+    <Compile Include="Model\Validator.cs" />
     <Compile Include="Model\Weekday.cs" />
     <Compile Include="Veiw\MainForm.cs">
       <SubType>Form</SubType>

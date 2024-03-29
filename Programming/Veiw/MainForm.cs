@@ -32,9 +32,10 @@ namespace Programming
             {
                 int width = random.Next(10);
                 int length = random.Next(10);
-                _rectangles[i] = new Rectangle(length, width, Color[i]);
+                Point2D center = new Point2D(random.Next(100), random.Next(100)); 
+                _rectangles[i] = new Rectangle(length, width, Color[i], center);
                 ListBoxRectangle[i] = ($"Rectangle {i + 1}");
-            }
+            }   
             EnumslistBox4.Items.AddRange(ListBoxRectangle);
         }
 
@@ -191,7 +192,9 @@ namespace Programming
             LengthtextBox1.Text = _currentRectangle.Length.ToString();
             WidthtextBox2.Text = _currentRectangle.Width.ToString();
             ColortextBox3.Text = _currentRectangle.Color;
-            
+            CenterXtextBox1.Text = _currentRectangle.Center.X.ToString();
+            CenterYtextBox1.Text = _currentRectangle.Center.Y.ToString();
+
         }
 
         private void LengthtextBox1_TextChanged(object sender, EventArgs e)
@@ -348,7 +351,7 @@ namespace Programming
                 }
             }
             return MaxIndex;
-        }
+        } 
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -442,5 +445,34 @@ namespace Programming
             GenretextBox4.Text = _currentMovie.Genre;
             RatingtextBox5.Text = _currentMovie.Rating.ToString(); 
         }
+
+        private void CentertextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CenterYtextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+/*         if (_currentRectangle != null)
+            {
+                try
+                {
+                    if (double.TryParse(WidthtextBox2.Text, out double newWidth))
+                    {
+                        _currentRectangle.Width = newWidth;
+                        WidthtextBox2.BackColor = ColorTranslator.FromHtml("White");
+                    }
+                    else
+                    {
+                        WidthtextBox2.BackColor = ColorTranslator.FromHtml("#FFB6C1");
+                    }
+                }
+                catch (Exception)
+                {
+    WidthtextBox2.BackColor = ColorTranslator.FromHtml("#FFB6C1");
+}
+            }*/
     }
 }

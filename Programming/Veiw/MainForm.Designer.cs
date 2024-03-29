@@ -48,6 +48,10 @@
             this.ValueslistBox2 = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.RatingtextBox5 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.GenretextBox4 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,6 +61,10 @@
             this.NametextBox3 = new System.Windows.Forms.TextBox();
             this.MovielistBox1 = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.CenterYtextBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CenterXtextBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,10 +73,6 @@
             this.WidthtextBox2 = new System.Windows.Forms.TextBox();
             this.LengthtextBox1 = new System.Windows.Forms.TextBox();
             this.EnumslistBox4 = new System.Windows.Forms.ListBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.GenretextBox4 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.RatingtextBox5 = new System.Windows.Forms.TextBox();
             this.Enums.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -321,6 +325,42 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Movie";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(251, 241);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 17);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Rating:";
+            // 
+            // RatingtextBox5
+            // 
+            this.RatingtextBox5.Location = new System.Drawing.Point(254, 263);
+            this.RatingtextBox5.Name = "RatingtextBox5";
+            this.RatingtextBox5.Size = new System.Drawing.Size(132, 23);
+            this.RatingtextBox5.TabIndex = 11;
+            this.RatingtextBox5.TextChanged += new System.EventHandler(this.RatingtextBox5_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(251, 184);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 17);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Genre:";
+            // 
+            // GenretextBox4
+            // 
+            this.GenretextBox4.Location = new System.Drawing.Point(254, 206);
+            this.GenretextBox4.Name = "GenretextBox4";
+            this.GenretextBox4.Size = new System.Drawing.Size(132, 23);
+            this.GenretextBox4.TabIndex = 9;
+            this.GenretextBox4.TextChanged += new System.EventHandler(this.GenretextBox4_TextChanged);
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(254, 310);
@@ -340,7 +380,6 @@
             this.label9.Size = new System.Drawing.Size(42, 17);
             this.label9.TabIndex = 7;
             this.label9.Text = "Year:";
-
             // 
             // label10
             // 
@@ -351,7 +390,6 @@
             this.label10.Size = new System.Drawing.Size(61, 17);
             this.label10.TabIndex = 6;
             this.label10.Text = "Minutes:";
-
             // 
             // label11
             // 
@@ -399,6 +437,10 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.CenterYtextBox1);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.CenterXtextBox1);
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label7);
@@ -410,14 +452,52 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox4.Location = new System.Drawing.Point(18, 18);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(470, 322);
+            this.groupBox4.Size = new System.Drawing.Size(470, 400);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Rectangles";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.Location = new System.Drawing.Point(254, 277);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(67, 17);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Center Y:";
+            // 
+            // CenterYtextBox1
+            // 
+            this.CenterYtextBox1.Location = new System.Drawing.Point(254, 297);
+            this.CenterYtextBox1.Name = "CenterYtextBox1";
+            this.CenterYtextBox1.ReadOnly = true;
+            this.CenterYtextBox1.Size = new System.Drawing.Size(132, 23);
+            this.CenterYtextBox1.TabIndex = 11;
+            this.CenterYtextBox1.TextChanged += new System.EventHandler(this.CenterYtextBox1_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.Location = new System.Drawing.Point(254, 215);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 17);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Center X:";
+            // 
+            // CenterXtextBox1
+            // 
+            this.CenterXtextBox1.Location = new System.Drawing.Point(254, 235);
+            this.CenterXtextBox1.Name = "CenterXtextBox1";
+            this.CenterXtextBox1.ReadOnly = true;
+            this.CenterXtextBox1.Size = new System.Drawing.Size(132, 23);
+            this.CenterXtextBox1.TabIndex = 9;
+            this.CenterXtextBox1.TextChanged += new System.EventHandler(this.CentertextBox1_TextChanged);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(254, 282);
+            this.button3.Location = new System.Drawing.Point(257, 348);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(132, 23);
             this.button3.TabIndex = 8;
@@ -490,44 +570,6 @@
             this.EnumslistBox4.TabIndex = 1;
             this.EnumslistBox4.SelectedIndexChanged += new System.EventHandler(this.EnumslistBox4_SelectedIndexChanged);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(251, 184);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 17);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Genre:";
-
-            // 
-            // GenretextBox4
-            // 
-            this.GenretextBox4.Location = new System.Drawing.Point(254, 206);
-            this.GenretextBox4.Name = "GenretextBox4";
-            this.GenretextBox4.Size = new System.Drawing.Size(132, 23);
-            this.GenretextBox4.TabIndex = 9;
-            this.GenretextBox4.TextChanged += new System.EventHandler(this.GenretextBox4_TextChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(251, 241);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 17);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Rating:";
-
-            // 
-            // RatingtextBox5
-            // 
-            this.RatingtextBox5.Location = new System.Drawing.Point(254, 263);
-            this.RatingtextBox5.Name = "RatingtextBox5";
-            this.RatingtextBox5.Size = new System.Drawing.Size(132, 23);
-            this.RatingtextBox5.TabIndex = 11;
-            this.RatingtextBox5.TextChanged += new System.EventHandler(this.RatingtextBox5_TextChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,6 +639,10 @@
         private System.Windows.Forms.TextBox GenretextBox4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox RatingtextBox5;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox CenterXtextBox1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox CenterYtextBox1;
     }
 }
 

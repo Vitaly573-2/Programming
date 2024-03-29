@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Programming.Model
@@ -43,10 +44,7 @@ namespace Programming.Model
             get { return minutes; }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Отрицательоне значение ");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(Minutes));
                 minutes = value;
             }
         }
@@ -56,10 +54,7 @@ namespace Programming.Model
             get { return year; }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Отрицательоне значение ");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(Year));
                 year = value;
             }
         }
@@ -75,10 +70,7 @@ namespace Programming.Model
             get { return rating; }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Отрицательоне значение ");
-                }
+                Validator.AssertValueInRange(value, 1, 10, nameof(Rating));
                 rating = value;
             }
         }
