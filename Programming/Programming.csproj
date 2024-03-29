@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\CollisionManager.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\Discipline.cs" />
     <Compile Include="Model\Flight.cs" />

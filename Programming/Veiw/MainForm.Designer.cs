@@ -73,6 +73,8 @@
             this.WidthtextBox2 = new System.Windows.Forms.TextBox();
             this.LengthtextBox1 = new System.Windows.Forms.TextBox();
             this.EnumslistBox4 = new System.Windows.Forms.ListBox();
+            this.idtextBox1 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.Enums.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -437,6 +439,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.idtextBox1);
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.CenterYtextBox1);
             this.groupBox4.Controls.Add(this.label14);
@@ -452,7 +456,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox4.Location = new System.Drawing.Point(18, 18);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(470, 400);
+            this.groupBox4.Size = new System.Drawing.Size(470, 464);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Rectangles";
@@ -497,7 +501,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(257, 348);
+            this.button3.Location = new System.Drawing.Point(254, 409);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(132, 23);
             this.button3.TabIndex = 8;
@@ -569,6 +573,24 @@
             this.EnumslistBox4.Size = new System.Drawing.Size(197, 276);
             this.EnumslistBox4.TabIndex = 1;
             this.EnumslistBox4.SelectedIndexChanged += new System.EventHandler(this.EnumslistBox4_SelectedIndexChanged);
+            // 
+            // idtextBox1
+            // 
+            this.idtextBox1.Location = new System.Drawing.Point(254, 356);
+            this.idtextBox1.Name = "idtextBox1";
+            this.idtextBox1.Size = new System.Drawing.Size(132, 23);
+            this.idtextBox1.TabIndex = 13;
+            this.idtextBox1.TextChanged += new System.EventHandler(this.idtextBox1_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.Location = new System.Drawing.Point(254, 336);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(21, 17);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "ID";
             // 
             // MainForm
             // 
@@ -643,6 +665,8 @@
         private System.Windows.Forms.TextBox CenterXtextBox1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox CenterYtextBox1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox idtextBox1;
     }
 }
 

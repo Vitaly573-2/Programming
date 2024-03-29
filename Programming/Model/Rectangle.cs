@@ -14,7 +14,9 @@ using System.Threading.Tasks;
         private double width;
         private string color;
         private Point2D center;
-
+        private static int _allRectanglesCount;
+        private int _id;
+        
 
         public Rectangle()
         {
@@ -22,6 +24,7 @@ using System.Threading.Tasks;
             Width = 0;
             Color = string.Empty;
             Center = new Point2D(0, 0);
+            _id= ++_allRectanglesCount;
         
         }
 
@@ -31,7 +34,19 @@ using System.Threading.Tasks;
             Width = width;
             Color = color;
             Center = center;
+            _id= ++_allRectanglesCount;
         }
+
+        public static int AllRectanglesCount
+        {
+            get{ return _allRectanglesCount; }
+        }
+            
+
+        public int Id
+        {
+            get { return _id; }
+        }      
 
         public double Length
         {

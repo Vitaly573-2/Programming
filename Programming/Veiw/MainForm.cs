@@ -32,7 +32,10 @@ namespace Programming
             {
                 int width = random.Next(10);
                 int length = random.Next(10);
-                Point2D center = new Point2D(random.Next(100), random.Next(100)); 
+                double pointX = (random.Next(100));
+                double pointY = (random.Next(100));
+
+                Point2D center = new Point2D(pointX,pointY); 
                 _rectangles[i] = new Rectangle(length, width, Color[i], center);
                 ListBoxRectangle[i] = ($"Rectangle {i + 1}");
             }   
@@ -194,6 +197,7 @@ namespace Programming
             ColortextBox3.Text = _currentRectangle.Color;
             CenterXtextBox1.Text = _currentRectangle.Center.X.ToString();
             CenterYtextBox1.Text = _currentRectangle.Center.Y.ToString();
+            idtextBox1.Text = _currentRectangle.Id.ToString();
 
         }
 
@@ -290,6 +294,7 @@ namespace Programming
             LengthtextBox1.Text = _currentRectangle.Length.ToString();
             WidthtextBox2.Text = _currentRectangle.Width.ToString();
             ColortextBox3.Text = _currentRectangle.Color;
+          
         }
 
         private void RatingtextBox5_TextChanged(object sender, EventArgs e)
@@ -443,7 +448,8 @@ namespace Programming
             MinutestextBox2.Text = _currentMovie.Minutes.ToString();
             YeartextBox1.Text = _currentMovie.Year.ToString();
             GenretextBox4.Text = _currentMovie.Genre;
-            RatingtextBox5.Text = _currentMovie.Rating.ToString(); 
+            RatingtextBox5.Text = _currentMovie.Rating.ToString();
+            
         }
 
         private void CentertextBox1_TextChanged(object sender, EventArgs e)
@@ -455,24 +461,10 @@ namespace Programming
         {
 
         }
-/*         if (_currentRectangle != null)
-            {
-                try
-                {
-                    if (double.TryParse(WidthtextBox2.Text, out double newWidth))
-                    {
-                        _currentRectangle.Width = newWidth;
-                        WidthtextBox2.BackColor = ColorTranslator.FromHtml("White");
-                    }
-                    else
-                    {
-                        WidthtextBox2.BackColor = ColorTranslator.FromHtml("#FFB6C1");
-                    }
-                }
-                catch (Exception)
-                {
-    WidthtextBox2.BackColor = ColorTranslator.FromHtml("#FFB6C1");
-}
-            }*/
+
+        private void idtextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
