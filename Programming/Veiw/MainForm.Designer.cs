@@ -61,6 +61,8 @@
             this.NametextBox3 = new System.Windows.Forms.TextBox();
             this.MovielistBox1 = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.idtextBox1 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.CenterYtextBox1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -73,8 +75,6 @@
             this.WidthtextBox2 = new System.Windows.Forms.TextBox();
             this.LengthtextBox1 = new System.Windows.Forms.TextBox();
             this.EnumslistBox4 = new System.Windows.Forms.ListBox();
-            this.idtextBox1 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.Enums.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -461,6 +461,25 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Rectangles";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.Location = new System.Drawing.Point(254, 336);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(21, 17);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "ID";
+            // 
+            // idtextBox1
+            // 
+            this.idtextBox1.Location = new System.Drawing.Point(254, 356);
+            this.idtextBox1.Name = "idtextBox1";
+            this.idtextBox1.ReadOnly = true;
+            this.idtextBox1.Size = new System.Drawing.Size(132, 23);
+            this.idtextBox1.TabIndex = 13;
+            this.idtextBox1.TextChanged += new System.EventHandler(this.idtextBox1_TextChanged);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -573,24 +592,6 @@
             this.EnumslistBox4.Size = new System.Drawing.Size(197, 276);
             this.EnumslistBox4.TabIndex = 1;
             this.EnumslistBox4.SelectedIndexChanged += new System.EventHandler(this.EnumslistBox4_SelectedIndexChanged);
-            // 
-            // idtextBox1
-            // 
-            this.idtextBox1.Location = new System.Drawing.Point(254, 356);
-            this.idtextBox1.Name = "idtextBox1";
-            this.idtextBox1.Size = new System.Drawing.Size(132, 23);
-            this.idtextBox1.TabIndex = 13;
-            this.idtextBox1.TextChanged += new System.EventHandler(this.idtextBox1_TextChanged);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(254, 336);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(21, 17);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "ID";
             // 
             // MainForm
             // 

@@ -32,8 +32,8 @@ namespace Programming
             {
                 int width = random.Next(10);
                 int length = random.Next(10);
-                double pointX = (random.Next(100));
-                double pointY = (random.Next(100));
+                double pointX = width / 2;
+                double pointY = length / 2;
 
                 Point2D center = new Point2D(pointX,pointY); 
                 _rectangles[i] = new Rectangle(length, width, Color[i], center);
@@ -460,7 +460,7 @@ namespace Programming
         private void CenterYtextBox1_TextChanged(object sender, EventArgs e)
         {
 
-        }
+        }   
 
         private void idtextBox1_TextChanged(object sender, EventArgs e)
         {
