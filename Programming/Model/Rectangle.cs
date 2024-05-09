@@ -10,25 +10,29 @@ using System.Threading.Tasks;
 
     internal class Rectangle
     {
+        Random random = new Random();
         private double length;
         private double width;
         private string color;
-        private Point2D center;
+       /* private Point2D center;*/
         private static int _allRectanglesCount;
         private readonly int _id;
+        private int _x;
+        private int _y;
         
 
         public Rectangle()
         {
-            Length = 0;
-            Width = 0;
+            Rectangle randomRectangle = RectangleFactory.Randomize();
+            Length = randomRectangle.length;
+            Width = randomRectangle.width;
             Color = string.Empty;
-            Center = new Point2D(0, 0);
-            _allRectanglesCount++;  
-            _id = _allRectanglesCount;
-        
+            Center = new Point2D(0, 0);  
+            _id = ++_allRectanglesCount;
+            X = randomRectangle.X; 
+            Y = randomRectangle.Y;
         }
-
+        
         public Rectangle(double length, double width, string color, Point2D center)
         {
             Length = length;
@@ -36,6 +40,15 @@ using System.Threading.Tasks;
             Color = color;
             Center = center;
             _id= ++_allRectanglesCount;
+        }
+        
+        public Rectangle(int x, int y, int width, int length)
+        {
+            X = x;
+            Y = y;
+            Width = width;
+            Length = length;
+            _id = ++_allRectanglesCount;
         }
 
         public static int AllRectanglesCount
@@ -64,8 +77,8 @@ using System.Threading.Tasks;
             get { return width; }
             set
             {
-            Validator.AssertOnPositiveValue(value, nameof(Width));
-            width = value;
+                Validator.AssertOnPositiveValue(value, nameof(Width));
+                width = value;
             }
         }
 
@@ -75,10 +88,25 @@ using System.Threading.Tasks;
             set { color = value; }
         }
 
-        public Point2D Center
+        public int X
         {
-        get { return center; }
-        set { center = value; }
+            get { return _x; }
+            set 
+            {
+                Validator.AssertOnPositiveValue(value, "_X");
+                _x = value;
+            }
         }
+
+        public int Y
+        {
+            get { return _y; }
+            set
+            {
+                Validator.AssertOnPositiveValue(value, "_X");
+                _y = value;
+            }
+        }
+        public Point2D Center { get; set; }
     }
 

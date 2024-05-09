@@ -56,6 +56,7 @@
     <Compile Include="Model\Color.cs" />
     <Compile Include="Model\Education.cs" />
     <Compile Include="Model\Genre.cs" />
+    <Compile Include="Model\RectangleFactory.cs" />
     <Compile Include="Model\Ring.cs" />
     <Compile Include="Model\Season.cs" />
     <Compile Include="Model\Smartphone.cs" />
