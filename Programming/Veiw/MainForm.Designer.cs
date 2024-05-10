@@ -29,22 +29,6 @@
         private void InitializeComponent()
         {
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.PaneltextBox5 = new System.Windows.Forms.TextBox();
-            this.PaneltextBox4 = new System.Windows.Forms.TextBox();
-            this.PaneltextBox3 = new System.Windows.Forms.TextBox();
-            this.PaneltextBox2 = new System.Windows.Forms.TextBox();
-            this.PaneltextBox1 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.PanellistBox1 = new System.Windows.Forms.ListBox();
-            this.CanvasPanel1 = new System.Windows.Forms.Panel();
-            this.Panelbutton6 = new System.Windows.Forms.Button();
-            this.Panelbutton5 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -92,6 +76,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ValueslistBox2 = new System.Windows.Forms.ListBox();
             this.Rectangles = new System.Windows.Forms.TabControl();
+            this.rectanglesCollisionControl11 = new Programming.Veiw.Panels.RectanglesCollisionControl1();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -105,22 +90,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Controls.Add(this.label21);
-            this.tabPage3.Controls.Add(this.label20);
-            this.tabPage3.Controls.Add(this.label19);
-            this.tabPage3.Controls.Add(this.PaneltextBox5);
-            this.tabPage3.Controls.Add(this.PaneltextBox4);
-            this.tabPage3.Controls.Add(this.PaneltextBox3);
-            this.tabPage3.Controls.Add(this.PaneltextBox2);
-            this.tabPage3.Controls.Add(this.PaneltextBox1);
-            this.tabPage3.Controls.Add(this.label18);
-            this.tabPage3.Controls.Add(this.label17);
-            this.tabPage3.Controls.Add(this.PanellistBox1);
-            this.tabPage3.Controls.Add(this.CanvasPanel1);
-            this.tabPage3.Controls.Add(this.Panelbutton6);
-            this.tabPage3.Controls.Add(this.Panelbutton5);
+            this.tabPage3.Controls.Add(this.rectanglesCollisionControl11);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -128,157 +98,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Rectangles";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label23.Location = new System.Drawing.Point(18, 413);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(53, 17);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "Height:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label22.Location = new System.Drawing.Point(24, 374);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(48, 17);
-            this.label22.TabIndex = 14;
-            this.label22.Text = "Width:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label21.Location = new System.Drawing.Point(49, 333);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(21, 17);
-            this.label21.TabIndex = 13;
-            this.label21.Text = "Y:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label20.Location = new System.Drawing.Point(49, 295);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(21, 17);
-            this.label20.TabIndex = 12;
-            this.label20.Text = "X:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label19.Location = new System.Drawing.Point(49, 260);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(23, 17);
-            this.label19.TabIndex = 11;
-            this.label19.Text = "Id:";
-            // 
-            // PaneltextBox5
-            // 
-            this.PaneltextBox5.Location = new System.Drawing.Point(75, 412);
-            this.PaneltextBox5.Name = "PaneltextBox5";
-            this.PaneltextBox5.Size = new System.Drawing.Size(100, 20);
-            this.PaneltextBox5.TabIndex = 10;
-            this.PaneltextBox5.TextChanged += new System.EventHandler(this.PaneltextBox5_TextChanged);
-            // 
-            // PaneltextBox4
-            // 
-            this.PaneltextBox4.Location = new System.Drawing.Point(75, 374);
-            this.PaneltextBox4.Name = "PaneltextBox4";
-            this.PaneltextBox4.Size = new System.Drawing.Size(100, 20);
-            this.PaneltextBox4.TabIndex = 9;
-            this.PaneltextBox4.TextChanged += new System.EventHandler(this.PaneltextBox4_TextChanged);
-            // 
-            // PaneltextBox3
-            // 
-            this.PaneltextBox3.Location = new System.Drawing.Point(75, 332);
-            this.PaneltextBox3.Name = "PaneltextBox3";
-            this.PaneltextBox3.Size = new System.Drawing.Size(100, 20);
-            this.PaneltextBox3.TabIndex = 8;
-            this.PaneltextBox3.TextChanged += new System.EventHandler(this.PaneltextBox3_TextChanged);
-            // 
-            // PaneltextBox2
-            // 
-            this.PaneltextBox2.Location = new System.Drawing.Point(75, 292);
-            this.PaneltextBox2.Name = "PaneltextBox2";
-            this.PaneltextBox2.Size = new System.Drawing.Size(100, 20);
-            this.PaneltextBox2.TabIndex = 7;
-            this.PaneltextBox2.TextChanged += new System.EventHandler(this.PaneltextBox2_TextChanged);
-            // 
-            // PaneltextBox1
-            // 
-            this.PaneltextBox1.Location = new System.Drawing.Point(75, 257);
-            this.PaneltextBox1.Name = "PaneltextBox1";
-            this.PaneltextBox1.ReadOnly = true;
-            this.PaneltextBox1.Size = new System.Drawing.Size(100, 20);
-            this.PaneltextBox1.TabIndex = 6;
-            this.PaneltextBox1.TextChanged += new System.EventHandler(this.PaneltextBox1_TextChanged);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label18.Location = new System.Drawing.Point(18, 219);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(135, 17);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Selected Rectangle:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(18, 13);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(83, 17);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "Rectangles:";
-            // 
-            // PanellistBox1
-            // 
-            this.PanellistBox1.FormattingEnabled = true;
-            this.PanellistBox1.Location = new System.Drawing.Point(21, 42);
-            this.PanellistBox1.Name = "PanellistBox1";
-            this.PanellistBox1.Size = new System.Drawing.Size(307, 121);
-            this.PanellistBox1.TabIndex = 3;
-            this.PanellistBox1.SelectedIndexChanged += new System.EventHandler(this.PanellistBox1_SelectedIndexChanged);
-            // 
-            // CanvasPanel1
-            // 
-            this.CanvasPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CanvasPanel1.Location = new System.Drawing.Point(359, 26);
-            this.CanvasPanel1.Name = "CanvasPanel1";
-            this.CanvasPanel1.Size = new System.Drawing.Size(615, 395);
-            this.CanvasPanel1.TabIndex = 2;
-            this.CanvasPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.CanvasPanel1_Paint);
-            // 
-            // Panelbutton6
-            // 
-            this.Panelbutton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Panelbutton6.Location = new System.Drawing.Point(158, 181);
-            this.Panelbutton6.Name = "Panelbutton6";
-            this.Panelbutton6.Size = new System.Drawing.Size(75, 23);
-            this.Panelbutton6.TabIndex = 1;
-            this.Panelbutton6.Text = "удалить";
-            this.Panelbutton6.UseVisualStyleBackColor = true;
-            this.Panelbutton6.Click += new System.EventHandler(this.Panelbutton6_Click);
-            // 
-            // Panelbutton5
-            // 
-            this.Panelbutton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Panelbutton5.Location = new System.Drawing.Point(52, 181);
-            this.Panelbutton5.Name = "Panelbutton5";
-            this.Panelbutton5.Size = new System.Drawing.Size(75, 23);
-            this.Panelbutton5.TabIndex = 0;
-            this.Panelbutton5.Text = "добавить";
-            this.Panelbutton5.UseVisualStyleBackColor = true;
-            this.Panelbutton5.Click += new System.EventHandler(this.Panelbutton5_Click);
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // tabPage2
             // 
@@ -789,6 +609,14 @@
             this.Rectangles.TabIndex = 0;
             this.Rectangles.SelectedIndexChanged += new System.EventHandler(this.Enums_SelectedIndexChanged);
             // 
+            // rectanglesCollisionControl11
+            // 
+            this.rectanglesCollisionControl11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rectanglesCollisionControl11.Location = new System.Drawing.Point(3, 3);
+            this.rectanglesCollisionControl11.Name = "rectanglesCollisionControl11";
+            this.rectanglesCollisionControl11.Size = new System.Drawing.Size(1023, 484);
+            this.rectanglesCollisionControl11.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -799,7 +627,6 @@
             this.Text = "Programming Demo";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -867,22 +694,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox ValueslistBox2;
         private System.Windows.Forms.TabControl Rectangles;
-        private System.Windows.Forms.Button Panelbutton6;
-        private System.Windows.Forms.Button Panelbutton5;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ListBox PanellistBox1;
-        private System.Windows.Forms.Panel CanvasPanel1;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox PaneltextBox5;
-        private System.Windows.Forms.TextBox PaneltextBox4;
-        private System.Windows.Forms.TextBox PaneltextBox3;
-        private System.Windows.Forms.TextBox PaneltextBox2;
-        private System.Windows.Forms.TextBox PaneltextBox1;
+        private Veiw.Panels.RectanglesCollisionControl1 rectanglesCollisionControl11;
     }
 }
 
