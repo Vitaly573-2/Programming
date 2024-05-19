@@ -174,6 +174,7 @@
             this.Controls.Add(this.MovielistBox1);
             this.Name = "MovieControl1";
             this.Size = new System.Drawing.Size(390, 390);
+            this.Load += new System.EventHandler(this.MovieControl1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

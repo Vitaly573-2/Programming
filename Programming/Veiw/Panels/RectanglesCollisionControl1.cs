@@ -13,16 +13,33 @@ namespace Programming.Veiw.Panels
 {
     public partial class RectanglesCollisionControl1 : UserControl
     {
+
+        /// <summary>
+        /// Список прямоугольников.
+        /// </summary>
         private List<Rectangle> _rectangle = new List<Rectangle>();
+
+        /// <summary>
+        /// Текущий выбранный прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangles = new Rectangle();
 
+        /// <summary>
+        /// Список панелей длч отображения прямоугольников.
+        /// </summary>
         private List<Panel> _rectanglePanels = new List<Panel>();
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса.
+        /// </summary>
         public RectanglesCollisionControl1()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в текстовом поле для длины прямоугольника.
+        /// </summary>
         private void PaneltextBox5_TextChanged(object sender, EventArgs e)
         {
             if (_currentRectangles != null)
@@ -49,6 +66,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в текстовом поле для ширины прямоугольника.
+        /// </summary>
         private void PaneltextBox4_TextChanged(object sender, EventArgs e)
         {
             if (_currentRectangles != null)
@@ -75,6 +95,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в текстовом поле для координаты Y прямоугольника.
+        /// </summary>
         private void PaneltextBox3_TextChanged(object sender, EventArgs e)
         {
             if (_currentRectangles != null)
@@ -101,6 +124,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в текстовом поле для координаты X прямоугольника.
+        /// </summary>
         private void PaneltextBox2_TextChanged(object sender, EventArgs e)
         {
             if (_currentRectangles != null)
@@ -128,6 +154,10 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обновляет параметры для отображения прямоугольника.
+        /// </summary>
+        /// <param name = "rectanglerectangle">Передает прямоугольник</param>
         private void UpdateCanvasPanel(Rectangle rectangle)
         {
             int index = _rectangle.IndexOf(rectangle);
@@ -139,6 +169,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обновляет список прямоугольников.
+        /// </summary>
         private void UpdateListBox()
         {
 
@@ -157,6 +190,9 @@ namespace Programming.Veiw.Panels
 
         }
 
+        /// <summary>
+        /// Обработчик события изменения выбранного элемента в ListBox.
+        /// </summary>
         private void PanellistBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (PanellistBox1.SelectedIndex != -1)
@@ -172,6 +208,10 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обновляет информацию о текущем прямоугольнике.
+        /// </summary>
+        /// <param name = "rectanglerectangle">Передает прямоугольник</param>
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
             if (rectangle != null)
@@ -184,6 +224,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Очищает информацию о текущем прямоугольнике.
+        /// </summary>
         private void ClearRectangleInfo()
         {
             PaneltextBox1.Text = "";
@@ -204,6 +247,9 @@ namespace Programming.Veiw.Panels
 
         }
 
+        /// <summary>
+        /// Обработчик события удаления выбранного прямоугольника.
+        /// </summary>
         private void Panelbutton6_Click(object sender, EventArgs e)
         {
             if (PanellistBox1.SelectedIndex != -1)
@@ -217,6 +263,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обработчик события добавления нового прямоугольника.
+        /// </summary>
         private void Panelbutton5_Click(object sender, EventArgs e)
         {
             Rectangle newRectangle = new Rectangle();
@@ -239,6 +288,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обрабатывает столкновения прямоугольников и обновляет их отображение.
+        /// </summary>
         private void FindCollisions()
         {
             foreach (Panel panel in _rectanglePanels)

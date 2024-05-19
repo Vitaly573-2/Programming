@@ -13,6 +13,9 @@ namespace Programming.Veiw.Panels
 {
     public partial class SeasonHandleControl1 : UserControl
     {
+        /// <summary>
+        /// Длбавление перечислений в ListBox.
+        /// </summary>
         public SeasonHandleControl1()
         {
             InitializeComponent();
@@ -28,7 +31,9 @@ namespace Programming.Veiw.Panels
         }
 
 
-
+        /// <summary>
+        /// Обработчик события для вывода действий по индексу.
+        /// </summary>
         private void button2_Click(object sender, EventArgs e)
         {
             if (SeasonCombotBox.SelectedItem == null)
@@ -59,6 +64,9 @@ namespace Programming.Veiw.Panels
 
         }
 
+        /// <summary>
+        /// Возращает выбранный сезон.
+        /// </summary>
         public Season SelectedSeason
         {
             get
@@ -80,6 +88,11 @@ namespace Programming.Veiw.Panels
         private void SeasonCombotBox_SelectedIndexChanged(object sender, EventArgs e)
         {
                 
+        }
+
+        private void SeasonHandleControl1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

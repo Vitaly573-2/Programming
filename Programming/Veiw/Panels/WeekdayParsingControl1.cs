@@ -27,6 +27,9 @@ namespace Programming.Veiw.Panels
 
         }
 
+        /// <summary>
+        /// Обработчик событий для проверки дня недели по индексу или по слову.
+        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             string userInput = EnumstextBox2.Text.Trim();

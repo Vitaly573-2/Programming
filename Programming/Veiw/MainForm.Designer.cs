@@ -32,6 +32,7 @@
             this.rectanglesCollisionControl11 = new Programming.Veiw.Panels.RectanglesCollisionControl1();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.movieControl11 = new Programming.Veiw.Panels.MovieControl1();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.rectanglesControl11 = new Programming.Veiw.Panels.RectanglesControl1();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -42,7 +43,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.enumirationControl11 = new Programming.Veiw.Panels.EnumirationControl1();
             this.Rectangles = new System.Windows.Forms.TabControl();
-            this.movieControl11 = new Programming.Veiw.Panels.MovieControl1();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -96,6 +96,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Movie";
             // 
+            // movieControl11
+            // 
+            this.movieControl11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.movieControl11.Location = new System.Drawing.Point(3, 19);
+            this.movieControl11.Margin = new System.Windows.Forms.Padding(4);
+            this.movieControl11.Name = "movieControl11";
+            this.movieControl11.Size = new System.Drawing.Size(464, 417);
+            this.movieControl11.TabIndex = 0;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.rectanglesControl11);
@@ -110,8 +119,8 @@
             // 
             // rectanglesControl11
             // 
-            this.rectanglesControl11.Location = new System.Drawing.Point(7, 29);
-            this.rectanglesControl11.Margin = new System.Windows.Forms.Padding(4);
+            this.rectanglesControl11.Location = new System.Drawing.Point(7, 30);
+            this.rectanglesControl11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rectanglesControl11.Name = "rectanglesControl11";
             this.rectanglesControl11.Size = new System.Drawing.Size(456, 428);
             this.rectanglesControl11.TabIndex = 0;
@@ -205,15 +214,6 @@
             this.Rectangles.Size = new System.Drawing.Size(1037, 516);
             this.Rectangles.TabIndex = 0;
             this.Rectangles.SelectedIndexChanged += new System.EventHandler(this.Enums_SelectedIndexChanged);
-            // 
-            // movieControl11
-            // 
-            this.movieControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.movieControl11.Location = new System.Drawing.Point(3, 19);
-            this.movieControl11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.movieControl11.Name = "movieControl11";
-            this.movieControl11.Size = new System.Drawing.Size(464, 417);
-            this.movieControl11.TabIndex = 0;
             // 
             // MainForm
             // 

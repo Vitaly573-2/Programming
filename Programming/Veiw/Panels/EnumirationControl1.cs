@@ -12,6 +12,10 @@ namespace Programming.Veiw.Panels
 {
     public partial class EnumirationControl1 : UserControl
     {
+        /// <summary>
+        /// Добавляет перечисление в ListBox.
+        /// </summary>
+
         public EnumirationControl1()
         {
             InitializeComponent();
@@ -22,6 +26,10 @@ namespace Programming.Veiw.Panels
         {
 
         }
+
+        /// <summary>
+        /// Очищает и по выбранному индексу добавляет перечесление в ListBox.
+        /// </summary>
 
         private void EnumslistBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -68,6 +76,10 @@ namespace Programming.Veiw.Panels
         {
 
         }
+
+        /// <summary>
+        /// Выводит индекс выбранного элемента в TextBox.
+        /// </summary>
 
         private void ValueslistBox2_SelectedIndexChanged(object sender, EventArgs e)
         {

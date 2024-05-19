@@ -23,9 +23,14 @@ namespace Programming
             seasonsHandle1.SeasonChanged += seasonsHandle1_SeasonChanged;
 
         }
-
+        /// <summary>
+        /// Возращает выбранный сезон.
+        /// </summary>
         private Season selectedSeason;
 
+        /// <summary>
+        /// Обработчик события для вывода действий по индексу.
+        /// </summary>
         private void seasonsHandle1_SeasonChanged(object sender, EventArgs e)
         {
             selectedSeason = seasonsHandle1.SelectedSeason;
@@ -51,7 +56,10 @@ namespace Programming
         }
 
             
-
+        /// <summary>
+        /// Перебор GroupBox для покраски.
+        /// </summary>
+        /// <param name="groupBox">Перебор GroupBox</param>
         private void ChangeBackColorForGroupBoxControls(GroupBox groupBox)
         {
             foreach (Control control in groupBox.Controls)
@@ -60,6 +68,10 @@ namespace Programming
             }
         }
 
+        /// <summary>
+        /// Перебор GroupBox для покраски.
+        /// </summary>
+        /// <param name="groupBox">Перебор GroupBox</param>
         private void ChangeBackColorForGroupBoxControls2(GroupBox groupBox)
         {
             foreach (Control control in groupBox.Controls)

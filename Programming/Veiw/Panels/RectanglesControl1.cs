@@ -13,12 +13,30 @@ namespace Programming.Veiw.Panels
 {
     public partial class RectanglesControl1 : UserControl
     {
+        /// <summary>
+        /// Список прямоугольников.
+        /// </summary>
         private Rectangle[] _rectangles = new Rectangle[5];
+
+        /// <summary>
+        /// Текущий выбранный прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
+
+        /// <summary>
+        /// Список прямоугольников дял ListBox.
+        /// </summary>
         private string[] ListBoxRectangle = new string[5];
+
+        /// <summary>
+        /// Список цветов.
+        /// </summary>
         private string[] Color = new string[5] { "Pink", "Green", "Black", "Blue", "Red" };
         Random random = new Random();
 
+        /// <summary>
+        /// Обработчик события добавления нового прямоугольника..
+        /// </summary>
         private void RectangelsInitialize()
         {
             for (int i = 0; i < ListBoxRectangle.Length; i++)
@@ -37,6 +55,9 @@ namespace Programming.Veiw.Panels
             EnumslistBox4.Items.AddRange(ListBoxRectangle);
         }
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса.
+        /// </summary>
         public RectanglesControl1()
         {
             InitializeComponent();
@@ -78,6 +99,9 @@ namespace Programming.Veiw.Panels
 
         }
 
+        /// <summary>
+        /// Обновление TextBox прямоугольников.
+        /// </summary>
         private void button3_Click(object sender, EventArgs e)
         {
             int MaxIndex = FindRectangleWithMaxWidth(_rectangles);
@@ -87,7 +111,7 @@ namespace Programming.Veiw.Panels
             ColortextBox3.Text = _currentRectangle.Color;
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)   
         {
 
         }
@@ -102,6 +126,9 @@ namespace Programming.Veiw.Panels
 
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в текстовом поле для цвета прямоугольника.
+        /// </summary>
         private void ColortextBox3_TextChanged(object sender, EventArgs e)
         {
             try
@@ -126,6 +153,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обработчик события для нахождения прямоугольника с большей шириной.
+        /// </summary>
         private int FindRectangleWithMaxWidth(Rectangle[] _rectangles)
         {
             int MaxIndex = 0;
@@ -141,6 +171,9 @@ namespace Programming.Veiw.Panels
             return MaxIndex;
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в текстовом поле для ширины прямоугольника.
+        /// </summary>
         private void WidthtextBox2_TextChanged(object sender, EventArgs e)
         {
             if (_currentRectangle != null)
@@ -164,6 +197,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обработчик события изменения текста в текстовом поле для длины прямоугольника.
+        /// </summary>
         private void LengthtextBox1_TextChanged(object sender, EventArgs e)
         {
             if (_currentRectangle != null)
@@ -187,6 +223,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Добавление параметров в TextBox по индексу.
+        /// </summary>
         private void EnumslistBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             int SelectIndex = EnumslistBox4.SelectedIndex;

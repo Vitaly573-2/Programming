@@ -15,14 +15,35 @@ namespace Programming.Veiw.Panels
     {
         Random random = new Random();
 
+        /// <summary>
+        /// Создание массива.
+        /// </summary>
         private Movie[] _movie = new Movie[5];
+
+        /// <summary>
+        /// Текущий выбранный фильм.
+        /// </summary>
         private Movie _currentMovie;
+
+        /// <summary>
+        /// Массив строк для отображения в ListBox.
+        /// </summary>
         private string[] ListBoxMovie = new string[5];
+        
+        /// <summary>
+        /// Фильмы.
+        /// </summary>
         private string[] NameMovie = new string[5] { "Форсаж", "Легенда", "Мстители", "Пацанская история", "Бизнесмены" };
+
+        /// <summary>
+        /// Жанры.
+        /// </summary>
         private string[] GenreMovie = new string[5] { "экшен", "боевик", "фантастика", "криминал", "исторический" };
 
 
-
+        /// <summary>
+        /// Инициализирует массив фильмов.
+        /// </summary>
         private void MovieInitialize()
         {
             for (int i = 0; i < ListBoxMovie.Length; i++)
@@ -36,13 +57,20 @@ namespace Programming.Veiw.Panels
             MovielistBox1.Items.AddRange(ListBoxMovie);
         }
 
-
+        /// <summary>
+        /// Конструктор класса.
+        /// </summary>
         public MovieControl1()
         {
             InitializeComponent();
             MovieInitialize();
         }
 
+        /// <summary>
+        /// Находит индекс фильма с наивысшим рейтингом.
+        /// </summary>
+        ///<param name ="movies">Массив фильмов</param>
+        ///<returns>Индекс фильма с наивысшим рейтингом</returns>
         private int FindMovieRatingMaxRating(Movie[] _movie)
         {
             int MaxIndex = 0;
@@ -64,6 +92,10 @@ namespace Programming.Veiw.Panels
 
         }
 
+
+        /// <summary>
+        /// Обработчик события при изменении текста в текстовом поле рейтинга.
+        /// </summary>
         private void RatingtextBox5_TextChanged(object sender, EventArgs e)
         {
             if (_currentMovie != null)
@@ -92,6 +124,9 @@ namespace Programming.Veiw.Panels
 
         }
 
+        /// <summary>
+        /// Обработчик события при изменении текста в текстовом поле жанра.
+        /// </summary>
         private void GenretextBox4_TextChanged(object sender, EventArgs e)
         {
             try
@@ -116,6 +151,10 @@ namespace Programming.Veiw.Panels
             }
         }
 
+
+        /// <summary>
+        /// Обработчик события нажатия на кнопку для нахождения фильма с максимальным рейтингом.
+        /// </summary>
         private void button4_Click(object sender, EventArgs e)
         {
             int MaxIndex = FindMovieRatingMaxRating(_movie);
@@ -142,6 +181,9 @@ namespace Programming.Veiw.Panels
 
         }
 
+        /// <summary>
+        /// Обработчик события при изменении текст в текстовом поле года.
+        /// </summary
         private void YeartextBox1_TextChanged(object sender, EventArgs e)
         {
             if (_currentMovie != null)
@@ -165,6 +207,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обработчик события при изменении текст в текстовом поле минуты.
+        /// </summary
         private void MinutestextBox2_TextChanged(object sender, EventArgs e)
         {
             if (_currentMovie != null)
@@ -188,6 +233,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Обработчик события при изменении текст в текстовом поле название.
+        /// </summary
         private void NametextBox3_TextChanged(object sender, EventArgs e)
         {
             try
@@ -212,6 +260,9 @@ namespace Programming.Veiw.Panels
             }
         }
 
+        /// <summary>
+        /// Вывод информации по индексу в TextBox.
+        /// </summary>
         private void MovielistBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int SelectIndex = MovielistBox1.SelectedIndex;
@@ -221,6 +272,11 @@ namespace Programming.Veiw.Panels
             YeartextBox1.Text = _currentMovie.Year.ToString();
             GenretextBox4.Text = _currentMovie.Genre;
             RatingtextBox5.Text = _currentMovie.Rating.ToString();
+        }
+
+        private void MovieControl1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

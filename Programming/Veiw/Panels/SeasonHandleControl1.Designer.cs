@@ -71,6 +71,7 @@
             this.Controls.Add(this.label5);
             this.Name = "SeasonHandleControl1";
             this.Size = new System.Drawing.Size(215, 116);
+            this.Load += new System.EventHandler(this.SeasonHandleControl1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
