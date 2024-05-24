@@ -13,6 +13,11 @@ namespace Programming.Model
         private string surname;
         private int number;
 
+        /// <summary>
+        /// Проверяет, содержит ли строка только буквы.
+        /// </summary>
+        /// <param name="value">Строка для проверки.</param>
+        /// <param name="propertyName">Имя проверяемого свойства.</param>
         private void AssertStringContainsOnlyLetters(string value, string propertyName)
         {
             if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))
@@ -21,6 +26,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение, проверяет.
+        /// </summary>
         public string Name
         {
             get { return name; }
@@ -31,6 +39,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение, проверяет.
+        /// </summary>
         public string Surname
         {
             get { return surname; }
@@ -41,6 +52,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение,проверяет.
+        /// </summary>
         public int Number
         {
             get { return number; }

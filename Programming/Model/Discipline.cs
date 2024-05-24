@@ -12,18 +12,27 @@ namespace Programming.Model
         private string purpose;
         private int day;
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение.
+        /// </summary>
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение.
+        /// </summary>
         public string Purpose
         {
             get { return purpose; }
             set { purpose = value; }
         }
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение.
+        /// </summary>
         public int Day
         {
             get { return day; }

@@ -8,6 +8,11 @@ namespace Programming.Model
 {
     static class CollisionManager
     {
+        /// <summary>
+        /// Проверка на пересеченение прямоугольников.
+        /// </summary>
+        /// <param name="rectangle1">Первый прямоугольник.</param>
+        /// <param name="rectangle2">Второй прямоугольник.</param>
         public static bool IsCollision(Rectangle rectangle1 , Rectangle rectangle2)
         {
             // Рассчитываем половинные размеры прямоугольников
@@ -29,6 +34,11 @@ namespace Programming.Model
             return false; // Прямоугольники не пересекаются
         }
 
+        /// <summary>
+        /// Проверка на пересеченение окружностей.
+        /// </summary>
+        /// <param name="ring1">Первая окружность.</param>
+        /// <param name="ring2">Вторая окружность.</param>
         public static bool isCollision(Ring ring1, Ring ring2)
         {
             double distance = Math.Sqrt(Math.Pow(ring2.Center.X - ring1.Center.X, 2) +  Math.Pow(ring2.Center.Y - ring1.Center.Y, 2));

@@ -13,18 +13,27 @@ namespace Programming.Model
         private int minute;
         private int second;
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение.
+        /// </summary>
         public int Hour
         {
             get { return hour; }
             set { hour = value; }
         }
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение.
+        /// </summary>
         public int Minute
         {
             get { return minute; }
             set { minute = value; }
         }
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение.
+        /// </summary>
         public int Second
         {
             get { return second; }

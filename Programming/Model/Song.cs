@@ -12,18 +12,27 @@ namespace Programming.Model
         private int number;
         private string author;
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение.
+        /// </summary>
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение.
+        /// </summary>
         public int Number
         {
             get { return number; }
             set { number = value; }
         }
 
+        /// <summary>
+        /// Свойство, которое задает и получает значение.
+        /// </summary>
         public string Author
         {
             get { return author; }
