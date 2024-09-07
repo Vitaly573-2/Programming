@@ -220,5 +220,25 @@ namespace Programming
         {
 
         }
+
+        private void weekdayParsingControl11_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void movieControl11_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enumirationControl11_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rectanglesControl11_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -104,6 +104,7 @@
             this.movieControl11.Name = "movieControl11";
             this.movieControl11.Size = new System.Drawing.Size(464, 417);
             this.movieControl11.TabIndex = 0;
+            this.movieControl11.Load += new System.EventHandler(this.movieControl11_Load);
             // 
             // groupBox4
             // 
@@ -120,10 +121,11 @@
             // rectanglesControl11
             // 
             this.rectanglesControl11.Location = new System.Drawing.Point(7, 30);
-            this.rectanglesControl11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rectanglesControl11.Margin = new System.Windows.Forms.Padding(4);
             this.rectanglesControl11.Name = "rectanglesControl11";
             this.rectanglesControl11.Size = new System.Drawing.Size(456, 428);
             this.rectanglesControl11.TabIndex = 0;
+            this.rectanglesControl11.Load += new System.EventHandler(this.rectanglesControl11_Load);
             // 
             // tabPage1
             // 
@@ -181,6 +183,7 @@
             this.weekdayParsingControl11.Name = "weekdayParsingControl11";
             this.weekdayParsingControl11.Size = new System.Drawing.Size(458, 166);
             this.weekdayParsingControl11.TabIndex = 0;
+            this.weekdayParsingControl11.Load += new System.EventHandler(this.weekdayParsingControl11_Load);
             // 
             // groupBox1
             // 
@@ -201,6 +204,7 @@
             this.enumirationControl11.Name = "enumirationControl11";
             this.enumirationControl11.Size = new System.Drawing.Size(1009, 227);
             this.enumirationControl11.TabIndex = 0;
+            this.enumirationControl11.Load += new System.EventHandler(this.enumirationControl11_Load);
             // 
             // Rectangles
             // 
