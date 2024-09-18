@@ -39,12 +39,15 @@
             // 
             // ItemtabControl
             // 
+            this.ItemtabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemtabControl.Controls.Add(this.tabPage1);
             this.ItemtabControl.Controls.Add(this.tabPage2);
             this.ItemtabControl.Location = new System.Drawing.Point(0, 0);
             this.ItemtabControl.Name = "ItemtabControl";
             this.ItemtabControl.SelectedIndex = 0;
-            this.ItemtabControl.Size = new System.Drawing.Size(738, 686);
+            this.ItemtabControl.Size = new System.Drawing.Size(736, 687);
             this.ItemtabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -53,7 +56,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(730, 660);
+            this.tabPage1.Size = new System.Drawing.Size(728, 661);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "items";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -64,17 +67,21 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(815, 628);
+            this.tabPage2.Size = new System.Drawing.Size(728, 661);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // itemsTab1
             // 
+            this.itemsTab1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.itemsTab1.Location = new System.Drawing.Point(3, 3);
             this.itemsTab1.Name = "itemsTab1";
-            this.itemsTab1.Size = new System.Drawing.Size(730, 656);
+            this.itemsTab1.Size = new System.Drawing.Size(722, 655);
             this.itemsTab1.TabIndex = 0;
+            this.itemsTab1.Load += new System.EventHandler(this.itemsTab1_Load);
             // 
             // MainForm
             // 

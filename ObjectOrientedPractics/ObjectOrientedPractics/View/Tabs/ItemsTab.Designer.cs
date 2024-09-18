@@ -43,19 +43,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(9, 15);
+            this.label1.Location = new System.Drawing.Point(6, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 0;
@@ -64,16 +63,19 @@
             // 
             // ItemslistBox
             // 
+            this.ItemslistBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ItemslistBox.FormattingEnabled = true;
-            this.ItemslistBox.Location = new System.Drawing.Point(11, 39);
+            this.ItemslistBox.Location = new System.Drawing.Point(9, 31);
             this.ItemslistBox.Name = "ItemslistBox";
-            this.ItemslistBox.Size = new System.Drawing.Size(294, 459);
+            this.ItemslistBox.Size = new System.Drawing.Size(310, 485);
             this.ItemslistBox.TabIndex = 1;
             this.ItemslistBox.SelectedIndexChanged += new System.EventHandler(this.ItemslistBox_SelectedIndexChanged);
             // 
             // Addbutton
             // 
-            this.Addbutton.Location = new System.Drawing.Point(11, 18);
+            this.Addbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Addbutton.Location = new System.Drawing.Point(11, 19);
             this.Addbutton.Name = "Addbutton";
             this.Addbutton.Size = new System.Drawing.Size(95, 40);
             this.Addbutton.TabIndex = 2;
@@ -83,7 +85,8 @@
             // 
             // Removebutton
             // 
-            this.Removebutton.Location = new System.Drawing.Point(121, 18);
+            this.Removebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Removebutton.Location = new System.Drawing.Point(121, 19);
             this.Removebutton.Name = "Removebutton";
             this.Removebutton.Size = new System.Drawing.Size(95, 40);
             this.Removebutton.TabIndex = 3;
@@ -93,12 +96,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(9, 12);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(711, 638);
+            this.groupBox1.Size = new System.Drawing.Size(730, 656);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -106,6 +113,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox4.Controls.Add(this.DescriptiontextBox);
             this.groupBox4.Controls.Add(this.label6);
@@ -116,9 +126,9 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Location = new System.Drawing.Point(328, 13);
+            this.groupBox4.Location = new System.Drawing.Point(337, 13);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(377, 619);
+            this.groupBox4.Size = new System.Drawing.Size(387, 619);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
@@ -126,6 +136,9 @@
             // 
             // DescriptiontextBox
             // 
+            this.DescriptiontextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DescriptiontextBox.Location = new System.Drawing.Point(6, 266);
             this.DescriptiontextBox.Multiline = true;
             this.DescriptiontextBox.Name = "DescriptiontextBox";
@@ -146,6 +159,8 @@
             // 
             // NametextBox
             // 
+            this.NametextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NametextBox.Location = new System.Drawing.Point(6, 137);
             this.NametextBox.Multiline = true;
             this.NametextBox.Name = "NametextBox";
@@ -166,6 +181,8 @@
             // 
             // CosttextBox
             // 
+            this.CosttextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CosttextBox.Location = new System.Drawing.Point(58, 70);
             this.CosttextBox.Name = "CosttextBox";
             this.CosttextBox.Size = new System.Drawing.Size(124, 20);
@@ -174,8 +191,11 @@
             // 
             // IdtextBox
             // 
+            this.IdtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.IdtextBox.Location = new System.Drawing.Point(58, 42);
             this.IdtextBox.Name = "IdtextBox";
+            this.IdtextBox.ReadOnly = true;
             this.IdtextBox.Size = new System.Drawing.Size(124, 20);
             this.IdtextBox.TabIndex = 5;
             this.IdtextBox.TextChanged += new System.EventHandler(this.IdtextBox_TextChanged);
@@ -213,29 +233,31 @@
             this.label2.Text = "Selected Item";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.Addbutton);
-            this.groupBox3.Controls.Add(this.Removebutton);
-            this.groupBox3.Location = new System.Drawing.Point(7, 556);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(315, 76);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.ItemslistBox);
-            this.groupBox2.Location = new System.Drawing.Point(7, 13);
+            this.groupBox2.Location = new System.Drawing.Point(6, 39);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(315, 537);
+            this.groupBox2.Size = new System.Drawing.Size(325, 489);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox3.Controls.Add(this.Addbutton);
+            this.groupBox3.Controls.Add(this.Removebutton);
+            this.groupBox3.Location = new System.Drawing.Point(15, 534);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(316, 104);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // ItemsTab
             // 
@@ -244,12 +266,12 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ItemsTab";
             this.Size = new System.Drawing.Size(730, 656);
+            this.Load += new System.EventHandler(this.ItemsTab_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -261,8 +283,6 @@
         private System.Windows.Forms.Button Addbutton;
         private System.Windows.Forms.Button Removebutton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox IdtextBox;
         private System.Windows.Forms.Label label4;
@@ -273,5 +293,7 @@
         private System.Windows.Forms.TextBox NametextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox CosttextBox;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

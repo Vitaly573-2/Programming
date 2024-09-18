@@ -9,10 +9,10 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Товары
     /// </summary>
-    class Item
+    public class Item
     {
         //идентификационный номер
-        private readonly int _id;
+        private readonly int _id = IdGenerator._currentId;
         //название
         private string _name;
         //информация о товаре
@@ -82,6 +82,7 @@ namespace ObjectOrientedPractics.Model
         //присваивание значения свойствам
         public Item(string name, string info, double cost)
         {
+            _id = IdGenerator.GetNextId();
             Name = name;
             Info = info;
             Cost = cost;
