@@ -104,10 +104,18 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void DescriptiontextBox_TextChanged(object sender, EventArgs e)
         {
-            if (select != -1)
+            if (DescriptiontextBox.Text.Any(char.IsDigit) || DescriptiontextBox.Text.Length > 1000)
             {
-                _items[select].Info = DescriptiontextBox.Text;
-                UpdateSelectItemListBox();
+                DescriptiontextBox.BackColor = Color.Pink;
+            }
+            else
+            {
+                DescriptiontextBox.BackColor = Color.White;
+                if (select != -1)
+                {
+                    _items[select].Info = DescriptiontextBox.Text;
+                    UpdateSelectItemListBox();
+                }
             }
         }
 
@@ -118,10 +126,20 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void NametextBox_TextChanged(object sender, EventArgs e)
         {
-            if (select != -1)  
+            //метод Any - проверяет есть хотя бы один символ в строке, который является цифрой(исп. из LINQ)
+            //char.IsDigit - проверяет является ли символ числом
+            if (NametextBox.Text.Any(char.IsDigit) || NametextBox.Text.Length > 200)
             {
-                _items[select].Name = NametextBox.Text;
-                UpdateSelectItemListBox();  
+                NametextBox.BackColor = Color.Pink;
+            }
+            else
+            {
+                NametextBox.BackColor = Color.White;
+                if (select != -1)
+                {
+                    _items[select].Name = NametextBox.Text;
+                    UpdateSelectItemListBox();
+                }
             }
         }
 
@@ -132,10 +150,25 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void CosttextBox_TextChanged(object sender, EventArgs e)
         {
-            if (select != -1 && double.TryParse(CosttextBox.Text, out double cost))
+            if (!double.TryParse(CosttextBox.Text, out double cost))
             {
-                _items[select].Cost = cost;
-                UpdateSelectItemListBox();
+                CosttextBox.BackColor = Color.Pink;
+            }
+            else
+            {
+                if (cost < 0 || cost > 100000)
+                {
+                    CosttextBox.BackColor = Color.Pink;
+                }
+                else
+                {
+                    CosttextBox.BackColor = Color.White;
+                    if (select != -1)
+                    {
+                        _items[select].Cost = cost;
+                        UpdateSelectItemListBox();
+                    }
+                }
             }
         }
 
