@@ -16,5 +16,10 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
         }
+
+        private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

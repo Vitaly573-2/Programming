@@ -39,15 +39,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.CustomersPanel1 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.CusoemersAddButton = new System.Windows.Forms.Button();
             this.CstomersRemoveButton = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.CustomersPanel1 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -70,6 +70,7 @@
             this.CustomersListBox.Name = "CustomersListBox";
             this.CustomersListBox.Size = new System.Drawing.Size(316, 511);
             this.CustomersListBox.TabIndex = 1;
+            this.CustomersListBox.SelectedIndexChanged += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
             // 
             // CustomersAddresTextBox
             // 
@@ -166,32 +167,16 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // groupBox4
+            // groupBox3
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox4.Controls.Add(this.CustomersAddresTextBox);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.CustomersFullNameTextBox);
-            this.groupBox4.Controls.Add(this.CustomersIdTextBox);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Location = new System.Drawing.Point(337, 13);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(387, 251);
-            this.groupBox4.TabIndex = 6;
-            this.groupBox4.TabStop = false;
-            // 
-            // CustomersPanel1
-            // 
-            this.CustomersPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CustomersPanel1.Location = new System.Drawing.Point(337, 270);
-            this.CustomersPanel1.Name = "CustomersPanel1";
-            this.CustomersPanel1.Size = new System.Drawing.Size(387, 362);
-            this.CustomersPanel1.TabIndex = 7;
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox3.Controls.Add(this.CusoemersAddButton);
+            this.groupBox3.Controls.Add(this.CstomersRemoveButton);
+            this.groupBox3.Location = new System.Drawing.Point(9, 563);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(322, 69);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
             // 
             // CusoemersAddButton
             // 
@@ -213,16 +198,32 @@
             this.CstomersRemoveButton.Text = "Remove";
             this.CstomersRemoveButton.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // CustomersPanel1
             // 
-            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox3.Controls.Add(this.CusoemersAddButton);
-            this.groupBox3.Controls.Add(this.CstomersRemoveButton);
-            this.groupBox3.Location = new System.Drawing.Point(9, 563);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(322, 69);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
+            this.CustomersPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CustomersPanel1.Location = new System.Drawing.Point(337, 270);
+            this.CustomersPanel1.Name = "CustomersPanel1";
+            this.CustomersPanel1.Size = new System.Drawing.Size(387, 362);
+            this.CustomersPanel1.TabIndex = 7;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox4.Controls.Add(this.CustomersAddresTextBox);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.CustomersFullNameTextBox);
+            this.groupBox4.Controls.Add(this.CustomersIdTextBox);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Location = new System.Drawing.Point(337, 13);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(387, 251);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
             // 
             // CustomersTab
             // 
@@ -233,9 +234,9 @@
             this.Size = new System.Drawing.Size(730, 656);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
