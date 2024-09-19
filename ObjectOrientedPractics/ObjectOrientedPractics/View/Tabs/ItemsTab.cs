@@ -27,39 +27,6 @@ namespace ObjectOrientedPractics.View.Tabs
 
         }
             
-        private void ItemslistBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ItemslistBox.SelectedIndex != -1)
-            {
-                select = ItemslistBox.SelectedIndex;
-                Item selectedItem = _items[select];
-
-                IdtextBox.Text = selectedItem.Id.ToString();
-                CosttextBox.Text = selectedItem.Cost.ToString();
-                NametextBox.Text = selectedItem.Name.ToString();
-                DescriptiontextBox.Text = selectedItem.Info.ToString();
-            }
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        //Добавление записей
-        private void Addbutton_Click(object sender, EventArgs e)
-        {
-            Item item = new Item(NametextBox.Text, DescriptiontextBox.Text, double.Parse(CosttextBox.Text));
-            _items.Add(item);
-            UpdateItemsListBox();//обновляет ItemsListBox
-            ClearTextBoxes();
-        }
-
         private void ClearTextBoxes()//очищение TextBoxes
         {
             IdtextBox.Clear();
@@ -100,7 +67,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 UpdateItemsListBox();
                 ClearTextBoxes();
             }
-        }
 
         private void DescriptiontextBox_TextChanged(object sender, EventArgs e)
         {
@@ -116,8 +82,6 @@ namespace ObjectOrientedPractics.View.Tabs
                     _items[select].Info = DescriptiontextBox.Text;
                     UpdateSelectItemListBox();
                 }
-            }
-        }
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -141,7 +105,6 @@ namespace ObjectOrientedPractics.View.Tabs
                     UpdateSelectItemListBox();
                 }
             }
-        }
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -196,10 +159,6 @@ namespace ObjectOrientedPractics.View.Tabs
         {
 
         }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void ItemsTab_Load(object sender, EventArgs e)
