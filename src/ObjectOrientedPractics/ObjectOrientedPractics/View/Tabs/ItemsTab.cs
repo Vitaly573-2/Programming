@@ -23,6 +23,16 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
         }
 
+        private void InitializeComponentComboBox()
+        {
+            Array array = Enum.GetValues(typeof(Category));
+            foreach (var item in array)
+            {
+                ItemsComboBox1.Items.Add(item);
+            }
+
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -189,6 +199,51 @@ namespace ObjectOrientedPractics.View.Tabs
             _items.Add(item);
             UpdateItemsListBox();//обновляет ItemsListBox
             ClearTextBoxes();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ItemsComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ItemsComboBox1.DataSource = Enum.GetValues(typeof(Category));
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

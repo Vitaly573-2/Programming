@@ -20,6 +20,8 @@ namespace ObjectOrientedPractics.Model
         //цена
         private double _cost;
 
+        private Category _category;
+
         //возвращает идентификационный номер
         public int Id
         {
@@ -73,6 +75,8 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        public Category Category { get; set; }    
+
         //генерация идентификационного номера
         public Item()
         {
@@ -80,12 +84,13 @@ namespace ObjectOrientedPractics.Model
         }
 
         //присваивание значения свойствам
-        public Item(string name, string info, double cost)
+        public Item(string name, string info, double cost, Category category)
         {
             _id = IdGenerator.GetNextId();
             Name = name;
             Info = info;
             Cost = cost;
+            Category = category;
         }
 
     }

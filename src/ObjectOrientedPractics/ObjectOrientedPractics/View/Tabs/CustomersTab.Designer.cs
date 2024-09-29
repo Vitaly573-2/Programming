@@ -60,6 +60,7 @@
             this.groupBox2.Size = new System.Drawing.Size(325, 528);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // CustomersListBox
             // 
@@ -81,6 +82,7 @@
             this.CustomersAddresTextBox.Name = "CustomersAddresTextBox";
             this.CustomersAddresTextBox.Size = new System.Drawing.Size(284, 118);
             this.CustomersAddresTextBox.TabIndex = 8;
+            this.CustomersAddresTextBox.TextChanged += new System.EventHandler(this.CustomersAddresTextBox_TextChanged);
             // 
             // label5
             // 
@@ -91,6 +93,7 @@
             this.label5.Size = new System.Drawing.Size(57, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Addres:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // CustomersFullNameTextBox
             // 
@@ -100,6 +103,7 @@
             this.CustomersFullNameTextBox.Name = "CustomersFullNameTextBox";
             this.CustomersFullNameTextBox.Size = new System.Drawing.Size(284, 20);
             this.CustomersFullNameTextBox.TabIndex = 6;
+            this.CustomersFullNameTextBox.TextChanged += new System.EventHandler(this.CustomersFullNameTextBox_TextChanged);
             // 
             // CustomersIdTextBox
             // 
@@ -110,6 +114,7 @@
             this.CustomersIdTextBox.ReadOnly = true;
             this.CustomersIdTextBox.Size = new System.Drawing.Size(124, 20);
             this.CustomersIdTextBox.TabIndex = 5;
+            this.CustomersIdTextBox.TextChanged += new System.EventHandler(this.CustomersIdTextBox_TextChanged);
             // 
             // label4
             // 
@@ -120,6 +125,7 @@
             this.label4.Size = new System.Drawing.Size(75, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "Full Name:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -130,6 +136,7 @@
             this.label3.Size = new System.Drawing.Size(25, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "ID:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -140,6 +147,7 @@
             this.label2.Size = new System.Drawing.Size(144, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Selected Customer";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -149,6 +157,7 @@
             this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Customers";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox1
             // 
@@ -166,6 +175,7 @@
             this.groupBox1.Size = new System.Drawing.Size(730, 656);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox3
             // 
@@ -177,6 +187,7 @@
             this.groupBox3.Size = new System.Drawing.Size(322, 69);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // CusoemersAddButton
             // 
@@ -187,6 +198,7 @@
             this.CusoemersAddButton.TabIndex = 2;
             this.CusoemersAddButton.Text = "Add";
             this.CusoemersAddButton.UseVisualStyleBackColor = true;
+            this.CusoemersAddButton.Click += new System.EventHandler(this.CusoemersAddButton_Click);
             // 
             // CstomersRemoveButton
             // 
@@ -197,6 +209,7 @@
             this.CstomersRemoveButton.TabIndex = 3;
             this.CstomersRemoveButton.Text = "Remove";
             this.CstomersRemoveButton.UseVisualStyleBackColor = true;
+            this.CstomersRemoveButton.Click += new System.EventHandler(this.CstomersRemoveButton_Click);
             // 
             // CustomersPanel1
             // 
@@ -205,6 +218,7 @@
             this.CustomersPanel1.Name = "CustomersPanel1";
             this.CustomersPanel1.Size = new System.Drawing.Size(387, 362);
             this.CustomersPanel1.TabIndex = 7;
+            this.CustomersPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.CustomersPanel1_Paint);
             // 
             // groupBox4
             // 
@@ -224,6 +238,7 @@
             this.groupBox4.Size = new System.Drawing.Size(387, 251);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // CustomersTab
             // 

@@ -21,5 +21,80 @@ namespace ObjectOrientedPractics.View.Tabs
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomersAddresTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomersFullNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomersIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CusoemersAddButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CstomersRemoveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomersPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

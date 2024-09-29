@@ -33,6 +33,8 @@
             this.Addbutton = new System.Windows.Forms.Button();
             this.Removebutton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ItemsComboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.DescriptiontextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CosttextBox = new System.Windows.Forms.TextBox();
@@ -53,6 +55,7 @@
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Items";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // ItemslistBox
             // 
@@ -90,6 +93,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.ItemsComboBox1);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.DescriptiontextBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.CosttextBox);
@@ -103,6 +108,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(423, 650);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // ItemsComboBox1
+            // 
+            this.ItemsComboBox1.FormattingEnabled = true;
+            this.ItemsComboBox1.Location = new System.Drawing.Point(78, 79);
+            this.ItemsComboBox1.Name = "ItemsComboBox1";
+            this.ItemsComboBox1.Size = new System.Drawing.Size(121, 21);
+            this.ItemsComboBox1.TabIndex = 12;
+            this.ItemsComboBox1.SelectedIndexChanged += new System.EventHandler(this.ItemsComboBox1_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(3, 80);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 17);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Category:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // DescriptiontextBox
             // 
@@ -125,12 +151,13 @@
             this.label2.Size = new System.Drawing.Size(106, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Selected Item";
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // CosttextBox
             // 
             this.CosttextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CosttextBox.Location = new System.Drawing.Point(55, 54);
+            this.CosttextBox.Location = new System.Drawing.Point(78, 56);
             this.CosttextBox.Name = "CosttextBox";
             this.CosttextBox.Size = new System.Drawing.Size(178, 20);
             this.CosttextBox.TabIndex = 6;
@@ -145,12 +172,13 @@
             this.label6.Size = new System.Drawing.Size(83, 17);
             this.label6.TabIndex = 9;
             this.label6.Text = "Description:";
+            this.label6.Click += new System.EventHandler(this.label6_Click_1);
             // 
             // IdtextBox
             // 
             this.IdtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.IdtextBox.Location = new System.Drawing.Point(55, 26);
+            this.IdtextBox.Location = new System.Drawing.Point(78, 30);
             this.IdtextBox.Name = "IdtextBox";
             this.IdtextBox.ReadOnly = true;
             this.IdtextBox.Size = new System.Drawing.Size(178, 20);
@@ -166,6 +194,7 @@
             this.label5.Size = new System.Drawing.Size(25, 17);
             this.label5.TabIndex = 3;
             this.label5.Text = "ID:";
+            this.label5.Click += new System.EventHandler(this.label5_Click_1);
             // 
             // label3
             // 
@@ -176,6 +205,7 @@
             this.label3.Size = new System.Drawing.Size(49, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Name:";
+            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // NametextBox
             // 
@@ -197,6 +227,7 @@
             this.label4.Size = new System.Drawing.Size(40, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "Cost:";
+            this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // ItemsTab
             // 
@@ -232,5 +263,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox NametextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox ItemsComboBox1;
     }
 }
