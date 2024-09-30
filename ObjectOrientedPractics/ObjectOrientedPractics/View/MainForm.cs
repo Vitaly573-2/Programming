@@ -17,17 +17,12 @@ namespace ObjectOrientedPractics
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void customersTab1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void itemsTab1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
 
         }

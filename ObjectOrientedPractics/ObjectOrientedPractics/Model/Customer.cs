@@ -13,7 +13,7 @@ namespace ObjectOrientedPractics.Model
     class Customer
     {
         //идентификационный номер
-        private readonly int _id;
+        private readonly int _id = IdGenerator._currentId;
         //ФИО
         private string _fullname;
         //адресс 
@@ -24,7 +24,7 @@ namespace ObjectOrientedPractics.Model
         {
             get
             {
-                return Id;
+                return _id;
             }
         }
 
@@ -67,6 +67,7 @@ namespace ObjectOrientedPractics.Model
         {
             FullName = fullname;
             Address = address;
+            _id = IdGenerator.GetNextId();
         }
     }
 }
