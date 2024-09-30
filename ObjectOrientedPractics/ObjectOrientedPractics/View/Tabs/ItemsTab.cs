@@ -21,6 +21,17 @@ namespace ObjectOrientedPractics.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
+            InitializeComboBox();
+        }
+
+        private void InitializeComboBox()
+        {
+            Array nums = Enum.GetValues(typeof(Category));
+            foreach(Category it in nums)
+            {
+                CategoryComboBox1.Items.Add(it);
+            }
+            CategoryComboBox1.SelectedIndex = 0;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,6 +45,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CosttextBox.Clear();
             NametextBox.Clear();
             DescriptiontextBox.Clear();
+            CategoryComboBox1.SelectedItem = 0;
         }
 
         //Обновлениие записей в ListBox
@@ -43,7 +55,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             foreach (Item it in _items)
             {
-                ItemslistBox.Items.Add($"Id:{it.Id} Cost:{it.Cost} Name:{it.Name} Description:{it.Info}");
+                ItemslistBox.Items.Add($"Id:{it.Id} Cost:{it.Cost} Name:{it.Name} Description:{it.Info} Category: {it.Category}");
             }
         }
 
@@ -54,7 +66,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 Item selectItem = _items[select];
                 //обновление по выбранному элементу в ItemsListBox
                 ItemslistBox.Items[select] = $"Id:{selectItem.Id} Cost:{selectItem.Cost} " +
-                    $"Name:{selectItem.Name} Description:{selectItem.Info}";
+                    $"Name:{selectItem.Name} Description:{selectItem.Info} Category: {selectItem.Category}";
             }
         }
 
@@ -75,7 +87,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Item item = new Item(NametextBox.Text, DescriptiontextBox.Text, double.Parse(CosttextBox.Text));
+            Item item = new Item(NametextBox.Text, DescriptiontextBox.Text, double.Parse(CosttextBox.Text),(Category)CategoryComboBox1.SelectedItem);
             _items.Add(item);
             UpdateItemsListBox();//обновляет ItemsListBox
             ClearTextBoxes();
@@ -103,6 +115,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CosttextBox.Text = selectedItem.Cost.ToString();
                 NametextBox.Text = selectedItem.Name.ToString();
                 DescriptiontextBox.Text = selectedItem.Info.ToString();
+                CategoryComboBox1.SelectedItem = selectedItem.Category;
             }
         }
 
@@ -204,6 +217,15 @@ namespace ObjectOrientedPractics.View.Tabs
         private void label1_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void CategoryComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (select != -1)
+            {
+                _items[select].Category = (Category)CategoryComboBox1.SelectedIndex;
+                UpdateSelectItemListBox();
+            }
         }
     }
 }
