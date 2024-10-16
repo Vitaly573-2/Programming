@@ -354,29 +354,29 @@ namespace ObjectOrientedPractics.View.Controls
                 ApartmentTextBox.BackColor = Color.Pink; // Устанавливаем розовый фон для некорректного значения
             }
 
-/*            if (ApartmentTextBox.Text.Length > 10)
-            {
-                ApartmentTextBox.BackColor = Color.Pink;
-                MessageBox.Show($"Введите Apartment: {ApartmentTextBox.Text} используя не больше 10 символов");
-            }
-            else
-            {
-                ApartmentTextBox.BackColor = Color.White;
-                Address.Apartment = ApartmentTextBox.Text;
-            }
+            /*            if (ApartmentTextBox.Text.Length > 10)
+                        {
+                            ApartmentTextBox.BackColor = Color.Pink;
+                            MessageBox.Show($"Введите Apartment: {ApartmentTextBox.Text} используя не больше 10 символов");
+                        }
+                        else
+                        {
+                            ApartmentTextBox.BackColor = Color.White;
+                            Address.Apartment = ApartmentTextBox.Text;
+                        }
 
-            if (IsUpdatingFieldFlag == true)
-            {
-                try
-                {
-                    Address.Apartment = ApartmentTextBox.Text;
-                    ApartmentTextBox.BackColor = Color.White;
-                }
-                catch (ArgumentException)
-                {
-                    ApartmentTextBox.BackColor = Color.Pink;
-                }
-            }*/
+                        if (IsUpdatingFieldFlag == true)
+                        {
+                            try
+                            {
+                                Address.Apartment = ApartmentTextBox.Text;
+                                ApartmentTextBox.BackColor = Color.White;
+                            }
+                            catch (ArgumentException)
+                            {
+                                ApartmentTextBox.BackColor = Color.Pink;
+                            }
+                        }*/
         }
 
         private void label7_Click(object sender, EventArgs e)
