@@ -10,14 +10,14 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Покупатель
     /// </summary>
-    class Customer
+    public class Customer
     {
         //идентификационный номер
-        private readonly int _id = IdGenerator._currentId;
+        readonly int _id;
         //ФИО
-        private string _fullname;
+        private string _fullname = string.Empty;
         //адресс 
-        private string _address;
+        private Address _address = new Address();
 
         //возвращает идентификационный номер
         public int Id
@@ -43,7 +43,7 @@ namespace ObjectOrientedPractics.Model
         }
 
         //проверяет и возвращает адресс
-        public string Address
+        public Address Address
         {
             get
             {
@@ -51,23 +51,30 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 500, nameof(Address));
+                //ValueValidator.AssertStringOnLength(value.ToString(), 500, nameof(Address));
                 _address = value;
             }
         }
 
-        //генерация идентификационного номера
-        public Customer()
-        {
-            _id = IdGenerator.GetNextId();
-        }
-
         //присваивание значения свойствам
-        public Customer(string fullname, string address)
+        public Customer(string fullname, Address address)
         {
             FullName = fullname;
             Address = address;
             _id = IdGenerator.GetNextId();
+        }
+
+        //генерация идентификационного номера
+        public Customer()   
+        {
+            Address = new Address();
+            FullName = string.Empty;
+            _id = IdGenerator.GetNextId();
+        }
+
+        public override string ToString()
+        {
+            return $"{Id} - {FullName}";
         }
     }
 }
