@@ -44,7 +44,6 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             CustomersIdTextBox.Clear();
             CustomersFullNameTextBox.Clear();
-            CustomersAddresTextBox.Clear();
         }
 
         //Обновлениие записей в ListBox
