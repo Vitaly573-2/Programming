@@ -16,8 +16,6 @@ namespace ObjectOrientedPractics.View.Controls
     {
         private Address _currentAddress;
 
-        /*public bool IsUpdatingFieldFlag = true;*/
-
         public Address Address
         {
             get
@@ -112,20 +110,19 @@ namespace ObjectOrientedPractics.View.Controls
             // Проверяем, является ли введенное значение числом
             if (int.TryParse(PostIndexTextBox.Text, out int index))
             {
-                // Проверяем, что индекс шестизначный
                 if (index >= 100000 && index <= 999999)
                 {
-                    PostIndexTextBox.BackColor = Color.White; // Устанавливаем белый фон для корректного значения
+                    PostIndexTextBox.BackColor = Color.White;
                     Address.Index = index; // Присваиваем индекс свойству Address
                 }
                 else
                 {
-                    PostIndexTextBox.BackColor = Color.Pink; // Устанавливаем розовый фон для некорректного значения
+                    PostIndexTextBox.BackColor = Color.Pink; 
                 }
             }
             else
             {
-                PostIndexTextBox.BackColor = Color.Pink; // Устанавливаем розовый фон
+                PostIndexTextBox.BackColor = Color.Pink; 
             }
         }
 
@@ -138,7 +135,7 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 if (CountryTextBox.Text.Length < 50)
                 {
-                    CountryTextBox.BackColor = Color.White; // Устанавливаем белый фон для корректного значения
+                    CountryTextBox.BackColor = Color.White; 
                     Address.Country = CountryTextBox.Text; // Присваиваем значение свойству Address
                 }
                 else
@@ -148,7 +145,7 @@ namespace ObjectOrientedPractics.View.Controls
             }
             else
             {
-                CountryTextBox.BackColor = Color.Pink; // Устанавливаем розовый фон для некорректного значения
+                CountryTextBox.BackColor = Color.Pink;
             }
         }
 
