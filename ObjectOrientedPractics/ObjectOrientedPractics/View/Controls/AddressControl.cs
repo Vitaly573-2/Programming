@@ -135,20 +135,6 @@ namespace ObjectOrientedPractics.View.Controls
                     Address.Index = int.Parse(PostIndexTextBox.Text);
                     PostIndexTextBox.BackColor = Color.White;
                 }
-                catch (ArgumentException)
-                {
-                    PostIndexTextBox.BackColor = Color.Pink;
-                }
-                catch (OverflowException)
-                {
-                    PostIndexTextBox.BackColor = Color.Pink;
-                }
-                catch (FormatException)
-                {
-                    PostIndexTextBox.BackColor = Color.Pink;
-                }
-            }*/
-        }
 
         private void CountryTextBox_TextChanged(object sender, EventArgs e)
         {
