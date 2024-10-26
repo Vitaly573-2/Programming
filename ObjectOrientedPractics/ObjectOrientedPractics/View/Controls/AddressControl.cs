@@ -247,25 +247,9 @@ namespace ObjectOrientedPractics.View.Controls
         private void AddressControl_Load(object sender, EventArgs e)
         {
             NewAddress = new AddressControl();
-            /*NewAddress.Address = new Address(123456, "Россия", "Томск", "Репина", "12", "36");*/
-            //PostIndexTextBox.Text = NewAddress.Address.Index.ToString();
-            /*CountryTextBox.Text = NewAddress.Address.Country.ToString();
-            CityTextBox.Text = NewAddress.Address.City.ToString();
-            StreetTextBox.Text = NewAddress.Address.Street.ToString();
-            BuildingTextBox.Text = NewAddress.Address.Building.ToString();
-            ApartmentTextBox.Text = NewAddress.Address.Apartment.ToString();*/
+
         }
 
-        /*        private void AddButton_Click(object sender, EventArgs e)
-        {
 
-            label8.Text = $"{NewAddress.Address.Index.ToString()} - {NewAddress.Address.Country.ToString()} - {NewAddress.Address.City.ToString()} - {NewAddress.Address.Street.ToString()} - {NewAddress.Address.Building.ToString()} - {NewAddress.Address.Apartment.ToString()}";
-
-        }*/
-/*        int value;
-        public void ListBoxfromCustomersTabState(int SelectedIndex)
-        {
-            int value = SelectedIndex;
-        }*/
     }
 }
