@@ -15,8 +15,17 @@ namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class ItemsTab : UserControl
     {
-        List<Item> _items = new List<Item>();
-        private int select = -1;
+        private List<Item> _items = new List<Item>();
+        private Item _currentItem;
+        private List<string> ItemsListBoxItems = new List<string>();
+
+        int select = -1;
+
+        public List<Item> Items
+        {
+            get { return _items; }
+            set { _items = value; }
+        }
 
         public ItemsTab()
         {
@@ -53,7 +62,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             ItemslistBox.Items.Clear();//очищает ItemsListBox
 
-            foreach (Item it in _items)
+            foreach (Item it in Items)
             {
                 ItemslistBox.Items.Add($"Id:{it.Id} Cost:{it.Cost} Name:{it.Name} Description:{it.Info} Category: {it.Category}");
             }
@@ -63,7 +72,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (select != -1)
             {
-                Item selectItem = _items[select];
+                Item selectItem = Items[select];
                 //обновление по выбранному элементу в ItemsListBox
                 ItemslistBox.Items[select] = $"Id:{selectItem.Id} Cost:{selectItem.Cost} " +
                     $"Name:{selectItem.Name} Description:{selectItem.Info} Category: {selectItem.Category}";
@@ -88,7 +97,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
             Item item = new Item(NametextBox.Text, DescriptiontextBox.Text, double.Parse(CosttextBox.Text),(Category)CategoryComboBox1.SelectedItem);
-            _items.Add(item);
+            Items.Add(item);
             UpdateItemsListBox();//обновляет ItemsListBox
             ClearTextBoxes();
         }
@@ -97,7 +106,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (ItemslistBox.SelectedIndex != -1)
             {
-                _items.RemoveAt(select);
+                Items.RemoveAt(select);
                 UpdateItemsListBox();
                 select = -1;
                 ClearTextBoxes();
@@ -109,7 +118,7 @@ namespace ObjectOrientedPractics.View.Tabs
             if (ItemslistBox.SelectedIndex != -1)
             {
                 select = ItemslistBox.SelectedIndex;
-                Item selectedItem = _items[select];
+                Item selectedItem = Items[select];
 
                 IdtextBox.Text = selectedItem.Id.ToString();
                 CosttextBox.Text = selectedItem.Cost.ToString();
@@ -135,7 +144,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 DescriptiontextBox.BackColor = Color.White;
                 if (select != -1)
                 {
-                    _items[select].Info = DescriptiontextBox.Text;
+                    Items[select].Info = DescriptiontextBox.Text;
                     UpdateSelectItemListBox();
                 }
             }
@@ -163,7 +172,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     CosttextBox.BackColor = Color.White;
                     if (select != -1)
                     {
-                        _items[select].Cost = cost;
+                        Items[select].Cost = cost;
                         UpdateSelectItemListBox();
                     }
                 }
@@ -203,7 +212,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 NametextBox.BackColor = Color.White;
                 if (select != -1)
                 {
-                    _items[select].Name = NametextBox.Text;
+                    Items[select].Name = NametextBox.Text;
                     UpdateSelectItemListBox();
                 }
             }
@@ -223,7 +232,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (select != -1)
             {
-                _items[select].Category = (Category)CategoryComboBox1.SelectedIndex;
+                Items[select].Category = (Category)CategoryComboBox1.SelectedIndex;
                 UpdateSelectItemListBox();
             }
         }

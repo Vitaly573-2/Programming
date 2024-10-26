@@ -33,22 +33,8 @@ namespace ObjectOrientedPractics.View.Tabs
         public CustomersTab()       
         {
             InitializeComponent();
-            /*addressControl1 = new AddressControl();*/
-            /*            addressControl.Clear();*/
         }
 
-/*        public List<Customer> Customers
-        {
-            get
-            {
-                return _customers;
-            }
-            set
-            {
-                _customers = value;
-                UpdateListBox();
-            }
-        }*/
 
 
 
@@ -87,72 +73,12 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-/*        private int ListBoxState()
-        {
-            return CustomersListBox.SelectedIndex;
-        }
-*/
 
         private void CustomersPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-/*        private void ClearTextBoxes()//очищение TextBoxes
-        {
-            CustomersIdTextBox.Clear();
-            CustomersFullNameTextBox.Clear();
-            AddressControl.Clear();
-        }*/
-
-        //Обновлениие записей в ListBox
-/*        private void UpdateListBox()
-        {
-            // Очищаем Items в ListBox перед добавлением новых записей
-            CustomersListBox.Items.Clear();
-
-            // Добавляем всех клиентов из списка _customers в ListBox
-            foreach (Customer customer in _customers)
-            {
-                // Форматируем строку для каждого клиента и добавляем в ListBox
-                string customerInfo = $"ID: {customer.Id}, Full Name: {customer.FullName}, Address: {customer.Address.ToString()}";
-                CustomersListBox.Items.Add(customerInfo);
-            }
-
-            *//*            CustomersListBox.Items.Clear();
-                        foreach (var customer in _customers)
-                        {
-                            CustomersListBox.Items.Add(customer);
-                        }*//*
-        }*/
-
-/*        private void UpdateListBoxItem()
-        {
-            if (_currentCustomer != null && CustomersListBox.SelectedIndex != -1)
-            {
-                CustomersListBox.Items[CustomersListBox.SelectedIndex] = _currentCustomer;
-            }
-        }
-*/
-/*        private void ClearInputField()
-        {
-            CustomersIdTextBox.Clear();
-            CustomersFullNameTextBox.Clear();
-            addressControl1.Clear();
-            CustomersIdTextBox.BackColor = Color.White;
-            CustomersFullNameTextBox.BackColor = Color.White;
-        }*/
-
-/*        private void UpdateSelectItemListBox()
-        {
-            if (select != -1)
-            {
-                Customer selectedCustomer = _customers[select];
-                //обновление по выбранному элементу в ItemsListBox
-                CustomersListBox.Items[select] = $"Id:{selectedCustomer.Id}" +
-                    $"FullName:{selectedCustomer.FullName} Address:{selectedCustomer.Address.ToString()}";
-            }
-        }*/
 
         private void CustomersTab_Load(object sender, EventArgs e)
         {
@@ -164,23 +90,6 @@ namespace ObjectOrientedPractics.View.Tabs
 
         }
 
-
-
-        /*        private void CustomersAddresTextBox_TextChanged_1(object sender, EventArgs e)
-                {
-                    if (select != -1)
-                    {
-                        // Получаем адрес из AddressControl
-                        Address updatedAddress = addressControl.Address;
-
-                        // Обновляем адрес выбранного покупателя
-                        _customers[select].Address = updatedAddress;
-
-                        // Обновляем отображение в ListBox
-                        UpdateSelectItemListBox();
-
-                    }
-                }*/
 
         private void label5_Click_1(object sender, EventArgs e)
         {
