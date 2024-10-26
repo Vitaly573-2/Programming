@@ -27,15 +27,7 @@ namespace ObjectOrientedPractics.View.Controls
                 _address = value;
             }
         }
-        /*public AddressControl()
-        {
-        }*/
 
-/*        public AddressControl(Address address)
-        {
-            Address = address;
-
-        }*/
 
         public AddressControl()
         {
