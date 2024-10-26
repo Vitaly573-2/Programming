@@ -19,6 +19,8 @@ namespace ObjectOrientedPractics.Model
         //адресс 
         private Address _address;
 
+        Cart _cart;
+
         //возвращает идентификационный номер
         public int Id
         {
@@ -56,20 +58,30 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        //корзина агрегирует список товаров
+        public Cart Cart
+        {
+            get { return _cart; }
+            set { _cart = value; }
+        }
+
         //присваивание значения свойствам
         public Customer(string fullname)
         {
             FullName = fullname;
             Address = new Address();
             _id = IdGenerator.GetNextId();
+            _cart = new Cart();
         }
 
+        //покапатель композирует объект корзины
         //генерация идентификационного номера
-        public Customer()   
+        public Customer() 
         {
             Address = new Address();
             FullName = string.Empty;
             _id = IdGenerator.GetNextId();
+            _cart = new Cart();
         }
 
 /*        public override string ToString()
