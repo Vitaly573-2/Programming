@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.CusoemersAddButton = new System.Windows.Forms.Button();
+            this.CustoemersAddButton = new System.Windows.Forms.Button();
             this.CstomersRemoveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
@@ -120,20 +120,20 @@
             this.label1.Text = "Customers";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // CusoemersAddButton
+            // CustoemersAddButton
             // 
-            this.CusoemersAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.CustoemersAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CusoemersAddButton.Location = new System.Drawing.Point(9, 594);
-            this.CusoemersAddButton.MaximumSize = new System.Drawing.Size(120, 60);
-            this.CusoemersAddButton.MinimumSize = new System.Drawing.Size(95, 40);
-            this.CusoemersAddButton.Name = "CusoemersAddButton";
-            this.CusoemersAddButton.Size = new System.Drawing.Size(95, 40);
-            this.CusoemersAddButton.TabIndex = 2;
-            this.CusoemersAddButton.Text = "Add";
-            this.CusoemersAddButton.UseVisualStyleBackColor = true;
-            this.CusoemersAddButton.Click += new System.EventHandler(this.CusoemersAddButton_Click);
+            this.CustoemersAddButton.Location = new System.Drawing.Point(9, 594);
+            this.CustoemersAddButton.MaximumSize = new System.Drawing.Size(120, 60);
+            this.CustoemersAddButton.MinimumSize = new System.Drawing.Size(95, 40);
+            this.CustoemersAddButton.Name = "CustoemersAddButton";
+            this.CustoemersAddButton.Size = new System.Drawing.Size(95, 40);
+            this.CustoemersAddButton.TabIndex = 2;
+            this.CustoemersAddButton.Text = "Add";
+            this.CustoemersAddButton.UseVisualStyleBackColor = true;
+            this.CustoemersAddButton.Click += new System.EventHandler(this.CustoemersAddButton_Click_1);
             // 
             // CstomersRemoveButton
             // 
@@ -190,7 +190,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.CstomersRemoveButton);
-            this.Controls.Add(this.CusoemersAddButton);
+            this.Controls.Add(this.CustoemersAddButton);
             this.Controls.Add(this.CustomersListBox);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(730, 656);
@@ -211,7 +211,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button CusoemersAddButton;
+        private System.Windows.Forms.Button CustoemersAddButton;
         private System.Windows.Forms.Button CstomersRemoveButton;
         private System.Windows.Forms.Panel panel1;
         private Controls.AddressControl addressControl1;

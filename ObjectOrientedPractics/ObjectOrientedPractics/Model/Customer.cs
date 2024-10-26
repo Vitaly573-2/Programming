@@ -15,9 +15,9 @@ namespace ObjectOrientedPractics.Model
         //идентификационный номер
         readonly int _id;
         //ФИО
-        private string _fullname = string.Empty;
+        private string _fullname;
         //адресс 
-        private Address _address = new Address();
+        private Address _address;
 
         //возвращает идентификационный номер
         public int Id
@@ -57,10 +57,10 @@ namespace ObjectOrientedPractics.Model
         }
 
         //присваивание значения свойствам
-        public Customer(string fullname, Address address)
+        public Customer(string fullname)
         {
             FullName = fullname;
-            Address = address;
+            Address = new Address();
             _id = IdGenerator.GetNextId();
         }
 
@@ -72,9 +72,9 @@ namespace ObjectOrientedPractics.Model
             _id = IdGenerator.GetNextId();
         }
 
-        public override string ToString()
+/*        public override string ToString()
         {
             return $"{Id} - {FullName}";
-        }
+        }*/
     }
 }

@@ -16,17 +16,25 @@ namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class CustomersTab : UserControl
     {
-
-        List<Customer> _customers = new List<Customer>();
+        //список
+        private List<Customer> _customers = new List<Customer>();
+        //объект
         private Customer _currentCustomer = new Customer();
-        /*private int select = -1;*/
+        //список объектов в ListBox
+        private List<string> CustomersListBoxItems = new List<string>();
 
+        //свойтво явязанное со списком 
+        public List<Customer> Customers
+        {
+            get { return _customers; }
+            set { _customers = value; }
+        }
 
         public CustomersTab()       
         {
             InitializeComponent();
-           /* addressControl = new AddressControl();*/
-/*            addressControl.Clear();*/
+            /*addressControl1 = new AddressControl();*/
+            /*            addressControl.Clear();*/
         }
 
 /*        public List<Customer> Customers
@@ -46,29 +54,44 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex != -1)
+            /*addressControl1.ListBoxfromCustomersTabState(CustomersListBox.SelectedIndex);*/
+            if (CustomersListBox.Items.Count == 0 || CustomersListBox.SelectedIndex == -1)
             {
-         /*       addressControl1.IsUpdatingFieldFlag = true;*/
-                _currentCustomer = _customers[CustomersListBox.SelectedIndex];
+                addressControl1.ListBoxNull = true;
+                CustoemersAddButton.Enabled = true;
+                CustomersIdTextBox.Text = "";
+
+                CustomersFullNameTextBox.Text = "";
+                addressControl1.ClearForm();
+
+                /*AddressRichTextBox.Text = "";*/
+
+            }
+            else
+            {
+                addressControl1.ListBoxNull = false;
+
+                CustoemersAddButton.Enabled = false;
+
+
+                int selectedIndex = CustomersListBox.SelectedIndex;
+                if (selectedIndex == -1) return;
+
+                _currentCustomer = Customers[selectedIndex];
 
                 CustomersIdTextBox.Text = _currentCustomer.Id.ToString();
                 CustomersFullNameTextBox.Text = _currentCustomer.FullName;
-                addressControl1.Address = _currentCustomer.Address;//AddressTextBox.Text = _currentCustomer.Address;
 
+                addressControl1.ShowValues(_currentCustomer.Address);
+                /*AddressRichTextBox.Text = _currentCustomer.Address;*/
             }
-
-            /*            if (CustomersListBox.SelectedIndex != -1 || CustomersListBox.SelectedItem != null)
-                        {
-                            addressControl1.IsUpdatingFieldFlag = true;
-                            _currentCustomer = _customers[CustomersListBox.SelectedIndex];
-
-                            CustomersIdTextBox.Text = _currentCustomer.Id.ToString();
-                            CustomersFullNameTextBox.Text = _currentCustomer.FullName;
-                            addressControl1.Address = _currentCustomer.Address;//AddressTextBox.Text = _currentCustomer.Address;
-                            //AddressControl1.UpdateAddressFields();
-                        }*/
         }
 
+/*        private int ListBoxState()
+        {
+            return CustomersListBox.SelectedIndex;
+        }
+*/
 
         private void CustomersPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -83,42 +106,42 @@ namespace ObjectOrientedPractics.View.Tabs
         }*/
 
         //Обновлениие записей в ListBox
-        private void UpdateListBox()
+/*        private void UpdateListBox()
         {
-            /*            // Очищаем Items в ListBox перед добавлением новых записей
-                        CustomersListBox.Items.Clear();
-
-                        // Добавляем всех клиентов из списка _customers в ListBox
-                        foreach (Customer customer in _customers)
-                        {
-                            // Форматируем строку для каждого клиента и добавляем в ListBox
-                            string customerInfo = $"ID: {customer.Id}, Full Name: {customer.FullName}, Address: {customer.Address.ToString()}";
-                            CustomersListBox.Items.Add(customerInfo);
-                        }*/
-
+            // Очищаем Items в ListBox перед добавлением новых записей
             CustomersListBox.Items.Clear();
-            foreach (var customer in _customers)
-            {
-                CustomersListBox.Items.Add(customer);
-            }
-        }
 
-        private void UpdateListBoxItem()
+            // Добавляем всех клиентов из списка _customers в ListBox
+            foreach (Customer customer in _customers)
+            {
+                // Форматируем строку для каждого клиента и добавляем в ListBox
+                string customerInfo = $"ID: {customer.Id}, Full Name: {customer.FullName}, Address: {customer.Address.ToString()}";
+                CustomersListBox.Items.Add(customerInfo);
+            }
+
+            *//*            CustomersListBox.Items.Clear();
+                        foreach (var customer in _customers)
+                        {
+                            CustomersListBox.Items.Add(customer);
+                        }*//*
+        }*/
+
+/*        private void UpdateListBoxItem()
         {
             if (_currentCustomer != null && CustomersListBox.SelectedIndex != -1)
             {
                 CustomersListBox.Items[CustomersListBox.SelectedIndex] = _currentCustomer;
             }
         }
-
-        private void ClearInputField()
+*/
+/*        private void ClearInputField()
         {
             CustomersIdTextBox.Clear();
             CustomersFullNameTextBox.Clear();
             addressControl1.Clear();
             CustomersIdTextBox.BackColor = Color.White;
             CustomersFullNameTextBox.BackColor = Color.White;
-        }
+        }*/
 
 /*        private void UpdateSelectItemListBox()
         {
@@ -141,58 +164,23 @@ namespace ObjectOrientedPractics.View.Tabs
 
         }
 
-        private void CusoemersAddButton_Click(object sender, EventArgs e)
-        {
-            /*            if (string.IsNullOrEmpty(CustomersFullNameTextBox.Text))
-                        {
-                            MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
 
-                        if (IsNumeric(CustomersFullNameTextBox.Text))
-                        {
-                            MessageBox.Show("FullName имеет только строковой тип");
-                            return;
-                        }
 
-                        // Создаем нового покупателя с использованием имени и адреса
-                        Customer customer = new Customer(CustomersFullNameTextBox.Text, addressControl.Address);
-                        addressControl.Clear();
-                        // Добавляем покупателя в список
-                        _customers.Add(customer);
+        /*        private void CustomersAddresTextBox_TextChanged_1(object sender, EventArgs e)
+                {
+                    if (select != -1)
+                    {
+                        // Получаем адрес из AddressControl
+                        Address updatedAddress = addressControl.Address;
 
-                        // Обновляем список покупателей в ListBox
-                        UpdateCustomersListBox();
+                        // Обновляем адрес выбранного покупателя
+                        _customers[select].Address = updatedAddress;
 
-                        // Очищаем поля ввода
-                        ClearTextBoxes();*/
+                        // Обновляем отображение в ListBox
+                        UpdateSelectItemListBox();
 
-            if (string.IsNullOrEmpty(CustomersFullNameTextBox.Text) || addressControl1.AddressIsNullOrEmpty()  /*string.IsNullOrEmpty(AddressTextBox.Text*/ )
-            {
-                MessageBox.Show("Заполните все поля");
-                return;
-            }
-            Customer NewCustomer = new Customer(CustomersFullNameTextBox.Text, addressControl1.Address);
-            _customers.Add(NewCustomer);
-            CustomersListBox.Items.Add(NewCustomer);
-            /*ClearInputField();*/
-        }
-
-/*        private void CustomersAddresTextBox_TextChanged_1(object sender, EventArgs e)
-        {
-            if (select != -1)
-            {
-                // Получаем адрес из AddressControl
-                Address updatedAddress = addressControl.Address;
-
-                // Обновляем адрес выбранного покупателя
-                _customers[select].Address = updatedAddress;
-
-                // Обновляем отображение в ListBox
-                UpdateSelectItemListBox();
-
-            }
-        }*/
+                    }
+                }*/
 
         private void label5_Click_1(object sender, EventArgs e)
         {
@@ -201,30 +189,9 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void CustomersFullNameTextBox_TextChanged_1(object sender, EventArgs e)
         {
-            /*            if (select != -1)
-                        {
-                            _customers[select].FullName = CustomersFullNameTextBox.Text;
-                            UpdateSelectItemListBox();
-                        }*/
-
-            if (_currentCustomer != null && CustomersListBox.SelectedIndex != -1)
+            if ((CustomersListBox.SelectedIndex != -1))
             {
-                try
-                {
-                    if (!string.IsNullOrEmpty(CustomersFullNameTextBox.Text) || !addressControl1.AddressIsNullOrEmpty())
-                    {
-                        _currentCustomer.FullName = CustomersFullNameTextBox.Text;
-                        UpdateListBoxItem();
-
-                        //Решение проблемы съезжания курсора влево
-                        CustomersFullNameTextBox.Focus();
-                        CustomersFullNameTextBox.Select(CustomersFullNameTextBox.Text.Length, 0);
-                    }
-                }
-                catch (ArgumentException)
-                {
-                    CustomersFullNameTextBox.BackColor = Color.Pink;
-                }
+                _currentCustomer.FullName = CustomersFullNameTextBox.Text;
             }
         }
 
@@ -255,31 +222,28 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void CstomersRemoveButton_Click_1(object sender, EventArgs e)
         {
-            /*            if (CustomersListBox.SelectedIndex != -1)
-                        {
-                            _customers.RemoveAt(select);
-                            UpdateCustomersListBox();
-                            select = -1;
-                            ClearTextBoxes();
-                        }*/
-            if (CustomersListBox.SelectedIndex != -1)
-            {
-              /*  addressControl1.IsUpdatingFieldFlag = false;*/
-                _currentCustomer = _customers[CustomersListBox.SelectedIndex];
-                _customers.Remove(_currentCustomer);
-                CustomersListBox.Items.RemoveAt(CustomersListBox.SelectedIndex);
-                //CustomersListBox.SelectedIndex = -1;
-                ClearInputField();
-            }
+            int selectedIndex = CustomersListBox.SelectedIndex;
+
+
+            if (selectedIndex == -1) return;
+
+            Customers.RemoveAt(selectedIndex);
+            CustomersListBoxItems.RemoveAt(selectedIndex);
+            CustomersListBox.Items.RemoveAt(selectedIndex);
+
+            CustomersFullNameTextBox.Text = "";
+            /*AddressRichTextBox.Text = "";*/
         }
 
         private void CustomersListBox_MouseClick(object sender, MouseEventArgs e)
         {
             if (CustomersListBox.IndexFromPoint(e.Location) == -1)
             {
- /*               addressControl1.IsUpdatingFieldFlag = false;*/
+                // Если кликнули на пустое место, сбрасываем выбор
+                addressControl1.ListBoxNull = true;
                 CustomersListBox.ClearSelected();
-                ClearInputField();
+                CustomersListBox.SelectedIndex = -1;
+
             }
         }
 
@@ -293,20 +257,33 @@ namespace ObjectOrientedPractics.View.Tabs
 
         }
 
-        private bool IsNumeric(string input)
-        {
-            foreach (char c in input)
-            {
-                if (char.IsDigit(c))
-                {
-                    return true; // Если хотя бы один символ — цифра, возвращаем true
-                }
-            }
-            return false; // Если нет цифр, возвращаем false
-        }
-
         private void addressControl1_Load_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void CustoemersAddButton_Click_1(object sender, EventArgs e)
+        {
+
+
+            Customer NewCustomer = new Customer();
+            NewCustomer.FullName = CustomersFullNameTextBox.Text;
+            NewCustomer.Address = addressControl1.GiveValues();
+            /*NewCustomer.Address = addressControl1.Address;*/
+            /* NewCustomer.Address = AddressRichTextBox.Text;*/
+
+
+            Customers.Add(NewCustomer);
+            CustomersListBoxItems.Add($"{NewCustomer.Id.ToString()})");
+            CustomersListBox.Items.Add(CustomersListBoxItems[CustomersListBoxItems.Count - 1]);
+            /*CanvaRectanglesListBox.SelectedIndex = CanvaRectanglesListBox.Items.Count - 1;*/
+
+            CustomersFullNameTextBox.Text = "";
+
+            addressControl1.ClearForm();
+            /*addressControl1.ListBoxfromCustomersTabState(CustomersListBox.SelectedIndex);*/
+
+            /*AddressRichTextBox.Text = "";*/
 
         }
     }

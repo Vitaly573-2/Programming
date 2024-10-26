@@ -14,20 +14,28 @@ namespace ObjectOrientedPractics.View.Controls
 {
     public partial class AddressControl : UserControl 
     {
-        private Address _currentAddress;
-
-        public Address Address
+        private Address _address; //переменная типа Address
+        public bool ListBoxNull = false;//флаг
+        public Address Address //свойство, через него можно обращаться к классу
         {
             get
             {
-                return _currentAddress;
+                return _address;
             }
             set
             {
-                _currentAddress = value;
-                UpdateAddressFields();
+                _address = value;
             }
         }
+        /*public AddressControl()
+        {
+        }*/
+
+/*        public AddressControl(Address address)
+        {
+            Address = address;
+
+        }*/
 
         public AddressControl()
         {
@@ -35,49 +43,40 @@ namespace ObjectOrientedPractics.View.Controls
             Address = new Address();
         }
 
-        public void UpdateAddressFields()
+        public void ClearForm()
         {
-            // Обновляем поля текстовых компонентов с использованием _currentAddress
-            PostIndexTextBox.Text = Address.Index.ToString();
-            CountryTextBox.Text = Address.Country.ToString();
-            CityTextBox.Text = Address.City.ToString();
-            StreetTextBox.Text = Address.Street.ToString();
-            BuildingTextBox.Text = Address.Building.ToString();
-            ApartmentTextBox.Text = Address.Apartment.ToString();
+            PostIndexTextBox.Text = "111111";
+            CountryTextBox.Text = string.Empty;
+            CityTextBox.Text = string.Empty;
+            StreetTextBox.Text = string.Empty;
+            BuildingTextBox.Text = string.Empty;
+            ApartmentTextBox.Text = string.Empty;
         }
 
-        public bool AddressIsNullOrEmpty()
+        public AddressControl NewAddress; //объкт формы
+
+        public void ShowValues(Address SomeAddress)
         {
-            if (string.IsNullOrEmpty(PostIndexTextBox.Text) ||
-                string.IsNullOrEmpty(CountryTextBox.Text) ||
-                string.IsNullOrEmpty(CityTextBox.Text) ||
-                string.IsNullOrEmpty(StreetTextBox.Text) ||
-                string.IsNullOrEmpty(BuildingTextBox.Text) ||
-                string.IsNullOrEmpty(ApartmentTextBox.Text))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            NewAddress.Address = SomeAddress;
+
+            PostIndexTextBox.Text = NewAddress.Address.Index.ToString();
+            CountryTextBox.Text = NewAddress.Address.Country.ToString();
+            CityTextBox.Text = NewAddress.Address.City.ToString();
+            StreetTextBox.Text = NewAddress.Address.Street.ToString();
+            BuildingTextBox.Text = NewAddress.Address.Building.ToString();
+            ApartmentTextBox.Text = NewAddress.Address.Apartment.ToString();
+
+
         }
-
-        public void Clear()
+        public Address GiveValues()
         {
-            PostIndexTextBox.Clear();
-            CountryTextBox.Clear();
-            CityTextBox.Clear();
-            StreetTextBox.Clear();
-            BuildingTextBox.Clear();
-            ApartmentTextBox.Clear();
-
-            PostIndexTextBox.BackColor = Color.White;
-            CountryTextBox.BackColor = Color.White;
-            CityTextBox.BackColor = Color.White;
-            StreetTextBox.BackColor = Color.White;
-            BuildingTextBox.BackColor = Color.White;
-            ApartmentTextBox.BackColor = Color.White;
+            return new Address(Convert.ToInt32(PostIndexTextBox.Text), 
+                                               CountryTextBox.Text, 
+                                               CityTextBox.Text, 
+                                               StreetTextBox.Text, 
+                                               BuildingTextBox.Text, 
+                                               ApartmentTextBox.Text);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -113,7 +112,7 @@ namespace ObjectOrientedPractics.View.Controls
                 if (index >= 100000 && index <= 999999)
                 {
                     PostIndexTextBox.BackColor = Color.White;
-                    Address.Index = index; // Присваиваем индекс свойству Address
+                    NewAddress.Address.Index = index; // Присваиваем индекс свойству Address
                 }
                 else
                 {
@@ -135,8 +134,8 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 if (CountryTextBox.Text.Length < 50)
                 {
-                    CountryTextBox.BackColor = Color.White; 
-                    Address.Country = CountryTextBox.Text; // Присваиваем значение свойству Address
+                    CountryTextBox.BackColor = Color.White;
+                    NewAddress.Address.Country = CountryTextBox.Text; // Присваиваем значение свойству Address
                 }
                 else
                 {
@@ -145,6 +144,7 @@ namespace ObjectOrientedPractics.View.Controls
             }
             else
             {
+                CountryTextBox.BackColor = Color.Pink;
                 CountryTextBox.BackColor = Color.Pink;
             }
         }
@@ -157,7 +157,7 @@ namespace ObjectOrientedPractics.View.Controls
                 if (StreetTextBox.Text.Length < 100)
                 {
                     StreetTextBox.BackColor = Color.White;
-                    Address.Street = StreetTextBox.Text;
+                    NewAddress.Address.Street = StreetTextBox.Text;
                 }
                 else
                 {
@@ -177,7 +177,7 @@ namespace ObjectOrientedPractics.View.Controls
                 if (BuildingTextBox.Text.Length < 10)
                 {
                     BuildingTextBox.BackColor = Color.White;
-                    Address.Building = BuildingTextBox.Text;
+                    NewAddress.Address.Building = BuildingTextBox.Text;
                 }
                 else
                 {
@@ -226,7 +226,7 @@ namespace ObjectOrientedPractics.View.Controls
                 if (ApartmentTextBox.Text.Length < 10)
                 {
                     ApartmentTextBox.BackColor = Color.White;
-                    Address.Apartment = ApartmentTextBox.Text;
+                    NewAddress.Address.Apartment = ApartmentTextBox.Text;
                 }
                 else
                 {
@@ -246,7 +246,26 @@ namespace ObjectOrientedPractics.View.Controls
 
         private void AddressControl_Load(object sender, EventArgs e)
         {
-
+            NewAddress = new AddressControl();
+            /*NewAddress.Address = new Address(123456, "Россия", "Томск", "Репина", "12", "36");*/
+            //PostIndexTextBox.Text = NewAddress.Address.Index.ToString();
+            /*CountryTextBox.Text = NewAddress.Address.Country.ToString();
+            CityTextBox.Text = NewAddress.Address.City.ToString();
+            StreetTextBox.Text = NewAddress.Address.Street.ToString();
+            BuildingTextBox.Text = NewAddress.Address.Building.ToString();
+            ApartmentTextBox.Text = NewAddress.Address.Apartment.ToString();*/
         }
-}
+
+        /*        private void AddButton_Click(object sender, EventArgs e)
+        {
+
+            label8.Text = $"{NewAddress.Address.Index.ToString()} - {NewAddress.Address.Country.ToString()} - {NewAddress.Address.City.ToString()} - {NewAddress.Address.Street.ToString()} - {NewAddress.Address.Building.ToString()} - {NewAddress.Address.Apartment.ToString()}";
+
+        }*/
+/*        int value;
+        public void ListBoxfromCustomersTabState(int SelectedIndex)
+        {
+            int value = SelectedIndex;
+        }*/
+    }
 }
