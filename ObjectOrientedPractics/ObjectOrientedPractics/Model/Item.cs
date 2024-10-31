@@ -9,6 +9,8 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Товары
     /// </summary>
+
+    [Serializable]
     public class Item
     {
         //идентификационный номер

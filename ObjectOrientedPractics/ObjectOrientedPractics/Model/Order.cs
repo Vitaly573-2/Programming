@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace ObjectOrientedPractics.Model
         private readonly string  _createtDate;
         private List<Item> _items;
         private Address _createAddress;
-        private double _cost = 0;
+        private double _cost;
         private OrderStatus _status;
 
 
@@ -45,17 +46,18 @@ namespace ObjectOrientedPractics.Model
         {
             get 
             {
+                double sum = 0.0;
                 foreach (var item in Items)
                 {
-                    _cost += item.Cost;
+                    sum += item.Cost;
                 }
-                if (_cost > 0)
+                if (sum > 0)
                 {
-                    return _cost;
+                    return _cost = sum;
                 }
                 else
                 {
-                    return _cost= 0;
+                    return _cost= 0.0;
                 }
             }
         }
@@ -64,8 +66,17 @@ namespace ObjectOrientedPractics.Model
         {
             CreateDate = "27.10.2004";
             CreateAddress = new Address();
-            _status = OrderStatus.New;
+            Status = OrderStatus.New;
             _id += 1;
+        }
+
+        public Order(OrderStatus status, string createDate, List<Item> _items, Address address)
+        {
+            _id += 1;
+            CreateDate = createDate;
+            Status = status;
+            Items = new List<Item>(_items);
+            CreateAddress = address;
         }
     }
 }

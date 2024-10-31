@@ -10,6 +10,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Покупатель
     /// </summary>
+    [Serializable]
     public class Customer
     {
         //идентификационный номер
@@ -82,8 +83,8 @@ namespace ObjectOrientedPractics.Model
             FullName = fullname;
             Address = new Address();
             _id = IdGenerator.GetNextId();
-            _cart = new Cart();
-            _orders = new List<Order>();
+            Cart = new Cart();
+            Orders = new List<Order>();
         }
 
 
@@ -94,8 +95,8 @@ namespace ObjectOrientedPractics.Model
             Address = new Address();
             FullName = string.Empty;
             _id = IdGenerator.GetNextId();
-            _cart = new Cart();
-            _orders = new List<Order>();
+            Cart = new Cart();
+            Orders = new List<Order>();
         }
 
 /*        public override string ToString()

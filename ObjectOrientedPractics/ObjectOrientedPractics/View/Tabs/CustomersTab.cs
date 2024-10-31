@@ -173,7 +173,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void CustoemersAddButton_Click_1(object sender, EventArgs e)
         {
-
+    
 
             Customer NewCustomer = new Customer();
             NewCustomer.FullName = CustomersFullNameTextBox.Text;

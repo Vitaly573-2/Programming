@@ -16,7 +16,7 @@ namespace ObjectOrientedPractics.View.Tabs
     public partial class ItemsTab : UserControl
     {
         private List<Item> _items = new List<Item>();
-        private Item _currentItem;
+        //private Item _currentItem;
         private List<string> ItemsListBoxItems = new List<string>();
 
         int select = -1;

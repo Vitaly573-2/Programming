@@ -8,8 +8,6 @@ namespace ObjectOrientedPractics.Model
 {
     public class Cart
     {
-
-        private double _amount;
         private List<Item> _items;
 
         public List<Item> Items
@@ -18,23 +16,33 @@ namespace ObjectOrientedPractics.Model
             set { _items = value; }
         }
 
+        public double _amount;
+
         public double Amount
         {
             get
             {
-                double value = 0;
+                double sum = 0;
 
-                if (value == null && _items.Count == 0)
+                foreach (var item in Items)
                 {
-                    return 0.0;
+                    sum += item.Cost;
                 }
-
-                foreach (var item in _items)
+                if (sum >=0)
                 {
-                    value += item.Cost;
+                    return _amount = sum;
                 }
-                return value;       
+                else
+                {
+                    return _amount = 0.0;
+                }       
             }
         }
+
+        public Cart()
+        { 
+            Items = new List<Item>();  
+        }
+
     }
 }

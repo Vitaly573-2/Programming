@@ -13,15 +13,21 @@ namespace ObjectOrientedPractics
 {
     public partial class MainForm : Form
     {
-        Store _store;
+        Store store; 
 
         public MainForm()
         {
             InitializeComponent();
-            _store = new Store();
+            store = new Store();
 
-            itemsTab1.Items = _store.Items;
-            customersTab1.Customers = _store.Customers;
+
+            itemsTab2.Items = store.Items;
+            customersTab1.Customers = store.Customers;
+
+            cartsTab1.Items = store.Items;
+            cartsTab1.Customers = store.Customers;
+            
+
         }
 
         private void customersTab1_Load(object sender, EventArgs e)
@@ -32,6 +38,21 @@ namespace ObjectOrientedPractics
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void cartsTab1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemsTab2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cartsTab1.RefreshData();
         }
     }
 }
