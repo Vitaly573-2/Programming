@@ -158,9 +158,9 @@ namespace ObjectOrientedPractics.Model
             Apartment = string.Empty;
         }
 
-/*        public override string ToString()
+        public string AddressToString()
         {
-            return $"{Index} {Country} ";
-        }*/
+            return Index.ToString() + " " + Country + " " + City + " " + Street + " " + Building + " " + Apartment;
+        }
     }
 }

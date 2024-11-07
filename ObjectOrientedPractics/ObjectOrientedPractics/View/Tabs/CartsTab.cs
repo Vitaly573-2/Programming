@@ -56,6 +56,18 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        public void UpdateAmount()
+        {
+            CostLabel.Text = _currentCustomer.Cart.Amount.ToString();
+        }
+
+        public void ClearCart()
+        {
+            _currentCustomer.Cart.Items.Clear();
+            CartsListBox.Items.Clear();
+            CostLabel.Text = "None";
+        }
+
         public CartsTab()
         {
             InitializeComponent();
@@ -114,6 +126,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
                 //добавляем в список корзины выбранный товар
                 CartsListBox.Items.Add(ItemsListBox.SelectedItem);
+                UpdateAmount();
                 ItemsListBox.SelectedIndex = -1;
             }
             //удаление если не выбран товар
@@ -121,37 +134,38 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 CartsListBox.Items.Clear();
                 ItemsListBox.Items.Clear();
+                CostLabel.Text = "None";
             }
         }
 
         private void CostLabel_Click(object sender, EventArgs e)
         {
-
         }
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
         {
-            string dateYear = DateTime.Now.Year.ToString();
-            string dateMonth = DateTime.Now.Month.ToString();
-            string dateDay = DateTime.Now.Day.ToString();
-            string dateHour = DateTime.Now.Hour.ToString();
-            string dateMinute = DateTime.Now.Minute.ToString();
-            string dateSecond = DateTime.Now.Second.ToString();
-            string createData = $"{dateYear} {dateMonth} {dateDay} {dateHour} {dateMinute} {dateSecond}";
-            List<Item> items = _currentCustomer.Cart.Items;
-            Address address = _currentCustomer.Address;
+            if (CartsListBox.SelectedIndex != 0)
+            {
+                string dateYear = DateTime.Now.Year.ToString();
+                string dateMonth = DateTime.Now.Month.ToString();
+                string dateDay = DateTime.Now.Day.ToString();
+                string dateHour = DateTime.Now.Hour.ToString();
+                string dateMinute = DateTime.Now.Minute.ToString();
+                string dateSecond = DateTime.Now.Second.ToString();
+                string createData = $"{dateYear} {dateMonth} {dateDay} {dateHour} {dateMinute} {dateSecond}";
+                List<Item> items = _currentCustomer.Cart.Items;
+                Address address = _currentCustomer.Address;
 
-            Order order = new Order(OrderStatus.New, createData, items, address);
-
-            _currentCustomer.Orders.Add(order);
-
-            CartsListBox.SelectedItems.Clear();
-
+                Order order = new Order(OrderStatus.New, createData, items, address);
+                _currentCustomer.Orders.Add(order);
+                ClearCart();
+                items.Clear();
+            }
         }
 
         private void ClearCartButton_Click(object sender, EventArgs e)
         {
-
+            ClearCart();
         }
 
         private void RemoveItemButton_Click(object sender, EventArgs e)
@@ -162,6 +176,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer.Cart.Items.RemoveAt(CartsListBox.SelectedIndex);
                 //удаление из CartsListBox
                 CartsListBox.Items.RemoveAt(CartsListBox.SelectedIndex);
+                UpdateAmount();
             }
         }
 

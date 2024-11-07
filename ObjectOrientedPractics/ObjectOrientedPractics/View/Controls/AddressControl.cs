@@ -241,7 +241,5 @@ namespace ObjectOrientedPractics.View.Controls
             NewAddress = new AddressControl();
 
         }
-
-
     }
 }

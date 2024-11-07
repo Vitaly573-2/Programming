@@ -26,6 +26,7 @@ namespace ObjectOrientedPractics
 
             cartsTab1.Items = store.Items;
             cartsTab1.Customers = store.Customers;
+            ordersTab1.Customers = store.Customers;
             
 
         }
@@ -52,7 +53,11 @@ namespace ObjectOrientedPractics
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cartsTab1.RefreshData();
+            ordersTab1.UpdateOrdersTab();
+            if(tabControl1.SelectedIndex == 2)
+            {
+                cartsTab1.RefreshData();
+            }
         }
     }
 }

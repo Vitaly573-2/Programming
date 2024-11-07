@@ -90,7 +90,6 @@
             this.label1.Size = new System.Drawing.Size(72, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Customer:";
-
             // 
             // label2
             // 
@@ -101,7 +100,6 @@
             this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Cart:";
-
             // 
             // label3
             // 
@@ -112,7 +110,6 @@
             this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Amount:";
-
             // 
             // CostLabel
             // 
@@ -120,8 +117,9 @@
             this.CostLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CostLabel.Location = new System.Drawing.Point(635, 284);
             this.CostLabel.Name = "CostLabel";
-            this.CostLabel.Size = new System.Drawing.Size(0, 17);
+            this.CostLabel.Size = new System.Drawing.Size(42, 17);
             this.CostLabel.TabIndex = 8;
+            this.CostLabel.Text = "None";
             this.CostLabel.Click += new System.EventHandler(this.CostLabel_Click);
             // 
             // CreateOrderButton
