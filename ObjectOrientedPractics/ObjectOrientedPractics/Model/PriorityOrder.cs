@@ -17,16 +17,16 @@ namespace ObjectOrientedPractics.Model
         //желаемая дата
         public DateTime DataTime { get; set; }
         //желаемое время 
-        public TimeRange TimeRange { get; set; }
+        public DeliveryTime DeliveryTime { get; set; }
 
         public PriorityOrder() { }
 
         public PriorityOrder(int id, string createData, OrderStatus status,
-                             Address address, List<Item> items, DateTime dataTime, TimeRange timeRange)
+                             Address address, List<Item> items, DateTime dataTime, DeliveryTime deliveryTime)
             :base(status, createData, items, address)
         {
             DataTime = dataTime;
-            TimeRange= timeRange;
+            DeliveryTime= deliveryTime;
         }
 
     }

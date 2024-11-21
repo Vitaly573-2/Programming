@@ -1,4 +1,4 @@
-﻿public enum TimeRange
+﻿public enum DeliveryTime
 {
     //с 9:00 до 11:00
     From9To11,

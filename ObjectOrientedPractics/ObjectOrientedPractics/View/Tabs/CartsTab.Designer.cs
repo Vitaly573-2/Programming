@@ -45,10 +45,10 @@
             // ItemsOfList
             // 
             this.ItemsOfList.AutoSize = true;
-            this.ItemsOfList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ItemsOfList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ItemsOfList.Location = new System.Drawing.Point(10, 7);
             this.ItemsOfList.Name = "ItemsOfList";
-            this.ItemsOfList.Size = new System.Drawing.Size(41, 17);
+            this.ItemsOfList.Size = new System.Drawing.Size(46, 17);
             this.ItemsOfList.TabIndex = 0;
             this.ItemsOfList.Text = "Items";
             this.ItemsOfList.Click += new System.EventHandler(this.Items_Click);

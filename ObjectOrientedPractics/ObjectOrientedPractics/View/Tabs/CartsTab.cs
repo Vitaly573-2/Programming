@@ -152,7 +152,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 string dateHour = DateTime.Now.Hour.ToString();
                 string dateMinute = DateTime.Now.Minute.ToString();
                 string dateSecond = DateTime.Now.Second.ToString();
-                string createData = $"{dateYear} {dateMonth} {dateDay} {dateHour} {dateMinute} {dateSecond}";
+                string createData = $"{dateDay}:{dateMonth}:{dateYear}-{dateHour}:{dateMinute}:{dateSecond}";
                 List<Item> items = _currentCustomer.Cart.Items;
                 Address address = _currentCustomer.Address;
 

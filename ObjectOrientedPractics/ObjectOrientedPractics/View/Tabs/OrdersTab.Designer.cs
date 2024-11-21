@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address3 = new ObjectOrientedPractics.Model.Address();
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.OrderDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.StatusComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.OrderItemsLabel = new System.Windows.Forms.Label();
             this.OrderListBox = new System.Windows.Forms.ListBox();
             this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).BeginInit();
@@ -118,6 +118,7 @@
             this.StatusComboBox.Name = "StatusComboBox";
             this.StatusComboBox.Size = new System.Drawing.Size(155, 21);
             this.StatusComboBox.TabIndex = 7;
+            this.StatusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -139,15 +140,15 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Amount:";
             // 
-            // label7
+            // OrderItemsLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(610, 577);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 17);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Order Items";
+            this.OrderItemsLabel.AutoSize = true;
+            this.OrderItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OrderItemsLabel.Location = new System.Drawing.Point(610, 577);
+            this.OrderItemsLabel.Name = "OrderItemsLabel";
+            this.OrderItemsLabel.Size = new System.Drawing.Size(93, 17);
+            this.OrderItemsLabel.TabIndex = 11;
+            this.OrderItemsLabel.Text = "Order Items";
             // 
             // OrderListBox
             // 
@@ -156,27 +157,29 @@
             this.OrderListBox.Name = "OrderListBox";
             this.OrderListBox.Size = new System.Drawing.Size(378, 160);
             this.OrderListBox.TabIndex = 12;
+            this.OrderListBox.SelectedIndexChanged += new System.EventHandler(this.OrderListBox_SelectedIndexChanged);
             // 
             // addressControl1
             // 
-            address3.Apartment = "";
-            address3.Building = "";
-            address3.City = "";
-            address3.Country = "";
-            address3.Index = 100000;
-            address3.Street = "";
-            this.addressControl1.Address = address3;
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 100000;
+            address1.Street = "";
+            this.addressControl1.Address = address1;
             this.addressControl1.Location = new System.Drawing.Point(330, 150);
             this.addressControl1.Name = "addressControl1";
             this.addressControl1.Size = new System.Drawing.Size(400, 190);
             this.addressControl1.TabIndex = 8;
+            this.addressControl1.Load += new System.EventHandler(this.addressControl1_Load);
             // 
             // OrdersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.OrderListBox);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.OrderItemsLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.addressControl1);
@@ -190,6 +193,7 @@
             this.Controls.Add(this.OrderDataGridView);
             this.Name = "OrdersTab";
             this.Size = new System.Drawing.Size(730, 656);
+            this.Load += new System.EventHandler(this.OrdersTab_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -209,7 +213,7 @@
         private Controls.AddressControl addressControl1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label OrderItemsLabel;
         private System.Windows.Forms.ListBox OrderListBox;
     }
 }
