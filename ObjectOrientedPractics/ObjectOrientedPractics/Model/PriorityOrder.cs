@@ -12,16 +12,16 @@ namespace ObjectOrientedPractics.Model
         private string _createData;
         private OrderStatus _status;
         private Address _address;
-        private List<Item> _items;
+        private List<Item> _items;  
 
         //желаемая дата
         public DateTime DataTime { get; set; }
-        //желаемое время 
+        //желаемое время, перечисление 
         public DeliveryTime DeliveryTime { get; set; }
 
         public PriorityOrder() { }
 
-        public PriorityOrder(int id, string createData, OrderStatus status,
+        public PriorityOrder(string createData, OrderStatus status,
                              Address address, List<Item> items, DateTime dataTime, DeliveryTime deliveryTime)
             :base(status, createData, items, address)
         {
