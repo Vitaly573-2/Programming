@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
+            ObjectOrientedPractics.Model.Address address2 = new ObjectOrientedPractics.Model.Address();
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.CustomersFullNameTextBox = new System.Windows.Forms.TextBox();
             this.CustomersIdTextBox = new System.Windows.Forms.TextBox();
@@ -40,6 +40,7 @@
             this.CstomersRemoveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
+            this.IsPriorityCheckBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,6 +157,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.IsPriorityCheckBox);
             this.panel1.Controls.Add(this.addressControl1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
@@ -171,18 +173,30 @@
             // 
             // addressControl1
             // 
-            address1.Apartment = "";
-            address1.Building = "";
-            address1.City = "";
-            address1.Country = "";
-            address1.Index = 100000;
-            address1.Street = "";
-            this.addressControl1.Address = address1;
+            address2.Apartment = "";
+            address2.Building = "";
+            address2.City = "";
+            address2.Country = "";
+            address2.Index = 100000;
+            address2.Street = "";
+            this.addressControl1.Address = address2;
             this.addressControl1.Location = new System.Drawing.Point(3, 125);
             this.addressControl1.Name = "addressControl1";
             this.addressControl1.Size = new System.Drawing.Size(400, 190);
             this.addressControl1.TabIndex = 7;
             this.addressControl1.Load += new System.EventHandler(this.addressControl1_Load_1);
+            // 
+            // IsPriorityCheckBox
+            // 
+            this.IsPriorityCheckBox.AutoSize = true;
+            this.IsPriorityCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IsPriorityCheckBox.Location = new System.Drawing.Point(17, 98);
+            this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
+            this.IsPriorityCheckBox.Size = new System.Drawing.Size(85, 21);
+            this.IsPriorityCheckBox.TabIndex = 8;
+            this.IsPriorityCheckBox.Text = "Is Priority";
+            this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
+            this.IsPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
             // 
             // CustomersTab
             // 
@@ -215,5 +229,6 @@
         private System.Windows.Forms.Button CstomersRemoveButton;
         private System.Windows.Forms.Panel panel1;
         private Controls.AddressControl addressControl1;
+        private System.Windows.Forms.CheckBox IsPriorityCheckBox;
     }
 }

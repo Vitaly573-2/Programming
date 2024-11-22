@@ -156,8 +156,17 @@ namespace ObjectOrientedPractics.View.Tabs
                 List<Item> items = _currentCustomer.Cart.Items;
                 Address address = _currentCustomer.Address;
 
-                Order order = new Order(OrderStatus.New, createData, items, address);
-                _currentCustomer.Orders.Add(order);
+                Order newOrder;
+                if (_currentCustomer.IsPriority == true)
+                {
+                    newOrder = new PriorityOrder(createData, OrderStatus.New, address, items, DateTime.Now, DeliveryTime.From9To11);
+                }
+                else
+                {
+                    newOrder = new Order(OrderStatus.New, createData, items, _currentCustomer.Address);
+                }
+
+                _currentCustomer.Orders.Add(newOrder);
                 ClearCart();
                 items.Clear();
             }

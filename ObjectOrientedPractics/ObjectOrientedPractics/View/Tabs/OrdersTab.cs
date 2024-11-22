@@ -20,7 +20,9 @@ namespace ObjectOrientedPractics.View.Tabs
         //выбранный заказ покупателя
         Order currentOrder;
         //список всех заказов покупателя 
-        List<Order> ordersCurrentCustomer =  new List<Order>(); 
+        List<Order> ordersCurrentCustomer = new List<Order>();
+        //выбранный приаритетный заказ  
+        PriorityOrder currentPriorityOrder;
         //Работа с DataGridView
         DataTable dataTable = new DataTable();
 
@@ -77,6 +79,27 @@ namespace ObjectOrientedPractics.View.Tabs
                 OrderItemsLabel.Text = "0";
             }
         }
+
+        public string GetDisplayName(DeliveryTime deliveryTime)
+        {
+            switch (deliveryTime)
+            {
+                case DeliveryTime.From9To11:
+                    return "9:00 - 11:00";
+                case DeliveryTime.From11To13:
+                    return "11:00 - 13:00";
+                case DeliveryTime.From13To15:
+                    return "13:00 - 15:00";
+                case DeliveryTime.From15To17:
+                    return "15:00 - 17:00";
+                case DeliveryTime.From17To19:
+                    return "17:00 - 19:00";
+                case DeliveryTime.From19To21:
+                    return "19:00 - 21:00";
+                default:
+                    return string.Empty;
+            }
+        }
             
         public OrdersTab()
         {
@@ -89,6 +112,18 @@ namespace ObjectOrientedPractics.View.Tabs
             dataTable.Columns.Add("Full Name", typeof(string));
             dataTable.Columns.Add("Address", typeof(string));
             dataTable.Columns.Add("Amount", typeof(string));
+            //получаем значения из перечисления
+            //преобразуем из object в DeliveryTime 
+            //каждый элемент преобразуем в строку через метод
+            //преобразуем все в список 
+            DeliveryTimeComboBox.DataSource = Enum.GetValues(typeof(DeliveryTime)).Cast<DeliveryTime>().Select(range => new {Value = range, Display = GetDisplayName(range)}).ToList();
+            //какое свойтсво будет отображаться в ComboBox
+            DeliveryTimeComboBox.DisplayMember = "Display";
+            //какое свойство будет возвращаться как значение 
+            DeliveryTimeComboBox.ValueMember = "Value";
+
+            PriorityOrdersPanel.Enabled = false;
+            PriorityOrdersPanel.Visible = false; 
         }
 
         private void OrderDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -105,8 +140,20 @@ namespace ObjectOrientedPractics.View.Tabs
                 OrderListBox.DisplayMember = "Name";
                 UpdateAmount();
 
+                if(currentOrder.GetType() == typeof(PriorityOrder))
+                {
+                    PriorityOrdersPanel.Enabled = true;
+                    PriorityOrdersPanel.Visible = true;
+                    currentPriorityOrder = (PriorityOrder)currentOrder;
+                    DeliveryTimeComboBox.Text = GetDisplayName(currentPriorityOrder.DeliveryTime);
+                }
+                else
+                {
+                    PriorityOrdersPanel.Enabled = false;
+                    PriorityOrdersPanel.Visible = false;
+                }
             }
-        }
+        }   
 
         private void OrdersTab_Load(object sender, EventArgs e)
         {
@@ -128,6 +175,19 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         private void OrderListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeliveryTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (currentPriorityOrder == null) return;
+
+            currentPriorityOrder.DeliveryTime = (DeliveryTime)DeliveryTimeComboBox.SelectedValue;
+            
+        }
+
+        private void DeliveryTimePanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

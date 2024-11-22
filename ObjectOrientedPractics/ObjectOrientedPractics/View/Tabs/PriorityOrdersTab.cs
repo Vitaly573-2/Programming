@@ -13,16 +13,37 @@ namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class PriorityOrdersTab : UserControl
     {
-        PriorityOrder priorityOrder;
-
+        
         public PriorityOrdersTab()
         {
-            InitializeComponent();
+           
         }
+
 
         private void PriorityOrdersTab_Load(object sender, EventArgs e)
         {
+                
+        }
 
+        private void IdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddItemButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        private void OrderItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                    
+        }
+
+        private void RemoveItemButton_Click(object sender, EventArgs e)
+        {
+         
         }
     }
 }

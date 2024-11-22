@@ -60,7 +60,18 @@ namespace ObjectOrientedPractics
             else if (tabControl1.SelectedIndex == 3)
             {
                 ordersTab1.UpdateOrdersTab();
+                
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void ordersTab6_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

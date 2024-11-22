@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address2 = new ObjectOrientedPractics.Model.Address();
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,7 +39,6 @@
             this.CreatedTextBox = new System.Windows.Forms.TextBox();
             this.StatusComboBox = new System.Windows.Forms.ComboBox();
             this.DeliveryTimeComboBox = new System.Windows.Forms.ComboBox();
-            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.label7 = new System.Windows.Forms.Label();
             this.OrderItemsListBox = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.AddItemButton = new System.Windows.Forms.Button();
             this.RemoveItemButton = new System.Windows.Forms.Button();
             this.ClearOrderButton = new System.Windows.Forms.Button();
+            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.SuspendLayout();
             // 
             // label1
@@ -113,13 +113,16 @@
             // 
             this.IdTextBox.Location = new System.Drawing.Point(81, 46);
             this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.ReadOnly = true;
             this.IdTextBox.Size = new System.Drawing.Size(121, 20);
             this.IdTextBox.TabIndex = 6;
+            this.IdTextBox.TextChanged += new System.EventHandler(this.IdTextBox_TextChanged);
             // 
             // CreatedTextBox
             // 
             this.CreatedTextBox.Location = new System.Drawing.Point(81, 74);
             this.CreatedTextBox.Name = "CreatedTextBox";
+            this.CreatedTextBox.ReadOnly = true;
             this.CreatedTextBox.Size = new System.Drawing.Size(121, 20);
             this.CreatedTextBox.TabIndex = 7;
             // 
@@ -139,25 +142,11 @@
             this.DeliveryTimeComboBox.Size = new System.Drawing.Size(121, 21);
             this.DeliveryTimeComboBox.TabIndex = 9;
             // 
-            // addressControl1
-            // 
-            address2.Apartment = "";
-            address2.Building = "";
-            address2.City = "";
-            address2.Country = "";
-            address2.Index = 100000;
-            address2.Street = "";
-            this.addressControl1.Address = address2;
-            this.addressControl1.Location = new System.Drawing.Point(17, 160);
-            this.addressControl1.Name = "addressControl1";
-            this.addressControl1.Size = new System.Drawing.Size(400, 190);
-            this.addressControl1.TabIndex = 10;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(14, 367);
+            this.label7.Location = new System.Drawing.Point(13, 353);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 17);
             this.label7.TabIndex = 11;
@@ -166,16 +155,17 @@
             // OrderItemsListBox
             // 
             this.OrderItemsListBox.FormattingEnabled = true;
-            this.OrderItemsListBox.Location = new System.Drawing.Point(17, 388);
+            this.OrderItemsListBox.Location = new System.Drawing.Point(17, 373);
             this.OrderItemsListBox.Name = "OrderItemsListBox";
             this.OrderItemsListBox.Size = new System.Drawing.Size(459, 147);
             this.OrderItemsListBox.TabIndex = 12;
+            this.OrderItemsListBox.SelectedIndexChanged += new System.EventHandler(this.OrderItemsListBox_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(394, 550);
+            this.label8.Location = new System.Drawing.Point(394, 521);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 17);
             this.label8.TabIndex = 13;
@@ -185,7 +175,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(394, 567);
+            this.label9.Location = new System.Drawing.Point(394, 538);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 17);
             this.label9.TabIndex = 14;
@@ -193,30 +183,46 @@
             // 
             // AddItemButton
             // 
-            this.AddItemButton.Location = new System.Drawing.Point(17, 595);
+            this.AddItemButton.Location = new System.Drawing.Point(17, 566);
             this.AddItemButton.Name = "AddItemButton";
             this.AddItemButton.Size = new System.Drawing.Size(90, 37);
             this.AddItemButton.TabIndex = 15;
             this.AddItemButton.Text = "Add Item";
             this.AddItemButton.UseVisualStyleBackColor = true;
+            this.AddItemButton.Click += new System.EventHandler(this.AddItemButton_Click);
             // 
             // RemoveItemButton
             // 
-            this.RemoveItemButton.Location = new System.Drawing.Point(113, 595);
+            this.RemoveItemButton.Location = new System.Drawing.Point(113, 566);
             this.RemoveItemButton.Name = "RemoveItemButton";
             this.RemoveItemButton.Size = new System.Drawing.Size(90, 37);
             this.RemoveItemButton.TabIndex = 16;
             this.RemoveItemButton.Text = "Remove Item";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
+            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // ClearOrderButton
             // 
-            this.ClearOrderButton.Location = new System.Drawing.Point(386, 595);
+            this.ClearOrderButton.Location = new System.Drawing.Point(386, 566);
             this.ClearOrderButton.Name = "ClearOrderButton";
             this.ClearOrderButton.Size = new System.Drawing.Size(90, 37);
             this.ClearOrderButton.TabIndex = 17;
             this.ClearOrderButton.Text = "Clear Order";
             this.ClearOrderButton.UseVisualStyleBackColor = true;
+            // 
+            // addressControl1
+            // 
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 100000;
+            address1.Street = "";
+            this.addressControl1.Address = address1;
+            this.addressControl1.Location = new System.Drawing.Point(17, 160);
+            this.addressControl1.Name = "addressControl1";
+            this.addressControl1.Size = new System.Drawing.Size(400, 190);
+            this.addressControl1.TabIndex = 10;
             // 
             // PriorityOrdersTab
             // 

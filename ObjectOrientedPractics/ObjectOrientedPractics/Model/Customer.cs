@@ -77,6 +77,8 @@ namespace ObjectOrientedPractics.Model
             set { _cart = value; }
         }
 
+        public bool IsPriority { get; set; }
+
         //присваивание значения свойствам
         public Customer(string fullname)
         {

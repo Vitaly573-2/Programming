@@ -14,6 +14,9 @@ namespace ObjectOrientedPractics.Model
         private Address _address;
         private List<Item> _items;  
 
+        public int ID { get{ return _id; } }
+
+        public string CreateData {  get{ return _createData; } }
         //желаемая дата
         public DateTime DataTime { get; set; }
         //желаемое время, перечисление 
@@ -25,6 +28,8 @@ namespace ObjectOrientedPractics.Model
                              Address address, List<Item> items, DateTime dataTime, DeliveryTime deliveryTime)
             :base(status, createData, items, address)
         {
+            _id += 1;
+            _createData = createData;
             DataTime = dataTime;
             DeliveryTime= deliveryTime;
         }
