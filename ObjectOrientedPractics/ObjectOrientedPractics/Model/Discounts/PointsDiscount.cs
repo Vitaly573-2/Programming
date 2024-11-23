@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Discounts
 {
-    public class PointsDiscount
+    public class PointsDiscount : IDiscount
     {
-        private int _points;
+        private int _accumulatedPoints;
 
-        public int Points
+        public int AccumulatedPoints
         {
-            get { return _points; }
+            get { return _accumulatedPoints; }
             set
             {
                 if (value <= 0)
@@ -21,7 +21,7 @@ namespace ObjectOrientedPractics.Model
                 }
                 else
                 {
-                    _points = value;
+                    _accumulatedPoints = value;
                 }
             }
         }
@@ -30,7 +30,7 @@ namespace ObjectOrientedPractics.Model
         {
             get 
             {
-                return $"Накопительная - {Points} баллов";
+                return $"Накопительная - {AccumulatedPoints} баллов";
             } 
         }
 
@@ -50,12 +50,12 @@ namespace ObjectOrientedPractics.Model
         {
             double totalCost = GetTotalCost(items);
             //если кол-во баллов больше 30% от общей стоимости товаров 
-            if (Points > totalCost * 0.3)
+            if (AccumulatedPoints > totalCost * 0.3)
             {
                 //метод для ближайшего меньшего числа 
                 return Math.Floor(totalCost * 0.3);
             }
-            return Points;
+            return AccumulatedPoints;
         }
 
         //применяет скидку к товарам
@@ -64,7 +64,7 @@ namespace ObjectOrientedPractics.Model
         public double Apply(List<Item> items)
         {
             double discountAmount = Calculate(items);
-            Points -= (int)discountAmount;
+            AccumulatedPoints -= (int)discountAmount;
             return discountAmount;
         }
 
@@ -73,7 +73,7 @@ namespace ObjectOrientedPractics.Model
         public void Update(List<Item> items)
         {
             double totalCost = GetTotalCost(items);
-            Points += (int)Math.Ceiling(totalCost * 0.1);
+            AccumulatedPoints += (int)Math.Ceiling(totalCost * 0.1);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Orders
 {
     public class Order //класс заказа
     {
@@ -59,6 +59,17 @@ namespace ObjectOrientedPractics.Model
                 {
                     return _cost= 0.0;
                 }
+            }
+        }
+
+        //размер применяемой скидки
+        public double DiscountAmount{ get; set;}
+
+        public double Total
+        {
+            get
+            {
+                return Cost - DiscountAmount;
             }
         }
 

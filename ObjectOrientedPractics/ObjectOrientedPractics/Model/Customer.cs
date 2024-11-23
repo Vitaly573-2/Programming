@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using ObjectOrientedPractics.Model.Discounts;
+using ObjectOrientedPractics.Model.Orders;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -24,6 +26,8 @@ namespace ObjectOrientedPractics.Model
         Cart _cart;
 
         private List<Order> _orders;
+
+        private List<IDiscount> _discounts;
 
 
 
@@ -79,6 +83,8 @@ namespace ObjectOrientedPractics.Model
 
         public bool IsPriority { get; set; }
 
+        public List<IDiscount> Discounts { get; set; }
+
         //присваивание значения свойствам
         public Customer(string fullname)
         {
@@ -87,6 +93,8 @@ namespace ObjectOrientedPractics.Model
             _id = IdGenerator.GetNextId();
             Cart = new Cart();
             Orders = new List<Order>();
+            Discounts = new List<IDiscount>();
+            Discounts.Add(new PointsDiscount());
         }
 
 
@@ -99,6 +107,8 @@ namespace ObjectOrientedPractics.Model
             _id = IdGenerator.GetNextId();
             Cart = new Cart();
             Orders = new List<Order>();
+            Discounts = new List<IDiscount>();
+            Discounts.Add(new PointsDiscount());
         }
 
 /*        public override string ToString()

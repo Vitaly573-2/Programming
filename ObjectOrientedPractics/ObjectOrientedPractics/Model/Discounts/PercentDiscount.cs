@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Discounts
 {
-    public class PercentDiscount
+    public class PercentDiscount : IDiscount
     {
         //текущая скидка
         private int _currentDiscountPercent;
@@ -53,7 +53,7 @@ namespace ObjectOrientedPractics.Model
             return Math.Round(totalCost, 2);
         }
 
-        public int Calculate(List<Item> items)
+        public double Calculate(List<Item> items)
         {
             double totalCost = GetTotalCost(items);
             if(CurrentDiscountPercent < 10)
@@ -69,7 +69,7 @@ namespace ObjectOrientedPractics.Model
         public double Apply(List<Item> items)
         {
             double totalCost = GetTotalCost(items);
-            int discountPersent = Calculate(items);
+            int discountPersent = (int)Calculate(items);
             double discountAmout = AccumulatedAmount * discountPersent;
             CurrentDiscountPercent -= discountPersent;
             return discountAmout;
