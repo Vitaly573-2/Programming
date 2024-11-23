@@ -43,7 +43,7 @@
             this.DiscountPanel = new System.Windows.Forms.Panel();
             this.DiscountCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.Amount = new System.Windows.Forms.Label();
-            this.DiscoundAmountLabel = new System.Windows.Forms.Label();
+            this.DiscountAmountLabel = new System.Windows.Forms.Label();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -174,7 +174,7 @@
             this.DiscountPanel.Controls.Add(this.label4);
             this.DiscountPanel.Controls.Add(this.TotalLabel);
             this.DiscountPanel.Controls.Add(this.label5);
-            this.DiscountPanel.Controls.Add(this.DiscoundAmountLabel);
+            this.DiscountPanel.Controls.Add(this.DiscountAmountLabel);
             this.DiscountPanel.Controls.Add(this.Amount);
             this.DiscountPanel.Controls.Add(this.DiscountCheckedListBox);
             this.DiscountPanel.Location = new System.Drawing.Point(308, 354);
@@ -191,6 +191,7 @@
             this.DiscountCheckedListBox.Name = "DiscountCheckedListBox";
             this.DiscountCheckedListBox.Size = new System.Drawing.Size(265, 240);
             this.DiscountCheckedListBox.TabIndex = 0;
+            this.DiscountCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.DiscountCheckedListBox_SelectedIndexChanged);
             // 
             // Amount
             // 
@@ -202,15 +203,15 @@
             this.Amount.TabIndex = 14;
             this.Amount.Text = "Discount Amount:";
             // 
-            // DiscoundAmountLabel
+            // DiscountAmountLabel
             // 
-            this.DiscoundAmountLabel.AutoSize = true;
-            this.DiscoundAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DiscoundAmountLabel.Location = new System.Drawing.Point(274, 40);
-            this.DiscoundAmountLabel.Name = "DiscoundAmountLabel";
-            this.DiscoundAmountLabel.Size = new System.Drawing.Size(42, 17);
-            this.DiscoundAmountLabel.TabIndex = 15;
-            this.DiscoundAmountLabel.Text = "None";
+            this.DiscountAmountLabel.AutoSize = true;
+            this.DiscountAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountAmountLabel.Location = new System.Drawing.Point(274, 40);
+            this.DiscountAmountLabel.Name = "DiscountAmountLabel";
+            this.DiscountAmountLabel.Size = new System.Drawing.Size(42, 17);
+            this.DiscountAmountLabel.TabIndex = 15;
+            this.DiscountAmountLabel.Text = "None";
             // 
             // TotalLabel
             // 
@@ -221,6 +222,7 @@
             this.TotalLabel.Size = new System.Drawing.Size(42, 17);
             this.TotalLabel.TabIndex = 17;
             this.TotalLabel.Text = "None";
+            this.TotalLabel.Click += new System.EventHandler(this.TotalLabel_Click);
             // 
             // label5
             // 
@@ -286,7 +288,7 @@
         private System.Windows.Forms.Panel DiscountPanel;
         private System.Windows.Forms.Label Amount;
         private System.Windows.Forms.CheckedListBox DiscountCheckedListBox;
-        private System.Windows.Forms.Label DiscoundAmountLabel;
+        private System.Windows.Forms.Label DiscountAmountLabel;
         private System.Windows.Forms.Label TotalLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

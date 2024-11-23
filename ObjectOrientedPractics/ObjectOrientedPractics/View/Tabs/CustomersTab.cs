@@ -234,7 +234,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 DiscountCategoryForm discountCategoryForm = new DiscountCategoryForm();
                 if(discountCategoryForm.ShowDialog() == DialogResult.OK)
                 {
-                    //добавляем в скидку(интерфейс) 
+                    //добавляем в скидку(интерфейс) процентную скидку(PercentDiscount) 
                     _currentCustomer.Discounts.Add(discountCategoryForm.Discount);
                     //добавление информации на DiscountListBox
                     DiscountsListBox.Items.Add(discountCategoryForm.Discount.Info);

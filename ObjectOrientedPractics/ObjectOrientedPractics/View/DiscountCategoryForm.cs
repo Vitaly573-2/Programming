@@ -13,7 +13,7 @@ namespace ObjectOrientedPractics.View
 {
     public partial class DiscountCategoryForm : Form
     {
-        //свойтсво накопительных процентов 
+        //свойтсво процентная скидка
         public PercentDiscount Discount { get; set; } = new PercentDiscount();
 
         public DiscountCategoryForm()

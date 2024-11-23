@@ -8,6 +8,7 @@ namespace ObjectOrientedPractics.Model.Discounts
 {
     public class PointsDiscount : IDiscount
     {
+        //кол-во баллов 
         private int _accumulatedPoints;
 
         public int AccumulatedPoints
