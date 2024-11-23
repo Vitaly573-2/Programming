@@ -42,7 +42,7 @@ namespace ObjectOrientedPractics.Model
             {
                 totalCost += item.Cost;
             }
-            return totalCost;
+            return Math.Round(totalCost,2);
         }
 
         //размер скидки для данного списка продуктов 
@@ -55,10 +55,7 @@ namespace ObjectOrientedPractics.Model
                 //метод для ближайшего меньшего числа 
                 return Math.Floor(totalCost * 0.3);
             }
-            else
-            {
-                return Points;
-            }
+            return Points;
         }
 
         //применяет скидку к товарам
