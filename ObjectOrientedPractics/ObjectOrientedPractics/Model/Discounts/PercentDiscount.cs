@@ -17,6 +17,18 @@ namespace ObjectOrientedPractics.Model.Discounts
         
         public int CurrentDiscountPercent { get; set;}
 
+        public Category DiscountCategory
+        {
+            get
+            {
+                return _discountCategory;
+            }
+            set
+            {
+                _discountCategory = value;
+            }
+        }
+
         public double AccumulatedAmount
         {
             get { return _accumulatedAmount; }
@@ -37,7 +49,7 @@ namespace ObjectOrientedPractics.Model.Discounts
         {
             get
             {
-                return $"Процентная {_discountCategory.ToString()} - {_currentDiscountPercent}";
+                return $"Процентная {DiscountCategory.ToString()} - {CurrentDiscountPercent}";
             }
         }
 
@@ -79,6 +91,11 @@ namespace ObjectOrientedPractics.Model.Discounts
         public void Update(List<Item> items)
         {
             CurrentDiscountPercent += (int)Math.Floor(AccumulatedAmount / 1000);
+        }
+
+        public PercentDiscount()
+        {
+            CurrentDiscountPercent = 1;
         }
     }
 }   

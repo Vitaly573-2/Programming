@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Discounts;
 using ObjectOrientedPractics.View.Controls;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 CustomersFullNameTextBox.Text = "";
                 //флажок выключен
                 IsPriorityCheckBox.Checked = false;
+                //очистка окно скидок 
+                DiscountsListBox.Items.Clear();
                 addressControl1.ClearForm();
 
                 /*AddressRichTextBox.Text = "";*/
@@ -57,6 +60,8 @@ namespace ObjectOrientedPractics.View.Tabs
             }
             else
             {
+                //очистка окна скидок перед заполнением 
+                DiscountsListBox.Items.Clear();
                 addressControl1.ListBoxNull = false;
 
                 CustoemersAddButton.Enabled = false;
@@ -74,6 +79,12 @@ namespace ObjectOrientedPractics.View.Tabs
 
                 addressControl1.ShowValues(_currentCustomer.Address);
                 /*AddressRichTextBox.Text = _currentCustomer.Address;*/
+
+                //отображение скидки у данного покупателя 
+                foreach(var discount in _currentCustomer.Discounts)
+                {
+                    DiscountsListBox.Items.Add(discount.Info);
+                }
             }
         }
 
@@ -207,6 +218,42 @@ namespace ObjectOrientedPractics.View.Tabs
             if (CustomersListBox.SelectedIndex != -1)
             {
                 _currentCustomer.IsPriority = IsPriorityCheckBox.Checked;
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DiscountsAddButton_Click(object sender, EventArgs e)
+        {
+            if(CustomersListBox.SelectedIndex != -1)
+            {
+                //появляется форма с выбором категории для которой будет применина скидка 
+                DiscountCategoryForm discountCategoryForm = new DiscountCategoryForm();
+                if(discountCategoryForm.ShowDialog() == DialogResult.OK)
+                {
+                    //добавляем в скидку(интерфейс) 
+                    _currentCustomer.Discounts.Add(discountCategoryForm.Discount);
+                    //добавление информации на DiscountListBox
+                    DiscountsListBox.Items.Add(discountCategoryForm.Discount.Info);
+                }
+            }
+        }
+
+        private void DiscountsRemoveButton_Click(object sender, EventArgs e)
+        {
+            if (CustomersListBox.SelectedIndex != -1)
+            {
+                //проверка типа данной скидки на не равенство накопительной 
+                if (_currentCustomer.Discounts[DiscountsListBox.SelectedIndex].GetType() != typeof(PointsDiscount))
+                {
+                    //удаляем выбранную скидку из списка данного пользователя
+                    _currentCustomer.Discounts.RemoveAt(DiscountsListBox.SelectedIndex);
+                    //удаляем ли DiscountsListBox   
+                    DiscountsListBox.Items.RemoveAt(DiscountsListBox.SelectedIndex);
+                }
             }
         }
     }

@@ -39,8 +39,12 @@
             this.CustoemersAddButton = new System.Windows.Forms.Button();
             this.CstomersRemoveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
+            this.DiscountsListBox = new System.Windows.Forms.ListBox();
             this.IsPriorityCheckBox = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.DiscountsAddButton = new System.Windows.Forms.Button();
+            this.DiscountsRemoveButton = new System.Windows.Forms.Button();
+            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,6 +161,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.DiscountsRemoveButton);
+            this.panel1.Controls.Add(this.DiscountsAddButton);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.DiscountsListBox);
             this.panel1.Controls.Add(this.IsPriorityCheckBox);
             this.panel1.Controls.Add(this.addressControl1);
             this.panel1.Controls.Add(this.label2);
@@ -170,6 +178,57 @@
             this.panel1.Size = new System.Drawing.Size(408, 588);
             this.panel1.TabIndex = 8;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // DiscountsListBox
+            // 
+            this.DiscountsListBox.FormattingEnabled = true;
+            this.DiscountsListBox.Location = new System.Drawing.Point(7, 369);
+            this.DiscountsListBox.Name = "DiscountsListBox";
+            this.DiscountsListBox.Size = new System.Drawing.Size(265, 95);
+            this.DiscountsListBox.TabIndex = 9;
+            this.DiscountsListBox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // IsPriorityCheckBox
+            // 
+            this.IsPriorityCheckBox.AutoSize = true;
+            this.IsPriorityCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IsPriorityCheckBox.Location = new System.Drawing.Point(17, 98);
+            this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
+            this.IsPriorityCheckBox.Size = new System.Drawing.Size(85, 21);
+            this.IsPriorityCheckBox.TabIndex = 8;
+            this.IsPriorityCheckBox.Text = "Is Priority";
+            this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
+            this.IsPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(4, 340);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Discounts";
+            // 
+            // DiscountsAddButton
+            // 
+            this.DiscountsAddButton.Location = new System.Drawing.Point(278, 369);
+            this.DiscountsAddButton.Name = "DiscountsAddButton";
+            this.DiscountsAddButton.Size = new System.Drawing.Size(117, 44);
+            this.DiscountsAddButton.TabIndex = 11;
+            this.DiscountsAddButton.Text = "Add";
+            this.DiscountsAddButton.UseVisualStyleBackColor = true;
+            this.DiscountsAddButton.Click += new System.EventHandler(this.DiscountsAddButton_Click);
+            // 
+            // DiscountsRemoveButton
+            // 
+            this.DiscountsRemoveButton.Location = new System.Drawing.Point(279, 419);
+            this.DiscountsRemoveButton.Name = "DiscountsRemoveButton";
+            this.DiscountsRemoveButton.Size = new System.Drawing.Size(117, 44);
+            this.DiscountsRemoveButton.TabIndex = 12;
+            this.DiscountsRemoveButton.Text = "Remove";
+            this.DiscountsRemoveButton.UseVisualStyleBackColor = true;
+            this.DiscountsRemoveButton.Click += new System.EventHandler(this.DiscountsRemoveButton_Click);
             // 
             // addressControl1
             // 
@@ -185,18 +244,6 @@
             this.addressControl1.Size = new System.Drawing.Size(400, 190);
             this.addressControl1.TabIndex = 7;
             this.addressControl1.Load += new System.EventHandler(this.addressControl1_Load_1);
-            // 
-            // IsPriorityCheckBox
-            // 
-            this.IsPriorityCheckBox.AutoSize = true;
-            this.IsPriorityCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IsPriorityCheckBox.Location = new System.Drawing.Point(17, 98);
-            this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
-            this.IsPriorityCheckBox.Size = new System.Drawing.Size(85, 21);
-            this.IsPriorityCheckBox.TabIndex = 8;
-            this.IsPriorityCheckBox.Text = "Is Priority";
-            this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
-            this.IsPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
             // 
             // CustomersTab
             // 
@@ -230,5 +277,9 @@
         private System.Windows.Forms.Panel panel1;
         private Controls.AddressControl addressControl1;
         private System.Windows.Forms.CheckBox IsPriorityCheckBox;
+        private System.Windows.Forms.ListBox DiscountsListBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button DiscountsRemoveButton;
+        private System.Windows.Forms.Button DiscountsAddButton;
     }
 }

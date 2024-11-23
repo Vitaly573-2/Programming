@@ -67,6 +67,12 @@
     <Compile Include="View\Controls\AddressControl.Designer.cs">
       <DependentUpon>AddressControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\DiscountCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DiscountCategoryForm.Designer.cs">
+      <DependentUpon>DiscountCategoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="View\Controls\AddressControl.resx">
       <DependentUpon>AddressControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DiscountCategoryForm.resx">
+      <DependentUpon>DiscountCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
