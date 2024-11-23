@@ -184,10 +184,12 @@
             // 
             // DiscountCheckedListBox
             // 
+            this.DiscountCheckedListBox.BackColor = System.Drawing.SystemColors.Control;
+            this.DiscountCheckedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DiscountCheckedListBox.FormattingEnabled = true;
-            this.DiscountCheckedListBox.Location = new System.Drawing.Point(3, 20);
+            this.DiscountCheckedListBox.Location = new System.Drawing.Point(3, 37);
             this.DiscountCheckedListBox.Name = "DiscountCheckedListBox";
-            this.DiscountCheckedListBox.Size = new System.Drawing.Size(265, 244);
+            this.DiscountCheckedListBox.Size = new System.Drawing.Size(265, 240);
             this.DiscountCheckedListBox.TabIndex = 0;
             // 
             // Amount
@@ -234,7 +236,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Location = new System.Drawing.Point(3, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 17);
             this.label4.TabIndex = 18;
