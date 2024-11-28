@@ -50,6 +50,7 @@
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Enums\Category.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Enums\SortedBy.cs" />
     <Compile Include="Model\IDiscount.cs" />
     <Compile Include="Model\Orders\Order.cs" />
     <Compile Include="Model\Enums\OrderStatus.cs" />

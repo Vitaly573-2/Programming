@@ -20,7 +20,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private List<Item> _items = new List<Item>();
         //private Item _currentItem;
         private List<string> ItemsListBoxItems = new List<string>();
-        List<Item> _displayItems;   
+        List<Item> _displayItems;
 
         int select = -1;
 
@@ -34,17 +34,37 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             InitializeComboBox();
+            InitializeSortedByComboBox();
         }
 
         private void InitializeComboBox()
         {
             Array nums = Enum.GetValues(typeof(Category));
-            foreach(Category it in nums)
+            foreach (Category it in nums)
             {
                 CategoryComboBox1.Items.Add(it);
             }
             CategoryComboBox1.SelectedIndex = 0;
         }
+
+        private void InitializeSortedByComboBox()
+        {
+            // Установка стиля для ComboBox
+            SortedByComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // Добавление вариантов сортировки
+            SortedByComboBox.Items.Add("A-Z (по алфавиту)");
+            SortedByComboBox.Items.Add("Z-A (по алфавиту)");
+            SortedByComboBox.Items.Add("По возрастанию стоимости");
+            SortedByComboBox.Items.Add("По убыванию стоимости");
+
+            // Установка первого элемента как выбранного
+            if (SortedByComboBox.Items.Count > 0)
+            {
+                SortedByComboBox.SelectedIndex = 0;
+            }
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -99,9 +119,10 @@ namespace ObjectOrientedPractics.View.Tabs
                 MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Item item = new Item(NametextBox.Text, DescriptiontextBox.Text, double.Parse(CosttextBox.Text),(Category)CategoryComboBox1.SelectedItem);
+            Item item = new Item(NametextBox.Text, DescriptiontextBox.Text, double.Parse(CosttextBox.Text), (Category)CategoryComboBox1.SelectedItem);
             Items.Add(item);
-            _displayItems = Items;//////////////////////////////    
+            //_displayItems = Items;//////////////////////////////    
+            TypeOfSorting();
             UpdateItemsListBox();//обновляет ItemsListBox
             ClearTextBoxes();
         }
@@ -114,7 +135,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 UpdateItemsListBox();
                 select = -1;
                 ClearTextBoxes();
-                _displayItems = Items;
+                //_displayItems = Items;
+                TypeOfSorting();
             }
         }
 
@@ -244,13 +266,13 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private bool FindSubstringString(Item item)
         {
-            if(item.Name.IndexOf(FindSubstringTextBox.Text) != -1)
+            if (item.Name.IndexOf(FindSubstringTextBox.Text) != -1)
                 return true;
             return false;
         }
 
 
-        private void FindSubstringTextBox_TextChanged(object sender, EventArgs e)
+        private void FilterListBox()
         {
 
             if (string.IsNullOrEmpty(FindSubstringTextBox.Text))
@@ -261,6 +283,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             List<Item> filteredItems = DataTools.Filter(Items, FindSubstringString);
+            _displayItems = filteredItems;
 
             ItemslistBox.Items.Clear();
             foreach (var item in _displayItems)
@@ -269,6 +292,127 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        private bool CostAscending(Item item1, Item item2)
+        {
+            return item1.Cost > item2.Cost;
+        }
 
+        private bool CostDescending(Item item1, Item item2)
+        {
+            return item1.Cost < item2.Cost;
+        }
+
+        private bool AlphabetAZ(Item item1, Item item2)
+        {
+            if ((string.Compare(item1.Name, item2.Name)) < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool AlphabetZA(Item item1, Item item2)
+        {
+            if ((string.Compare(item1.Name, item2.Name)) < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private void SortItemsListBox(SortingCriteria sortingCriteria)
+        {
+            List<Item> sortedItems;
+            sortedItems = DataTools.SortBy(Items, sortingCriteria);
+            _displayItems = sortedItems;
+            ItemsListBoxItems.Clear();
+            foreach (Item item in sortedItems)
+            {
+                ItemsListBoxItems.Add($"{item.Id.ToString()}){item.Name}");
+            }
+            ItemslistBox.Items.Clear();
+            ItemslistBox.Items.AddRange(ItemsListBoxItems.ToArray());
+
+        }
+
+        private void SortedByComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ItemslistBox.Items.Count != 0)
+            {
+                ItemslistBox.SelectedIndex = -1;
+                TypeOfSorting();
+            }
+        }
+
+        private void FindSubstringTextBox_TextChanged(object sender, EventArgs e)
+        {
+            FilterListBox();
+        }
+
+        private void TypeOfSorting()
+        {
+            SortingCriteria sortingCriteria;
+            List<Item> sortedItems;
+            switch (SortedByComboBox.SelectedIndex)
+            {
+                case 0:
+                    sortingCriteria = AlphabetAZ;
+                    SortItemsListBox(sortingCriteria);
+                   /* sortedItems = DataTools.SortBy(Items, sortingCriteria);
+                    _displayItems = sortedItems;
+                    ItemsListBoxItems.Clear();
+                    foreach (Item item in sortedItems)
+                    {
+                        ItemsListBoxItems.Add($"{item.Id.ToString()}){item.Name}");
+                    }
+                    ItemslistBox.Items.Clear();
+                    ItemslistBox.Items.AddRange(ItemsListBoxItems.ToArray());*/
+                    break;
+                case 1:
+                    sortingCriteria = AlphabetZA;
+                    SortItemsListBox(sortingCriteria);
+                   /* sortedItems = DataTools.SortBy(Items, sortingCriteria);
+                    _displayItems = sortedItems;
+                    ItemsListBoxItems.Clear();
+                    foreach (Item item in sortedItems)
+                    {
+                        ItemsListBoxItems.Add($"{item.Id.ToString()}){item.Name}");
+                    }
+                    ItemslistBox.Items.Clear();
+                    ItemslistBox.Items.AddRange(ItemsListBoxItems.ToArray());*/
+                    break;
+                case 2:
+                    sortingCriteria = CostAscending;
+                    SortItemsListBox(sortingCriteria);
+                   /* sortedItems = DataTools.SortBy(Items, sortingCriteria);
+                    _displayItems = sortedItems;
+                    ItemsListBoxItems.Clear();
+                    foreach (Item item in sortedItems)
+                    {
+                        ItemsListBoxItems.Add($"{item.Id.ToString()}){item.Name}");
+                    }
+                    ItemslistBox.Items.Clear();
+                    ItemslistBox.Items.AddRange(ItemsListBoxItems.ToArray());*/
+                    break;
+                case 3:
+                    sortingCriteria = CostDescending;
+                    SortItemsListBox(sortingCriteria);
+                   /* sortedItems = DataTools.SortBy(Items, sortingCriteria);
+                    _displayItems = sortedItems;
+                    ItemsListBoxItems.Clear();
+                    foreach (Item item in sortedItems)
+                    {
+                        ItemsListBoxItems.Add($"{item.Id.ToString()}){item.Name}");
+                    }
+                    ItemslistBox.Items.Clear();
+                    ItemslistBox.Items.AddRange(ItemsListBoxItems.ToArray());*/
+                    break;
+            }
+            FilterListBox();
+        }
     }
 }
