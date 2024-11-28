@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Services;
+using static ObjectOrientedPractics.Services.DataTools;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ObjectOrientedPractics.View.Tabs
@@ -18,6 +20,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private List<Item> _items = new List<Item>();
         //private Item _currentItem;
         private List<string> ItemsListBoxItems = new List<string>();
+        List<Item> _displayItems;   
 
         int select = -1;
 
@@ -98,6 +101,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
             Item item = new Item(NametextBox.Text, DescriptiontextBox.Text, double.Parse(CosttextBox.Text),(Category)CategoryComboBox1.SelectedItem);
             Items.Add(item);
+            _displayItems = Items;//////////////////////////////    
             UpdateItemsListBox();//обновляет ItemsListBox
             ClearTextBoxes();
         }
@@ -110,6 +114,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 UpdateItemsListBox();
                 select = -1;
                 ClearTextBoxes();
+                _displayItems = Items;
             }
         }
 
@@ -118,7 +123,7 @@ namespace ObjectOrientedPractics.View.Tabs
             if (ItemslistBox.SelectedIndex != -1)
             {
                 select = ItemslistBox.SelectedIndex;
-                Item selectedItem = Items[select];
+                Item selectedItem = _displayItems[select];
 
                 IdtextBox.Text = selectedItem.Id.ToString();
                 CosttextBox.Text = selectedItem.Cost.ToString();
@@ -236,5 +241,34 @@ namespace ObjectOrientedPractics.View.Tabs
                 UpdateSelectItemListBox();
             }
         }
+
+        private bool FindSubstringString(Item item)
+        {
+            if(item.Name.IndexOf(FindSubstringTextBox.Text) != -1)
+                return true;
+            return false;
+        }
+
+
+        private void FindSubstringTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(FindSubstringTextBox.Text))
+            {
+                _displayItems = Items; // Возвращаем все элементы, если текст пуст
+                UpdateItemsListBox();
+                return;
+            }
+
+            List<Item> filteredItems = DataTools.Filter(Items, FindSubstringString);
+
+            ItemslistBox.Items.Clear();
+            foreach (var item in _displayItems)
+            {
+                ItemslistBox.Items.Add($"{item.Id} {item.Name}");
+            }
+        }
+
+
     }
 }

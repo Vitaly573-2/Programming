@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CategoryComboBox1 = new System.Windows.Forms.ComboBox();
             this.DescriptiontextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CosttextBox = new System.Windows.Forms.TextBox();
@@ -42,8 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Addbutton = new System.Windows.Forms.Button();
             this.ItemslistBox = new System.Windows.Forms.ListBox();
-            this.CategoryComboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.FindSubstringTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +72,25 @@
             this.panel1.Size = new System.Drawing.Size(423, 653);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(3, 80);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 17);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Category:";
+            // 
+            // CategoryComboBox1
+            // 
+            this.CategoryComboBox1.FormattingEnabled = true;
+            this.CategoryComboBox1.Location = new System.Drawing.Point(83, 80);
+            this.CategoryComboBox1.Name = "CategoryComboBox1";
+            this.CategoryComboBox1.Size = new System.Drawing.Size(178, 21);
+            this.CategoryComboBox1.TabIndex = 11;
+            this.CategoryComboBox1.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox1_SelectedIndexChanged);
             // 
             // DescriptiontextBox
             // 
@@ -216,40 +237,39 @@
             // 
             // ItemslistBox
             // 
-            this.ItemslistBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ItemslistBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ItemslistBox.FormattingEnabled = true;
-            this.ItemslistBox.Location = new System.Drawing.Point(9, 28);
+            this.ItemslistBox.Location = new System.Drawing.Point(9, 60);
             this.ItemslistBox.MaximumSize = new System.Drawing.Size(4, 290);
-            this.ItemslistBox.MinimumSize = new System.Drawing.Size(283, 563);
+            this.ItemslistBox.MinimumSize = new System.Drawing.Size(283, 463);
             this.ItemslistBox.Name = "ItemslistBox";
-            this.ItemslistBox.Size = new System.Drawing.Size(283, 563);
+            this.ItemslistBox.Size = new System.Drawing.Size(283, 459);
             this.ItemslistBox.TabIndex = 6;
             this.ItemslistBox.SelectedIndexChanged += new System.EventHandler(this.ItemslistBox_SelectedIndexChanged);
             // 
-            // CategoryComboBox1
+            // label8
             // 
-            this.CategoryComboBox1.FormattingEnabled = true;
-            this.CategoryComboBox1.Location = new System.Drawing.Point(83, 80);
-            this.CategoryComboBox1.Name = "CategoryComboBox1";
-            this.CategoryComboBox1.Size = new System.Drawing.Size(178, 21);
-            this.CategoryComboBox1.TabIndex = 11;
-            this.CategoryComboBox1.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox1_SelectedIndexChanged);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(6, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 17);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Find:";
             // 
-            // label7
+            // FindSubstringTextBox
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(3, 80);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 17);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Category:";
+            this.FindSubstringTextBox.Location = new System.Drawing.Point(58, 32);
+            this.FindSubstringTextBox.Name = "FindSubstringTextBox";
+            this.FindSubstringTextBox.Size = new System.Drawing.Size(234, 20);
+            this.FindSubstringTextBox.TabIndex = 11;
+            this.FindSubstringTextBox.TextChanged += new System.EventHandler(this.FindSubstringTextBox_TextChanged);
             // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.FindSubstringTextBox);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Removebutton);
             this.Controls.Add(this.label1);
@@ -262,6 +282,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -283,5 +304,7 @@
         private System.Windows.Forms.ListBox ItemslistBox;
         private System.Windows.Forms.ComboBox CategoryComboBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox FindSubstringTextBox;
     }
 }

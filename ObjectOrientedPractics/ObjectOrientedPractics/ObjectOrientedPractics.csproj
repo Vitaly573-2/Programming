@@ -58,6 +58,7 @@
     <Compile Include="Model\Orders\PriorityOrder.cs" />
     <Compile Include="Model\Store.cs" />
     <Compile Include="Model\DeliveryTime.cs" />
+    <Compile Include="Services\DataTools.cs" />
     <Compile Include="Services\IdGenerator.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Services\ValueValidator.cs" />
