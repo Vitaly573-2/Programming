@@ -15,6 +15,12 @@ namespace ObjectOrientedPractics.Model
         private string _building;
         private string _apartment;
 
+        /// <summary>
+        /// Событие изменения адреса.
+        /// Событие также основано на EventHandler<EventArgs>.
+        /// </summary>
+        public event EventHandler<EventArgs> AddressChanged;
+
         public int Index
         {
             get
@@ -28,6 +34,8 @@ namespace ObjectOrientedPractics.Model
                     throw new ArgumentException("Индекс должен быть шестизначным числом.");
                 }
                 _index = value;
+
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -42,6 +50,7 @@ namespace ObjectOrientedPractics.Model
                 if (value.Length <= 50)
                 {
                     _country = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
                 }
                 else
                 {
@@ -61,6 +70,7 @@ namespace ObjectOrientedPractics.Model
                 if (value.Length <= 50)
                 {
                     _city = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
                 }
                 else
                 {
@@ -74,6 +84,7 @@ namespace ObjectOrientedPractics.Model
             get
             {
                 return _street;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
             set
             {
@@ -99,6 +110,7 @@ namespace ObjectOrientedPractics.Model
                 if (value.Length <= 10)
                 {
                     _building = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
                 }
                 else
                 {
@@ -118,6 +130,7 @@ namespace ObjectOrientedPractics.Model
                 if(value.Length <= 10)
                 {
                     _apartment = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
                 }
                 else
                 {

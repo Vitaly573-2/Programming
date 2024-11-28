@@ -23,6 +23,22 @@ namespace ObjectOrientedPractics.Model
         //цена
         private double _cost;
 
+        /// <summary>
+        /// Событие изменения названия товара.
+        /// EventHandler<>
+        /// </summary>
+        public event EventHandler<EventArgs> NameChanged;
+        /// <summary>
+        /// Событие изменения описания товара.
+        /// на основе делегата EventHandler<>
+        /// </summary>
+        public event EventHandler<EventArgs> InfoChanged;
+        /// <summary>
+        /// Событие изменения стоимости товара.
+        /// EventHandler<>
+        /// </summary>
+        public event EventHandler<EventArgs> CostChanged;   
+
         //возвращает идентификационный номер
         public int Id
         {
@@ -43,6 +59,7 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertStringOnLength(value, 200, nameof(Name));
                 _name = value;
+                NameChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -57,6 +74,7 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertStringOnLength(value,  1000, nameof(Info));
                 _info = value;
+                NameChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -72,6 +90,7 @@ namespace ObjectOrientedPractics.Model
                 if(value > 0 & value < 100000)
                 {
                     _cost = value;
+                    NameChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -79,7 +98,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Автосвойство категории товара
         /// </summary>
-        public Category Category { get; set; }
+        public Category Category { get; set; }    
 
         //конструктор копирования 
         public object Clone()

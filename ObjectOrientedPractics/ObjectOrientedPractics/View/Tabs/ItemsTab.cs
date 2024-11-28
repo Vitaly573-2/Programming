@@ -17,6 +17,11 @@ namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class ItemsTab : UserControl
     {
+        /// <summary>
+        /// Событие изменения товаров.
+        /// </summary>
+        public event EventHandler<EventArgs> ItemsChanged;
+
         private List<Item> _items = new List<Item>();
         //private Item _currentItem;
         private List<string> ItemsListBoxItems = new List<string>();
@@ -121,7 +126,8 @@ namespace ObjectOrientedPractics.View.Tabs
             }
             Item item = new Item(NametextBox.Text, DescriptiontextBox.Text, double.Parse(CosttextBox.Text), (Category)CategoryComboBox1.SelectedItem);
             Items.Add(item);
-            //_displayItems = Items;//////////////////////////////    
+            //_displayItems = Items;//////
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             TypeOfSorting();
             UpdateItemsListBox();//обновляет ItemsListBox
             ClearTextBoxes();
@@ -133,6 +139,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 Items.RemoveAt(select);
                 UpdateItemsListBox();
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 select = -1;
                 ClearTextBoxes();
                 //_displayItems = Items;
@@ -172,6 +179,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (select != -1)
                 {
                     Items[select].Info = DescriptiontextBox.Text;
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateSelectItemListBox();
                 }
             }
@@ -200,6 +208,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     if (select != -1)
                     {
                         Items[select].Cost = cost;
+                        ItemsChanged?.Invoke(this, EventArgs.Empty);
                         UpdateSelectItemListBox();
                     }
                 }
@@ -240,6 +249,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (select != -1)
                 {
                     Items[select].Name = NametextBox.Text;
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateSelectItemListBox();
                 }
             }
@@ -260,6 +270,7 @@ namespace ObjectOrientedPractics.View.Tabs
             if (select != -1)
             {
                 Items[select].Category = (Category)CategoryComboBox1.SelectedIndex;
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 UpdateSelectItemListBox();
             }
         }

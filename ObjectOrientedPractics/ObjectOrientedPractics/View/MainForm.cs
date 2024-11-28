@@ -27,8 +27,15 @@ namespace ObjectOrientedPractics
             cartsTab1.Items = store.Items;
             cartsTab1.Customers = store.Customers;
             ordersTab1.Customers = store.Customers;
-            
+            //создали событие itemsTab1.ItemsChanged 
+            itemsTab1.ItemsChanged += ItemsChanged;
 
+        }
+
+        private void ItemsChanged(object sender, EventArgs e)
+        {
+            cartsTab1.RefreshData();
+            cartsTab1.RefreshData();
         }
 
         private void customersTab1_Load(object sender, EventArgs e)
