@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model
 {
-    public class Address
+    public class Address : ICloneable
     {
         private int _index; 
         private string _country;
@@ -124,6 +124,26 @@ namespace ObjectOrientedPractics.Model
                     throw new ArgumentException("Индекс должен быть шестизначным числом.");
                 }
             }
+        }
+
+        public object Clone()
+        {
+            return new Address(this.Index, this.Country, this.City, this.Street, this.Building, this.Apartment);
+        }
+
+        //реализация сравнения объектов 
+        public override bool Equals(object other)
+        {
+            if (other == null)
+                return false;
+            if (other.GetType() != typeof(Address))
+                return false;
+            //определяет совпадают ли указанные экзепляры
+            if (object.ReferenceEquals(this, other))
+                return true;
+            Address address = (Address)other;
+            return (this.Index == address.Index && this.Country == address.Country && this.City == address.City && 
+                    this.Street == address.Street && this.Building == address.Building && this.Apartment == address.Apartment);
         }
 
         /// <summary>

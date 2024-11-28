@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model
 {
-    public class Cart
+    public class Cart : ICloneable
     {
         private List<Item> _items;
 
@@ -39,10 +39,21 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        public object Clone()
+        {
+            return new Cart(this.Items);    
+        }
+
+
+
         public Cart()
         { 
             Items = new List<Item>();  
         }
 
+        public Cart(List<Item> items)
+        {
+            Items = items;
+        }
     }
 }

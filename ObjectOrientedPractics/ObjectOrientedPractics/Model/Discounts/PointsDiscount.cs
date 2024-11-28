@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ObjectOrientedPractics.Model.Discounts
 {
     //накопительная скидка
-    public class PointsDiscount : IDiscount
+    public class PointsDiscount : IDiscount, IComparable<PointsDiscount>
     {
         //кол-во накопленных баллов
         private int _accumulatedPoints;
@@ -81,6 +81,22 @@ namespace ObjectOrientedPractics.Model.Discounts
             double amount = GetAmount(items);
             //добавляем к баллом по 10% от общей стоимости корзины 
             AccumulatedPoints += (int)Math.Ceiling(amount * 0.1);
+        }
+
+        //сравнивает объекты между собой, аналгичен IEquatable
+        public int CompareTo(PointsDiscount discount2)
+        {
+            if (object.ReferenceEquals(this, discount2))
+                return 0;
+            if (discount2 is null)
+                return 1; //текущий объект больше нуля 
+            if (AccumulatedPoints > discount2.AccumulatedPoints)
+                return 1;
+            if (AccumulatedPoints < discount2.AccumulatedPoints)
+                return -1;
+            else if (AccumulatedPoints == discount2.AccumulatedPoints)
+                return 0;
+            return 1;
         }
     }
 }

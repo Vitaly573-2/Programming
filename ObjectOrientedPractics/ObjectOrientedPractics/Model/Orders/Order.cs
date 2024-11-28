@@ -85,6 +85,21 @@ namespace ObjectOrientedPractics.Model.Orders
             }
         }
 
+        //реализация сравнения объектов 
+        public override bool Equals(object other)
+        {
+            if (other == null)
+                return false;
+            if (other.GetType() != typeof(Order))
+                return false;
+            //определяет совпадают ли указанные экзепляры
+            if (object.ReferenceEquals(this, other))
+                return true;
+            Order order = (Order)other;
+            return (this.Status == order.Status && this.CreateDate == order.CreateDate && this.Items == order.Items &&
+                    this.CreateAddress == order.CreateAddress && this.DiscountAmount == order.DiscountAmount);
+        }
+
         public Order()
         {
             CreateDate = "27.10.2004";

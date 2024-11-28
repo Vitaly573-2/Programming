@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObjectOrientedPractics.Model.Discounts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
 
     [Serializable]
-    public class Item
+    public class Item : ICloneable, IComparable<Item>
     {
         //идентификационный номер
         private readonly int _id = IdGenerator._currentId;
@@ -79,6 +80,42 @@ namespace ObjectOrientedPractics.Model
         /// Автосвойство категории товара
         /// </summary>
         public Category Category { get; set; }
+
+        //конструктор копирования 
+        public object Clone()
+        {
+            return new Item(this.Name, this.Info, this.Cost, this.Category);
+        }
+
+        //реализация сравнения объектов 
+        public override bool Equals(object other)
+        {
+            if (other == null) 
+                return false;
+            if (other.GetType() != typeof(Item)) 
+                return false;
+            //определяет совпадают ли указанные экзепляры
+            if (object.ReferenceEquals(this,other))
+                return true;
+            Item item = (Item)other;
+            return (this.Name == item.Name && this.Info == item.Info && this.Cost == item.Cost && this.Category == item.Category);
+        }
+
+        //сравнивает объекты между собой, аналгичен IEquatable
+        public int CompareTo(Item item2)
+        {
+            if (object.ReferenceEquals(this, item2))
+                return 0;
+            if (item2 is null)
+                return 1; //текущий объект больше нуля 
+            if (Cost > item2.Cost)
+                return 1;
+            if (Cost < item2.Cost)
+                return -1;
+            else if (Cost == item2.Cost)
+                return 0;
+            return 1;
+        }
 
         //генерация идентификационного номера
         public Item()
