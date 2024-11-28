@@ -27,9 +27,8 @@ namespace ObjectOrientedPractics.Model
 
         private List<Order> _orders;
 
+        //список скидок(интерфейс)
         private List<IDiscount> _discounts;
-
-
 
         //возвращает идентификационный номер
         public int Id

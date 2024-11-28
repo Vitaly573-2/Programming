@@ -15,6 +15,7 @@ namespace ObjectOrientedPractics.Model.Orders
         private Address _createAddress;
         private double _cost;
         private OrderStatus _status;
+        private double _discountAmount;
 
 
         public int ID
@@ -63,7 +64,18 @@ namespace ObjectOrientedPractics.Model.Orders
         }
 
         //размер применяемой скидки
-        public double DiscountAmount{ get; set;}
+        public double DiscountAmount
+        {
+            get { return _discountAmount; }
+            set
+            {
+                if(value <= 0)
+                {
+                    throw new ArgumentException("Скидка не может равняться отрицательному значению");
+                }
+                _discountAmount = value;
+            }
+        }
 
         public double Total
         {
@@ -81,13 +93,14 @@ namespace ObjectOrientedPractics.Model.Orders
             _id += 1;
         }
 
-        public Order(OrderStatus status, string createDate, List<Item> _items, Address address)
+        public Order(OrderStatus status, string createDate, List<Item> _items, Address address, double disountAmount)
         {
             _id += 1;
             CreateDate = createDate;
             Status = status;
             Items = new List<Item>(_items);
             CreateAddress = address;
+            DiscountAmount = disountAmount;
         }
     }
 }

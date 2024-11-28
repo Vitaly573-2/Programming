@@ -25,8 +25,8 @@ namespace ObjectOrientedPractics.Model.Orders
         public PriorityOrder() { }
 
         public PriorityOrder(string createData, OrderStatus status,
-                             Address address, List<Item> items, DateTime dataTime, DeliveryTime deliveryTime)
-            :base(status, createData, items, address)
+                             Address address, List<Item> items, double discountAmount, DateTime dataTime, DeliveryTime deliveryTime)
+            :base(status, createData, items, address, discountAmount)
         {
             _id += 1;
             _createData = createData;

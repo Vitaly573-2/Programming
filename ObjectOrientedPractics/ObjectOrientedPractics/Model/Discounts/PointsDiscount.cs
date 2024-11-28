@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model.Discounts
 {
+    //накопительная скидка
     public class PointsDiscount : IDiscount
     {
-        //кол-во баллов 
+        //кол-во накопленных баллов
         private int _accumulatedPoints;
 
         public int AccumulatedPoints
         {
             get { return _accumulatedPoints; }
-            set
+            private set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new ArgumentException("Баллы должны быть больше нуля ");
                 }
@@ -27,6 +28,7 @@ namespace ObjectOrientedPractics.Model.Discounts
             }
         }
 
+        //вывод информации о накопительных баллов
         public string Info
         {
             get 
@@ -35,46 +37,50 @@ namespace ObjectOrientedPractics.Model.Discounts
             } 
         }
 
-        public double GetTotalCost(List<Item> items)
+        //подсчет суммы корзины
+        public double GetAmount(List<Item> items)
         {
-            double totalCost = 0;
-            //если кол-во баллов больше 30% от общей стоимости товаров 
+            double sum = 0;
             foreach(var item in items)
             {
-                totalCost += item.Cost;
+                sum += item.Cost;
             }
-            return Math.Round(totalCost,2);
+            return Math.Round(sum,2);
         }
 
-        //размер скидки для данного списка продуктов 
+        //возвращает размер скидки для данного списка продуктов и накопленные баллы
+        //вызывается перед оформлением заказа для оценки возможной скидки
         public double Calculate(List<Item> items)
         {
-            double totalCost = GetTotalCost(items);
+            double amount = GetAmount(items);
             //если кол-во баллов больше 30% от общей стоимости товаров 
-            if (AccumulatedPoints > totalCost * 0.3)
+            if (AccumulatedPoints > amount * 0.3)
             {
                 //метод для ближайшего меньшего числа 
-                return Math.Floor(totalCost * 0.3);
+                return Math.Floor(amount * 0.3);
             }
+            //возвращает текущее кол-во баллов
             return AccumulatedPoints;
         }
 
-        //применяет скидку к товарам
-        //возвращает размер скидки
-        //списывает накопленные баллы 
+        //вызывается в том случае, если скидка действительна применяется к будущему заказу
         public double Apply(List<Item> items)
         {
             double discountAmount = Calculate(items);
+            //списывает накопленные баллы
             AccumulatedPoints -= (int)discountAmount;
+            //возвращает размер скидки
             return discountAmount;
         }
 
         //добавляет баллы на основе полученног списка
-        //Math.Ceiling возвращает наименьшее целое число с плавающей точкой
+        //Math.Ceiling округляет в большую сторону
+        //вызывается после каждой покупки, покупатель должен получить баллы
         public void Update(List<Item> items)
         {
-            double totalCost = GetTotalCost(items);
-            AccumulatedPoints += (int)Math.Ceiling(totalCost * 0.1);
+            double amount = GetAmount(items);
+            //добавляем к баллом по 10% от общей стоимости корзины 
+            AccumulatedPoints += (int)Math.Ceiling(amount * 0.1);
         }
     }
 }

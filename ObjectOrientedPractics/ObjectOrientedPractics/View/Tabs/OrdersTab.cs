@@ -56,12 +56,13 @@ namespace ObjectOrientedPractics.View.Tabs
                 for (int j = 0; j < currentCustomer.Orders.Count; j++)
                 {
                     ordersCurrentCustomer.Add(currentCustomer.Orders[j]);
-                    dataTable.Rows.Add(currentCustomer.Orders[j].ID, 
-                                       currentCustomer.Orders[j].CreateDate, 
-                                       currentCustomer.Orders[j].Status, 
-                                       currentCustomer.FullName, 
-                                       currentCustomer.Address.AddressToString(), 
-                                       currentCustomer.Orders[j].Cost.ToString());
+                    dataTable.Rows.Add(currentCustomer.Orders[j].ID,
+                                       currentCustomer.Orders[j].CreateDate,
+                                       currentCustomer.Orders[j].Status,
+                                       currentCustomer.FullName,
+                                       currentCustomer.Address.AddressToString(),
+                                       currentCustomer.Orders[j].Cost.ToString(),
+                                       currentCustomer.Orders[j].Total.ToString());
                 }
             }
             OrderDataGridView.DataSource = dataTable;
@@ -74,10 +75,12 @@ namespace ObjectOrientedPractics.View.Tabs
             if (currentOrder != null)
             {
                 OrderItemsLabel.Text = currentOrder.Cost.ToString();
+                TotalLabel.Text = currentOrder.Total.ToString();
             }
             else
             {
                 OrderItemsLabel.Text = "0";
+                TotalLabel.Text = "0";
             }
         }
 
@@ -113,6 +116,7 @@ namespace ObjectOrientedPractics.View.Tabs
             dataTable.Columns.Add("Full Name", typeof(string));
             dataTable.Columns.Add("Address", typeof(string));
             dataTable.Columns.Add("Amount", typeof(string));
+            dataTable.Columns.Add("Total", typeof(string));
             //получаем значения из перечисления
             //преобразуем из object в DeliveryTime 
             //каждый элемент преобразуем в строку через метод
@@ -140,6 +144,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 OrderListBox.Items.AddRange(currentOrder.Items.ToArray());
                 OrderListBox.DisplayMember = "Name";
                 UpdateAmount();
+                
 
                 if(currentOrder.GetType() == typeof(PriorityOrder))
                 {
@@ -189,6 +194,16 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         private void DeliveryTimePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TotalLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OrderItemsLabel_Click(object sender, EventArgs e)
         {
 
         }
