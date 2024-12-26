@@ -34,7 +34,6 @@ namespace ObjectOrientedPractics.Model
                     throw new ArgumentException("Индекс должен быть шестизначным числом.");
                 }
                 _index = value;
-
                 AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }

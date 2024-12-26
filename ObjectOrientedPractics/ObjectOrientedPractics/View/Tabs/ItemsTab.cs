@@ -179,8 +179,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (select != -1)
                 {
                     Items[select].Info = DescriptiontextBox.Text;
-                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateSelectItemListBox();
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -208,8 +208,8 @@ namespace ObjectOrientedPractics.View.Tabs
                     if (select != -1)
                     {
                         Items[select].Cost = cost;
-                        ItemsChanged?.Invoke(this, EventArgs.Empty);
                         UpdateSelectItemListBox();
+                        ItemsChanged?.Invoke(this, EventArgs.Empty);
                     }
                 }
             }
@@ -249,8 +249,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (select != -1)
                 {
                     Items[select].Name = NametextBox.Text;
-                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateSelectItemListBox();
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
