@@ -9,25 +9,25 @@ namespace View.Model
     public class Contact
     {
         private string _name;
-        private int _number;
+        private int _phoneNumber;
         private string _email;
     
         public string Name { get; set; }
-        public int Number { get; set; }
+        public int PhoneNumber { get; set; }
 
         public string Email { get; set; }
 
         public Contact()
         {
             Name = string.Empty;
-            Number = 0;
+            PhoneNumber = 0;
             Email = string.Empty;
         }
 
-        public Contact(string name, int number, string email)
+        public Contact(string name, int phoneNumber, string email)
         {
             Name = name;
-            Number = number;
+            PhoneNumber = phoneNumber;
             Email = email;
         }
     }
