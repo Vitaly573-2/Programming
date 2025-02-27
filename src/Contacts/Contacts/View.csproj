@@ -9,7 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Contacts.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Contacts.jpg" />
   </ItemGroup>
 
 </Project>
