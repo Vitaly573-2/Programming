@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -14,17 +15,31 @@ namespace View.ViewModel
     {
 
         private Contact _contact;
-/*        private ContactSerializer _contactSerializer; 
+        private ContactSerializer _contactSerializer;
 
         public ICommand SaveCommand { get; private set; }
-        public ICommand LoadCommand { get; private set; }*/
+        public ICommand LoadCommand { get; private set; }
+
 
         public MainVM()
         {
             _contact = new Contact();
-            //_contactSerializer = new ContactSerializer();
+            _contactSerializer = new ContactSerializer();
 
+            //Иницифлизация команд с зависимостями
+            SaveCommand = new SaveCommand(_contactSerializer, _contact);
+            LoadCommand = new LoadCommand(_contactSerializer, SetContact);
+        }
 
+        //Обновлеие контакта в ViewModel
+        public void SetContact(Contact contact)
+        {
+            _contact = contact;
+
+            // Теперь уведомляем о изменениях для каждого свойства
+            OnPropertyChanged(nameof(Name));
+            OnPropertyChanged(nameof(PhoneNumber));
+            OnPropertyChanged(nameof(Email));
         }
 
         public string Name

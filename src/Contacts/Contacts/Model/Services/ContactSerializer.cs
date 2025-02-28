@@ -42,10 +42,23 @@ namespace View.Model.Services
         //Метод для загрузки контакта из файла 
         public Contact LoadContact()
         {
+
+            // Проверка на существование файла
+            if (!File.Exists(FilePath))
+            {
+                throw new FileNotFoundException("Файл с контактами не найден.");
+            }
+
             //Проверка на существование файла 
             if (File.Exists(FilePath))
             {
                 string json = File.ReadAllText(FilePath);
+
+                // Проверка на пустое содержимое файла
+                if (string.IsNullOrEmpty(json))
+                {
+                    throw new InvalidDataException("Файл пуст.");
+                }
 
                 //Десериализация Json в Contact
                 Contact contact = JsonConvert.DeserializeObject<Contact>(json);
