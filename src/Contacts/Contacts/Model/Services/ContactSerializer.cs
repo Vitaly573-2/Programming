@@ -12,7 +12,6 @@ namespace View.Model.Services
 {
     public class ContactSerializer
     {
-
         //Путь до файла, создает папку и файл
         public string FilePath { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.
                                                SpecialFolder.MyDocuments), 
@@ -23,7 +22,7 @@ namespace View.Model.Services
         {
             if (contact == null)
             {
-                throw new ArgumentNullException("Ошибка при сохранении контакта");
+                throw new ArgumentException("Ошибка при сохранении контакта");
             }
 
             //получение пути к папке 

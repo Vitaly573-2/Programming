@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using View.Model;
+using View.Model.Services;
 
 namespace View.ViewModel
 {
@@ -12,10 +14,17 @@ namespace View.ViewModel
     {
 
         private Contact _contact;
+/*        private ContactSerializer _contactSerializer; 
+
+        public ICommand SaveCommand { get; private set; }
+        public ICommand LoadCommand { get; private set; }*/
 
         public MainVM()
         {
             _contact = new Contact();
+            //_contactSerializer = new ContactSerializer();
+
+
         }
 
         public string Name
@@ -31,7 +40,7 @@ namespace View.ViewModel
             }
         }
 
-        public int PhoneNumber
+        public string PhoneNumber
         {
             get { return _contact.PhoneNumber; }
             set
