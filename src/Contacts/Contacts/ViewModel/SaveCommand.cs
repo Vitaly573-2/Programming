@@ -13,11 +13,14 @@ namespace View.ViewModel
     {
         private ContactSerializer _contactSerializer;
         private Contact _contact;
+        //делегат для обновления данных
+        private Action _updateContact;
 
-        public SaveCommand(ContactSerializer contactSerializer, Contact contact)
+        public SaveCommand(ContactSerializer contactSerializer, Contact contact, Action updateContact)
         {
             _contactSerializer = contactSerializer ?? throw new ArgumentException(nameof(contactSerializer));
             _contact = contact ?? throw new ArgumentException(nameof(contact));
+            _updateContact = updateContact?? throw new ArgumentException(nameof(updateContact));    
         }
 
         //Определяет можно ли выполнять программу (true по умолчанию)
@@ -32,6 +35,7 @@ namespace View.ViewModel
         //Метод для сохранения контакта 
         public void Execute(object parametr)
         {
+            _updateContact();
             _contactSerializer.SaveContact(_contact);
         }
     }

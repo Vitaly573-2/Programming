@@ -27,20 +27,35 @@ namespace View.ViewModel
             _contactSerializer = new ContactSerializer();
 
             //Иницифлизация команд с зависимостями
-            SaveCommand = new SaveCommand(_contactSerializer, _contact);
+            SaveCommand = new SaveCommand(_contactSerializer, _contact, UpdateContactFromUI);
             LoadCommand = new LoadCommand(_contactSerializer, SetContact);
         }
 
         //Обновлеие контакта в ViewModel
         public void SetContact(Contact contact)
         {
-            _contact = contact;
+            if(_contact == null)
+            {
+                return;
+            }
 
-            // Теперь уведомляем о изменениях для каждого свойства
+            _contact.Name = contact.Name;
+            _contact.PhoneNumber = contact.PhoneNumber;
+            _contact.Email = contact.Email;
+
+            //Уведомляем об изменениях для каждого свойства
             OnPropertyChanged(nameof(Name));
             OnPropertyChanged(nameof(PhoneNumber));
             OnPropertyChanged(nameof(Email));
         }
+
+        public void UpdateContactFromUI()
+        {
+            _contact.Name = this.Name;
+            _contact.PhoneNumber = this.PhoneNumber;
+            _contact.Email = this.Email;
+        }
+
 
         public string Name
         {
@@ -83,7 +98,7 @@ namespace View.ViewModel
 
 
 
-        //Реализация интерфейса INotifyPropertyChanged
+        //Объявление события PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         //Метод для вызова событий

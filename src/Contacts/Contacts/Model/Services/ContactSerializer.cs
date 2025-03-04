@@ -27,7 +27,7 @@ namespace View.Model.Services
 
             //получение пути к папке 
             string directory = Path.GetDirectoryName(FilePath);
-            //Проверка на существование папки
+            //Проверка на существование папки 
             if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
@@ -42,14 +42,13 @@ namespace View.Model.Services
         //Метод для загрузки контакта из файла 
         public Contact LoadContact()
         {
-
-            // Проверка на существование файла
+            //Если существование файла не найдено
             if (!File.Exists(FilePath))
             {
                 throw new FileNotFoundException("Файл с контактами не найден.");
             }
 
-            //Проверка на существование файла 
+            //Если существование файла имеется
             if (File.Exists(FilePath))
             {
                 string json = File.ReadAllText(FilePath);
