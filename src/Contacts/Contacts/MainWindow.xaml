@@ -114,8 +114,8 @@
                         Grid.Column="0"
                         Width="100"
                         Height="100"
-                        Margin="1 23 7 29"
-                        Source="/Resources/photo_placeholder_100x100.png" />
+                        Margin="1,24,7,28"
+                        Source="Resources/photo_placeholder_100x100.jpg" />
 
                     <!-- Имя -->
                     <StackPanel Grid.Row="0" Grid.Column="1" Margin="3">
