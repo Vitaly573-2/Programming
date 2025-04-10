@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -10,14 +9,23 @@ using Newtonsoft.Json;
 
 namespace View.Model.Services
 {
+    /// <summary>
+    /// Сериализации и десериализации контактов
+    /// </summary>
     public class ContactSerializer
     {
-        //Путь до файла, создает папку и файл
-        public string FilePath { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.
-                                               SpecialFolder.MyDocuments), 
-                                               "Contacts", "contscts.json");
-        
-        //Метод для сохранения контакта в файл
+        /// <summary>
+        /// Путь к файлу для хранения контакта
+        /// Автоматически создаёт папку и файл
+        /// </summary>
+        public string FilePath { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                                               "Contacts", "contacts.json");
+
+        /// <summary>
+        /// Cохраняет контакт в файл в формате json.
+        /// </summary>
+        /// <param name="contact">Сохранения объекта контакта</param>
+        /// <exception cref="ArgumentException">Выбрасывается, если переданный контакт является null</exception>
         public void SaveContact(Contact contact)
         {
             if (contact == null)
@@ -25,48 +33,38 @@ namespace View.Model.Services
                 throw new ArgumentException("Ошибка при сохранении контакта");
             }
 
-            //получение пути к папке 
             string directory = Path.GetDirectoryName(FilePath);
-            //Проверка на существование папки 
+
             if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
             }
 
-            //Сериализация объекта в Json
             string json = JsonConvert.SerializeObject(contact, Formatting.Indented);
-            //Запись Json в файл
             File.WriteAllText(FilePath, json);
         }
 
-        //Метод для загрузки контакта из файла 
+        /// <summary>
+        /// Загружает контакт из файла
+        /// </summary>
+        /// <returns>Объект с загруженными данными.</returns>
+        /// <exception cref="FileNotFoundException">Выбрасывается, если файл с контактами не найден</exception>
+        /// <exception cref="InvalidDataException">Выбрасывается, если файл пуст</exception>
         public Contact LoadContact()
         {
-            //Если существование файла не найдено
             if (!File.Exists(FilePath))
             {
                 throw new FileNotFoundException("Файл с контактами не найден.");
             }
 
-            //Если существование файла имеется
-            if (File.Exists(FilePath))
-            {
-                string json = File.ReadAllText(FilePath);
+            string json = File.ReadAllText(FilePath);
 
-                // Проверка на пустое содержимое файла
-                if (string.IsNullOrEmpty(json))
-                {
-                    throw new InvalidDataException("Файл пуст.");
-                }
-
-                //Десериализация Json в Contact
-                Contact contact = JsonConvert.DeserializeObject<Contact>(json);
-                return contact;
-            }
-            else
+            if (string.IsNullOrEmpty(json))
             {
-                throw new ArgumentException("Файл не найден");      
+                throw new InvalidDataException("Файл пуст.");
             }
+
+            return JsonConvert.DeserializeObject<Contact>(json);
         }
     }
 }
