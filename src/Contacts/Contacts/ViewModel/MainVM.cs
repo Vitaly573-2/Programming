@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 using View.Model;
 using View.Model.Services;
@@ -12,133 +8,210 @@ using View.Model.Services;
 namespace View.ViewModel
 {
     /// <summary>
-    /// Класс ViewModel для управления контактами
+    /// Главная модель, управляющая списком контактов и их сохранением/удалением.
     /// </summary>
     public class MainVM : INotifyPropertyChanged
     {
         /// <summary>
-        /// Объект контакта
+        /// Выбранный контакт для редактирования.
         /// </summary>
-        private Contact _contact;
+        private Contact _selectedContact;
 
         /// <summary>
-        /// Объект для сериализации контактов
+        /// Значение, указывающее, находятся ли поля доступными только для чтения.
         /// </summary>
-        private ContactSerializer _contactSerializer;
+        private bool _isReadOnlyMode = true;
 
         /// <summary>
-        /// Команда для сохранения контакта
-        /// </summary>
-        public ICommand SaveCommand { get; private set; }
-
-        /// <summary>
-        /// Команда для загрузки контакта
-        /// </summary>
-        public ICommand LoadCommand { get; private set; }
-
-        /// <summary>
-        /// Конструктор, инициализирующий ViewModel и команды
+        /// Инициализирует новый экземпляр <see cref="MainVM"/> и загружает список контактов.
         /// </summary>
         public MainVM()
         {
-            _contact = new Contact();
-            _contactSerializer = new ContactSerializer();
-
-            // Инициализация команд с зависимостями
-            SaveCommand = new SaveCommand(_contactSerializer, _contact, UpdateContactFromUI);
-            LoadCommand = new LoadCommand(_contactSerializer, SetContact);
+            ContactSerializer.CreateDirectory();
+            Contacts = new ObservableCollection<Contact>(ContactSerializer.LoadContacts());
+            AddCommand = new RelayCommand(AddContact, CanAddContact);
+            EditCommand = new RelayCommand(EditContact, CanEditContact);
+            RemoveCommand = new RelayCommand(RemoveContact, CanRemoveContact);
+            ApplyCommand = new RelayCommand(ApplyContact, CanApplyContact);
         }
 
         /// <summary>
-        /// Обновляет контакт в ViewModel на основе загруженного объекта
-        /// </summary>
-        /// <param name="contact">Загруженный контакт</param>
-        public void SetContact(Contact contact)
-        {
-            if (_contact == null)
-            {
-                return;
-            }
-
-            _contact.Name = contact.Name;
-            _contact.PhoneNumber = contact.PhoneNumber;
-            _contact.Email = contact.Email;
-
-            OnPropertyChanged(nameof(Name));
-            OnPropertyChanged(nameof(PhoneNumber));
-            OnPropertyChanged(nameof(Email));
-        }
-
-        /// <summary>
-        /// Обновляет данные контакта из пользовательского интерфейса (UI)
-        /// </summary>
-        public void UpdateContactFromUI()
-        {
-            _contact.Name = this.Name;
-            _contact.PhoneNumber = this.PhoneNumber;
-            _contact.Email = this.Email;
-        }
-
-        /// <summary>
-        /// Имя контакта
-        /// </summary>
-        public string Name
-        {
-            get { return _contact.Name; }
-            set
-            {
-                if (_contact.Name != value)
-                {
-                    _contact.Name = value;
-                    OnPropertyChanged(nameof(Name)); // Уведомление об изменении
-                }
-            }
-        }
-
-        /// <summary>
-        /// Номер телефона контакта
-        /// </summary>
-        public string PhoneNumber
-        {
-            get { return _contact.PhoneNumber; }
-            set
-            {
-                if (_contact.PhoneNumber != value)
-                {
-                    _contact.PhoneNumber = value;
-                    OnPropertyChanged(nameof(PhoneNumber));
-                }
-            }
-        }
-
-        /// <summary>
-        /// Email контакта
-        /// </summary>
-        public string Email
-        {
-            get { return _contact.Email; }
-            set
-            {
-                if (_contact.Email != value)
-                {
-                    _contact.Email = value;
-                    OnPropertyChanged(nameof(Email));
-                }
-            }
-        }
-
-        /// <summary>
-        /// Событие, вызывается при изменении свойства
+        /// Событие, уведомляющее об изменении свойства.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// Уведомляет об изменении свойства
+        /// Команда добавления нового контакта.
         /// </summary>
-        /// <param name="propertyName">Имя измененного свойства</param>
-        public void OnPropertyChanged(string propertyName)
+        public ICommand AddCommand { get; }
+
+        /// <summary>
+        /// Команда редактирования выбранного контакта.
+        /// </summary>
+        public ICommand EditCommand { get; }
+
+        /// <summary>
+        /// Команда удаления выбранного контакта.
+        /// </summary>
+        public ICommand RemoveCommand { get; }
+
+        /// <summary>
+        /// Команда применения изменений и сохранения контакта.
+        /// </summary>
+        public ICommand ApplyCommand { get; }
+
+        /// <summary>
+        /// Список контактов.
+        /// </summary>
+        public ObservableCollection<Contact> Contacts { get; set; }
+
+        /// <summary>
+        /// Возвращает true, если активен режим добавления или редактирования.
+        /// </summary>
+        public bool IsAddOrEditMode => !IsReadOnlyMode;
+
+        /// <summary>
+        /// Указывает, активен ли режим только для чтения.
+        /// </summary>
+        public bool IsReadOnlyMode
+        {
+            get => _isReadOnlyMode;
+            set
+            {
+                _isReadOnlyMode = value;
+                OnPropertyChanged(nameof(IsReadOnlyMode));
+                OnPropertyChanged(nameof(IsAddOrEditMode));
+            }
+        }
+
+        /// <summary>
+        /// Выбранный в данный момент контакт.
+        /// </summary>
+        public Contact SelectedContact
+        {
+            get => _selectedContact;
+            set
+            {
+                CancelEdit();
+                _selectedContact = value;
+                OnPropertyChanged(nameof(IsAddOrEditMode));
+                OnPropertyChanged(nameof(SelectedContact));
+                OnPropertyChanged(nameof(IsContactSelected));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает true, если выбран контакт.
+        /// </summary>
+        public bool IsContactSelected => _selectedContact != null;
+
+        /// <summary>
+        /// Переводит ViewModel в режим редактирования.
+        /// </summary>
+        public void EditContact(object parameter)
+        {
+            IsReadOnlyMode = false;
+        }
+
+        /// <summary>
+        /// Удаляет выбранный контакт и выбирает следующий (или предыдущий) при наличии.
+        /// </summary>
+        public void RemoveContact(object parameter)
+        {
+            if (SelectedContact == null)
+            {
+                return;
+            }
+
+            int index = Contacts.IndexOf(SelectedContact);
+            Contacts.Remove(SelectedContact);
+
+            if (Contacts.Any())
+            {
+                SelectedContact = index < Contacts.Count ? Contacts[index] : Contacts.Last();
+            }
+            else
+            {
+                SelectedContact = null;
+            }
+
+            ContactSerializer.SaveContacts(Contacts);
+        }
+
+        /// <summary>
+        /// Создаёт новый контакт и переключает в режим редактирования.
+        /// </summary>
+        public void AddContact(object parameter) 
+        {
+            SelectedContact = null;
+            SelectedContact = new Contact();
+            IsReadOnlyMode = false;
+        }
+
+        /// <summary>
+        /// Применяет изменения к выбранному контакту и сохраняет список.
+        /// </summary>
+        public void ApplyContact(object parameter)
+        {
+            if (SelectedContact == null)
+            {
+                return;
+            }
+                
+            if (!Contacts.Contains(SelectedContact))
+            {
+                Contacts.Add(SelectedContact);
+            }
+
+            IsReadOnlyMode = true;
+            ContactSerializer.SaveContacts(Contacts);
+        }
+
+        /// <summary>
+        /// Вызывает событие <see cref="PropertyChanged"/> для указанного свойства.
+        /// </summary>
+        /// <param name="propertyName">Имя изменённого свойства.</param>
+        protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        /// <summary>
+        /// Отменяет редактирование и возвращает в режим только чтения.
+        /// </summary>
+        private void CancelEdit()
+        {
+            IsReadOnlyMode = true;
+            OnPropertyChanged(nameof(IsReadOnlyMode));
+            OnPropertyChanged(nameof(IsAddOrEditMode));
+        }
+
+        /// <summary>
+        /// Проверяет, можно ли добавить контакт.
+        /// </summary>
+        /// <param name="parameter">Параметр команды.</param>
+        /// <returns>Возвращает <c>true</c>, если контакт можно добавить; иначе <c>false</c>.</returns>
+        private bool CanAddContact(object parameter) => !IsAddOrEditMode;
+
+        /// <summary>
+        /// Проверяет, можно ли редактировать выбранный контакт.
+        /// </summary>
+        /// <param name="parameter">Параметр команды.</param>
+        /// <returns>Возвращает <c>true</c>, если контакт можно редактировать; иначе <c>false</c>.</returns>
+        private bool CanEditContact(object parameter) => IsContactSelected && !IsAddOrEditMode;
+
+        /// <summary>
+        /// Проверяет, можно ли удалить выбранный контакт.
+        /// </summary>
+        /// <param name="parameter">Параметр команды.</param>
+        /// <returns>Возвращает <c>true</c>, если контакт можно удалить; иначе <c>false</c>.</returns>
+        private bool CanRemoveContact(object parameter) => IsContactSelected && !IsAddOrEditMode;
+
+        /// <summary>
+        /// Проверяет, можно ли применить изменения для выбранного контакта.
+        /// </summary>
+        /// <param name="parameter">Параметр команды.</param>
+        /// <returns>Возвращает <c>true</c>, если изменения можно применить; иначе <c>false</c>.</returns>
+        private bool CanApplyContact(object parameter) => IsAddOrEditMode;
     }
 }
