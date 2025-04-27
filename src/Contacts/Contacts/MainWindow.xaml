@@ -132,7 +132,7 @@
                         <TextBox
                             Margin="0 3 0 0"
                             IsReadOnly="{Binding IsReadOnlyMode}"
-                            Text="{Binding SelectedContact.Name, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
+                            Text="{Binding SelectedContact.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}"/>
                     </StackPanel>
 
                     <StackPanel
@@ -144,7 +144,7 @@
                         <TextBox
                             Margin="0 3 0 0"
                             IsReadOnly="{Binding IsReadOnlyMode}"
-                            Text="{Binding SelectedContact.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            Text="{Binding SelectedContact.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}"/>
                     </StackPanel>
 
                     <StackPanel
@@ -156,7 +156,7 @@
                         <TextBox
                             Margin="0 3 0 0"
                             IsReadOnly="{Binding IsReadOnlyMode}"
-                            Text="{Binding SelectedContact.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            Text="{Binding SelectedContact.Email, Mode=TwoWay, UpdateSourceTrigger=Explicit}"/>
                     </StackPanel>
 
                     <!--  Кнопка "Apply"  -->
@@ -169,6 +169,7 @@
                         HorizontalAlignment="Left"
                         Visibility="{Binding IsAddOrEditMode, Converter={StaticResource BooleanToVisibilityConverter}}"
                         Command="{Binding ApplyCommand}"
+                        CommandParameter="{Binding ElementName=ContactBindingGroup}"
                         Content="Apply"/>
                 </Grid>
             </Border>

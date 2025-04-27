@@ -16,6 +16,7 @@ namespace View.Model
         /// Поле, хранящее имя контакта.
         /// </summary>
         private string _name;
+
         /// <summary>
         /// Поле, хранящее почту контакта.
         /// </summary>
