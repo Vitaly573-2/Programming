@@ -14,7 +14,7 @@ public class RelayCommand : ICommand
     /// <param name="canExecute">Метод, который проверяет, можно ли выполнить команду.</param>
     public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
     {
-        _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+        _execute = execute ?? throw new ArgumentNullException(nameof(execute)); 
         _canExecute = canExecute;
     }
 
