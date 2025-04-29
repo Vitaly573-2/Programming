@@ -5,7 +5,7 @@ using System.Windows.Input;
 namespace View.Controls
 {
     /// <summary>
-    /// Логика взаимодействия для UserControl1.xaml.
+    /// Логика взаимодействия для UserControl.
     /// </summary>
     public partial class ContactControl : UserControl
     {
